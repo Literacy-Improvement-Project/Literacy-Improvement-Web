@@ -65,6 +65,33 @@ export default function myPage(state = initialState, action) {
                     valid: false,
                 },
             };
+            case types.WORD_DELETE_REQUEST:
+                return {
+                    ...state,
+                    status: {
+                        ...state.status,
+                        loading: true,
+                    },
+                };
+            case types.WORD_DELETE_REQUEST_SUCCESS:
+                return {
+                    ...state,
+                    status: {
+                        ...state.status,
+                        valid: true,
+                        loading: false,
+                        dictionaryWordsList: action.deletedDictionary,
+                    },
+                };
+            case types.WORD_DELETE_REQUEST_FAILURE:
+                return {
+                    ...state,
+                    status: {
+                        ...state.status,
+                        loading: false,
+                        valid: false,
+                    },
+                };
         default:
             return state;
     }
