@@ -6,6 +6,9 @@ import {
     DICTIONARY_WORDS_REQUEST,
     DICTIONARY_WORDS_REQUEST_SUCCESS,
     DICTIONARY_WORDS_REQUEST_FAILURE,
+    WORD_DELETE_REQUEST,
+    WORD_DELETE_REQUEST_SUCCESS,
+    WORD_DELETE_REQUEST_FAILURE,
 } from "./types";
 
 // 화면 구성요소 GET
@@ -42,17 +45,32 @@ export function searchWordsRequestFailure() {
         type: SEARCH_WORDS_REQUEST_FAILURE,
     };
 }
-export function dictionaryWordsRequest() {
+export function dictionaryWordsRequest(word) {
     return (dispatch) => {
         dispatch(dictionaryWordsRequestStatus());
-        return axios
-            .get("http://localhost:8080/dictionaryWords")
-            .then((response) => {
-                dispatch(dictionaryWordsRequestSuccess(response.data));
-            })
-            .catch((error) => {
-                dispatch(dictionaryWordsRequestFailure());
-            });
+
+        if (word == false) {
+            return axios
+                .get("http://localhost:8080/myPage")
+                .then((response) => {
+                    dispatch(dictionaryWordsRequestSuccess(response.data))
+                    console.log(response.data);
+                })
+                .catch((error) => {
+                    dispatch(dictionaryWordsRequestFailure());
+                });
+        }
+        else {
+            return axios
+                .get("http://localhost:8080/addToNote", {
+                    params: {
+                        q: word
+                    }
+                })
+                .catch((error) => {
+                    dispatch(dictionaryWordsRequestFailure())
+                });
+        };
     };
 }
 
@@ -75,3 +93,40 @@ export function dictionaryWordsRequestFailure() {
     };
 }
 
+export function wordDeleteRequest(word) {
+    return (dispatch) => {
+        dispatch(wordDeleteRequestStatus());
+        return axios
+            .get("http://localhost:8080/deleteFromNote", {
+                params: {
+                    q: word,
+                },
+            })
+            .then((response) => {
+                dispatch(wordDeleteRequestSuccess(response.data));
+                console.log(response.data);
+            })
+            .catch((error) => {
+                dispatch(wordDeleteRequestFailure());
+            });
+    };
+}
+
+export function wordDeleteRequestStatus() {
+    return {
+        type: WORD_DELETE_REQUEST,
+    };
+}
+
+export function wordDeleteRequestSuccess(deleteddictionary) {
+    return {
+        type: WORD_DELETE_REQUEST_SUCCESS,
+        deleteddictionary,
+    };
+}
+
+export function wordDeleteRequestFailure() {
+    return {
+        type: WORD_DELETE_REQUEST_FAILURE,
+    };
+}

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import { Link }  from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -35,12 +36,33 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-export default function MyDictionary({ dictionaryWordsList }) {
+export default function MyDictionary({ dictionaryWordsList, handleDelete }) {
     useEffect(() => {
         // 렌더링
     }, []);
 
+    let wordName = [] ;
+    let wordForDelete = "";
+
+    const itemLoad = (
+        dictionaryWordsList.map((item, index) => (
+            <div key={index} >
+                {
+                    (
+                     wordName.push(item)
+                    )}
+            </div>
+        )
+        ))
     const classes = useStyles();
+    
+    const wordDelete= (word) => {
+        console.log(word);
+        wordForDelete = word;
+        handleDelete(wordForDelete);
+    }
+
+    console.log(wordName)
     // 사용자에게 보여지는 부분
     return (
         <div className={classes.root}>
@@ -48,12 +70,15 @@ export default function MyDictionary({ dictionaryWordsList }) {
                 <Grid item xs={3}>
                     <h3>내 단어장</h3>
                 </Grid>
-                <Grid item xs={9}></Grid>
-                {dictionaryWordsList.map((word, index) => (
-                    <Grid item xs={12} className={classes.paper}>
-                        <h4>{word.word}</h4>
-                        <h5>{word.morpheme}</h5>
-                        <h4>{word.mean}</h4>
+                <Grid item xs={9}>
+                </Grid>
+                {wordName.map((word, index) => (
+                    <Grid item key={index}  xs={12} className={classes.paper}>
+                        <Link to ={`/Word/${wordName[index]}`}>
+                        <button
+                        >{wordName[index]}</button>
+                        </Link>
+                        <button onClick={wordDelete(wordName[index])}>삭제</button>
                     </Grid>
                 ))}
             </Grid>
