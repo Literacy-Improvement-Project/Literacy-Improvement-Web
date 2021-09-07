@@ -24,6 +24,7 @@ function MyPage({ dictionaryWordsList, searchWordsList, dictionaryWordsRequest, 
     const classes = useStyles();
     const handleDelete = (word) => {
         wordDeleteRequest(word);
+        console.log(word);
         console.log(dictionaryWordsList);
     }
     // 사용자에게 보여지는 부분
@@ -31,16 +32,17 @@ function MyPage({ dictionaryWordsList, searchWordsList, dictionaryWordsRequest, 
         <div>
             <div className={classes.root}>
                 <Grid container spacing={3}>
-                    <Grid item xs={12}>
-                        <MySearch searchWordsList={searchWordsList}>
-                        </MySearch>
-                    </Grid>
-                    <Grid item xs={12}>
+                <Grid item xs={9}>
                         <MyDictionary
                          dictionaryWordsList={dictionaryWordsList}
                          handleDelete={handleDelete}>
                         </MyDictionary>
                     </Grid>
+                    <Grid item xs={3}>
+                        <MySearch searchWordsList={searchWordsList}>
+                        </MySearch>
+                    </Grid>
+                    
                 </Grid>
             </div>
         </div>

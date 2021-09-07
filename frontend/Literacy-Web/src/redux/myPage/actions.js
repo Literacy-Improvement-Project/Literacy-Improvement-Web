@@ -48,8 +48,9 @@ export function searchWordsRequestFailure() {
 export function dictionaryWordsRequest(word) {
     return (dispatch) => {
         dispatch(dictionaryWordsRequestStatus());
+        console.log(word)
 
-        if (word == false) {
+        if (word === false) {
             return axios
                 .get("http://localhost:8080/myPage")
                 .then((response) => {
@@ -66,6 +67,9 @@ export function dictionaryWordsRequest(word) {
                     params: {
                         q: word
                     }
+                })
+                .then((response) => {
+                    dispatch(addToNoteRequestSuccess())
                 })
                 .catch((error) => {
                     dispatch(dictionaryWordsRequestFailure())
@@ -93,13 +97,20 @@ export function dictionaryWordsRequestFailure() {
     };
 }
 
+
+export function addToNoteRequestSuccess() {
+    return {
+        type: DICTIONARY_WORDS_REQUEST_SUCCESS,
+    };
+}
+
 export function wordDeleteRequest(word) {
     return (dispatch) => {
         dispatch(wordDeleteRequestStatus());
         return axios
             .get("http://localhost:8080/deleteFromNote", {
                 params: {
-                    q: word,
+                    word: word,
                 },
             })
             .then((response) => {
@@ -118,10 +129,10 @@ export function wordDeleteRequestStatus() {
     };
 }
 
-export function wordDeleteRequestSuccess(deleteddictionary) {
+export function wordDeleteRequestSuccess(deletedDictionary) {
     return {
         type: WORD_DELETE_REQUEST_SUCCESS,
-        deleteddictionary,
+        deletedDictionary,
     };
 }
 

@@ -80,7 +80,7 @@ export default function myPage(state = initialState, action) {
                         ...state.status,
                         valid: true,
                         loading: false,
-                        dictionaryWordsList: action.deleteddictionary,
+                        dictionaryWordsList: action.deletedDictionary,
                     },
                 };
             case types.WORD_DELETE_REQUEST_FAILURE:

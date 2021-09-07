@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
+import { Typography } from "@material-ui/core";
+
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -47,7 +49,7 @@ export default function MySearch({ searchWordsList }) {
         <div className={classes.root}>
             <Grid container spacing={3}>
                 <Grid item xs={3}>
-                    <h3>검색이력</h3>
+                <Typography variant="h6" color="textPrimary">검색이력</Typography>
                 </Grid>
                 <Grid item xs={9}></Grid>
                 {searchWordsList.map((word, index) => (
