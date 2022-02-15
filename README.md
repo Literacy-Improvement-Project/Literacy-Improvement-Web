@@ -23,7 +23,7 @@
 1. 로그인
 
 
-  ![image](https://user-images.githubusercontent.com/28720642/154075717-ec4fcbff-8223-4f23-a379-509f81078269.png)
+  >> ![image](https://user-images.githubusercontent.com/28720642/154075717-ec4fcbff-8223-4f23-a379-509f81078269.png)
 
 2. 나만의 단어장
 
