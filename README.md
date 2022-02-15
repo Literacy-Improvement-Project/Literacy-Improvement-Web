@@ -23,40 +23,53 @@
 1. 로그인
 
 
-  >> ![image](https://user-images.githubusercontent.com/28720642/154075717-ec4fcbff-8223-4f23-a379-509f81078269.png)
-
+  > ![image](https://user-images.githubusercontent.com/28720642/154075717-ec4fcbff-8223-4f23-a379-509f81078269.png)
+  
+  > 카카오 아이디를 통해 로그인을 할 수 있다.
 2. 나만의 단어장
 
 
-  ![image](https://user-images.githubusercontent.com/28720642/154075844-d58675e0-22d2-451f-ba8b-a2b30f10102a.png)
+  > ![image](https://user-images.githubusercontent.com/28720642/154075844-d58675e0-22d2-451f-ba8b-a2b30f10102a.png)
 
+  > 추가적인 학습을 원하는 단어는 ‘나만의 단어장’에 추가를 해 학습을 할 수 있게 한다.
 3. 단어 검색
   
   
-  ![image](https://user-images.githubusercontent.com/28720642/154075918-71b209ed-e38a-42a7-b513-5cd8778b62b7.png)
+  > ![image](https://user-images.githubusercontent.com/28720642/154075918-71b209ed-e38a-42a7-b513-5cd8778b62b7.png)
 
+  > 인터페이스에서 단어나 문장을 입력하면 형태소별로 분리하여 단어를 검색할 수 있다.
+  > 또는 마이크 버튼을 누르고 음성입력을 하면 마찬가지로 단어를 검색할 수 있다.
 4. 개별단어 페이지
   
   
-  ![image](https://user-images.githubusercontent.com/28720642/154076029-279839e4-2182-41a0-bd1e-d892d622d805.png)
+  > ![image](https://user-images.githubusercontent.com/28720642/154076029-279839e4-2182-41a0-bd1e-d892d622d805.png)
 
+  > 검색, 또는 나만의 단어장에서 단어를 클릭하면 단어의 상세정보를 확인 할 수 있다.
 5. 퀴즈
   - 퀴즈화면
     
     
     ![image](https://user-images.githubusercontent.com/28720642/154076071-8102f377-3d7a-443a-a3eb-a0693c6d7986.png)
+    
   - 퀴즈결과
     
     
     ![image](https://user-images.githubusercontent.com/28720642/154076088-f7042dbe-98b6-42cd-8cbf-7996ce2997fa.png)
 
+
+    퀴즈를 풀고 결과를 알 수 있으며, 결과에 따라 사용자랭킹 점수가 올라간다.
 6. 랭킹
   - 단어랭킹
     
     
     ![image](https://user-images.githubusercontent.com/28720642/154076237-a6f73df7-8083-401e-b935-41613eb31d23.png)
+    
+    
 
   - 유저랭킹
+
+    
+    단어 및 사용자의 랭킹을 확인 할 수 있다.
 
 ## 프로젝트 설계
 
