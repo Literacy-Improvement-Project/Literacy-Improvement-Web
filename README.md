@@ -91,9 +91,8 @@
 ### 데이터베이스 스키마
 ![image](https://user-images.githubusercontent.com/28720642/154075537-58b14dbd-e290-4ee9-ae15-1ac9e9be0a27.png)
 
-본 프로젝트의 데이터베이스 스키마에서 Table은 5개로 사용자의 정보를 저장하는 ‘user Table’, 나만의 단어장을 저장하는 ‘vocabularyNote Table’, 오늘의 단어를 담는 ‘dailyWords Table’, 사용자의 랭킹을 담는 userRanking Table’, 나만의 단어장에 저장된 횟수를 저장하는 ‘wordRanking Table’이 있다.
-‘user Table’은 사용자의 정보를 저장하는 Table로 Attribite는 4개로 암호화되어 관리를 하며 PK로 관리되는 ‘userId’는 사용자의 kakao ID를 varchar형의 Attribute이며 ‘vocabularyNote Table’과 ‘userRanking Table’의 외래키로 참조된다.
-‘vocabularyNote Table’은 사용자가 추가 학습을 원하는 단어를 저장하는 Table로 ‘user Table’의 PK인 ‘userId’를 FK로 받아 1개의 ‘user Table’에 0또는 1개의 Table로 관리된다.
-‘userRanking Table’은 사용자의 퀴즈 결과를 저장하는 Table로 ‘user Table’의 PK인 ‘userId’를 FK로 받아 1개의 ‘user Table’에 0또는 1개의 Table로 관리된다. 퀴즈의 성적을 ‘point’로 관리한다.
-‘wordRanking Table’은 ‘vocabularyNote Table’에서 Tuple이 추가되면 ‘wordRanking Table’의 ‘point’Attribute를 증가시켜 단어의 랭킹을 관리한다.
-‘dailyWords Table’은 일일 추천 단어를 관리하는 Table로 단어를 나타내는 Attribute ‘word’를 PK로 두어 관리한다.
+- ‘user Table’은 사용자의 정보를 저장하는 Table로 Attribite는 4개로 암호화되어 관리를 하며 PK로 관리되는 ‘userId’는 사용자의 kakao ID를 varchar형의 Attribute이며 ‘vocabularyNote Table’과 ‘userRanking Table’의 외래키로 참조된다.
+- ‘vocabularyNote Table’은 사용자가 추가 학습을 원하는 단어를 저장하는 Table로 ‘user Table’의 PK인 ‘userId’를 FK로 받아 1개의 ‘user Table’에 0또는 1개의 Table로 관리된다.
+- ‘userRanking Table’은 사용자의 퀴즈 결과를 저장하는 Table로 ‘user Table’의 PK인 ‘userId’를 FK로 받아 1개의 ‘user Table’에 0또는 1개의 Table로 관리된다. 퀴즈의 성적을 ‘point’로 관리한다.
+- ‘wordRanking Table’은 ‘vocabularyNote Table’에서 Tuple이 추가되면 ‘wordRanking Table’의 ‘point’Attribute를 증가시켜 단어의 랭킹을 관리한다.
+- ‘dailyWords Table’은 일일 추천 단어를 관리하는 Table로 단어를 나타내는 Attribute ‘word’를 PK로 두어 관리한다.
