@@ -46,12 +46,12 @@
 
   > 검색, 또는 나만의 단어장에서 단어를 클릭하면 단어의 상세정보를 확인 할 수 있다.
 5. 퀴즈
-  - 퀴즈화면
+  > - 퀴즈화면
     
     
     ![image](https://user-images.githubusercontent.com/28720642/154076071-8102f377-3d7a-443a-a3eb-a0693c6d7986.png)
     
-  - 퀴즈결과
+  > - 퀴즈결과
     
     
     ![image](https://user-images.githubusercontent.com/28720642/154076088-f7042dbe-98b6-42cd-8cbf-7996ce2997fa.png)
