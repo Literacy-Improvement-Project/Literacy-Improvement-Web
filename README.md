@@ -66,6 +66,7 @@
     
 
   - 유저랭킹
+  > ![image](https://user-images.githubusercontent.com/28720642/154694714-e29aac82-0c87-478c-8fe2-b10c15916aaa.png)
 
     
   > 단어 및 사용자의 랭킹을 확인 할 수 있다.
