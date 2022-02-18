@@ -1,0 +1,126 @@
+div {
+    display: block;
+}
+
+#flicker-container {
+    overflow: scroll;
+    box-sizing: border-box;
+    touch-action: pan-y;
+    user-select: none;
+    -webkit-user-drag: none;
+    height: 583px;
+    padding: 0px;
+}
+
+.eg-flick-container {
+    position: relative;
+    z-index: 5;
+    width: 100%;
+    height: 100%;
+    top: 0px;
+    will-change: transform;
+    transform: translate(0px, 0px);
+}
+
+.quiz-multiple {
+    position: relative;
+    width: 795.2px;
+    height: 100%;
+    box-sizing: border-box;
+    top: 0px;
+    left: 0px;
+    transform: translate(0%, 0px);
+    will-change: transform;
+    min-height: -webkit-calc(100% - 138px);
+    min-height: calc(100% - 138px);
+    padding: 40px 20px;
+    text-align: center;
+    overflow-wrap: break-word;
+    -webkit-box-sizing: border-box;
+}
+
+.quiz-title {}
+
+.multiple-answer-list {
+    margin-top: 24px;
+    padding-bottom: 20px;
+}
+
+.multiple-answer-item {
+    overflow: visible;
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 19px 20px 17px;
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 24px;
+    overflow-wrap: break-word;
+    -webkit-border-radius: 9px;
+    border-radius: 9px;
+    -webkit-box-shadow: 1px 2px 6px 0 rgb(226 227 231 / 35%);
+    box-shadow: 1px 2px 6px 0 rgb(226 227 231 / 35%);
+    background-color: #fff;
+}
+
+.quiz-question-sub {
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 21px;
+    color: #3f51b5;
+}
+
+.quiz-question {
+    margin-top: 10px;
+    font-size: 32px;
+    font-weight: bold;
+    line-height: 38px;
+}
+
+.result {
+    display: block;
+    opacity: 0;
+    content: "";
+}
+
+.blind {
+    overflow: hidden;
+    position: absolute !important;
+    width: 1px;
+    height: 1px;
+    border: 0;
+    padding: 0;
+    clip: rect(0px, 0px, 0px, 0px);
+}
+
+.answer-select-area {}
+
+.quiz-summary-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px
+}
+
+.quiz-summary-title {
+    width: 100%;
+    font-size: 30px;
+    flex: 1 1 30px;
+}
+
+.quiz-summary-score {
+    width: 100%;
+    font-size: 40px;
+    flex: 1 1 30px;
+}
+
+.quiz-summary-count {
+    width: 100%;
+    font-size: 30px;
+    flex: 1 1 30px;
+}
+
+.clicked {
+    background-color: #fff;
+    color: black;
+}

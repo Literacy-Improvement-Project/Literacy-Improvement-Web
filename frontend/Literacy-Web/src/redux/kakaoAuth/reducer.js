@@ -78,7 +78,7 @@ export default function kakaoAuth(state = initialState, action) {
         status: {
           valid: false,
           isLoggedIn: false,
-          userInfo: "INIT",
+          userInfo: [],
         },
       };
 

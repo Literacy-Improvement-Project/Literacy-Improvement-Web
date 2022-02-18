@@ -1,11 +1,6 @@
-import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-
-import { ToastContainer, toast, Flip } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -20,7 +15,6 @@ const useStyles = makeStyles((theme) => ({
       height: "42ch",
       backgroundColor: theme.palette.background.paper,
       border: "1px solid #D9D9D9",
-      borderRadius: "20px",
     },
     test: {
       float: "right",
@@ -34,20 +28,11 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function Mainquiz({
-    quizStatus
-})
+export default function MainQuiz()
 {
-    let history = useHistory();
     const classes = useStyles();
     const handleClick = () => {
-      console.log(quizStatus);
-        setTimeout(() => {
-            history.push({
-                pathname: '/Quiz',
-                state: quizStatus
-            });
-        }, 1000);
+      window.location.replace("/Quiz2");
     }
 return (
     <div className={classes.root}>
@@ -62,23 +47,11 @@ return (
           <h3>오늘의 퀴즈</h3>
         </Grid>
         <Grid item>
-          <Button color="primary" onClick={handleClick} variant="contained">
+          <Button color="primary" onClick={() => handleClick()} variant="contained">
             퀴즈로 가기
           </Button>
         </Grid>
       </Grid>
-      <ToastContainer
-        position="top-center"
-        autoClose={2000}
-        hideProgressBar
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        transition={Flip}
-      />
     </div>
   );
 }

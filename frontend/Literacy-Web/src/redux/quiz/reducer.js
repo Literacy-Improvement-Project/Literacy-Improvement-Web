@@ -27,7 +27,7 @@ export default function quiz(state = initialState, action) {
                     loading: false,
                     get: true,
                     valid: true,
-                    quizStatus: action.quizs,
+                    quizzestatus: action.quizzes,
                 },
             };
         case types.GET_QUIZ_REQUEST_FAILURE:

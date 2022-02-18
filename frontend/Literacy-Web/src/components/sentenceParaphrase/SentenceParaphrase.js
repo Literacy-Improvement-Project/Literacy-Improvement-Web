@@ -12,38 +12,7 @@ import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    paddingTop: theme.spacing(1),
-    paddingLeft: theme.spacing(3),
-    paddingRight: theme.spacing(3),
-    paddingBottom: theme.spacing(3),
-    // padding: theme.spacing(10),
-    width: "100%",
-    height: "auto",
-    backgroundColor: theme.palette.background.paper,
-    border: "1px solid #D9D9D9",
-    borderRadius: "20px",
-  },
-  test: {
-    // height: '50%',
-    float: "right",
-    // border: '1px solid #D9D9D9',
-    // position: 'abolute',
-    // left: '50%',
-    // top: '50%',
-    // transform: 'translate(-50%, -50%)',
-
-    // display: 'flex',
-    // justifyContent: 'center',
-    // alignItems: 'center',
-  },
-  box: {
-    border: "1px solid #D9D9D9",
-  },
-  bottom: {
-    display: "inline",
-    borderBottom: "1px solid #D9D9D9",
-  },
+  
 }));
 
 export default function SentenceParaphrase({

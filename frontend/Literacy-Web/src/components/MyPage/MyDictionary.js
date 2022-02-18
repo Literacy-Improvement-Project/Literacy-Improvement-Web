@@ -2,8 +2,6 @@ import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import { Link } from "react-router-dom";
-import Button from "@material-ui/core/Button";
-import { Typography } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -15,7 +13,6 @@ const useStyles = makeStyles((theme) => ({
     // maxWidth: '100ch',
     height: "42ch",
     backgroundColor: theme.palette.background.paper,
-    borderRadius: "20px",
     border: "1px solid #D9D9D9",
   },
   inline: {
@@ -64,10 +61,11 @@ export default function MyDictionary({ dictionaryWordsList, handleDelete }) {
   }, []);
 
   let wordName = [];
-  let wordForDelete = "";
-  const itemLoad = dictionaryWordsList.map((item, index) => (
+  
+  if (dictionaryWordsList) {dictionaryWordsList.map((item, index) => (
     <div key={index}>{wordName.push(item)}</div>
   ));
+  }
   const classes = useStyles();
 
   const wordDelete = (word) => {

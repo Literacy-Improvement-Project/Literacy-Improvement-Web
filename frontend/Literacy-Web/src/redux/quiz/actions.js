@@ -28,10 +28,10 @@ export function quizRequestStatus() {
   };
 }
 
-export function quizRequestSuccess(quizs) {
+export function quizRequestSuccess(quizzes) {
   return {
     type: GET_QUIZ_REQUEST_SUCCESS,
-    quizs,
+    quizzes,
   };
 }
 
@@ -46,9 +46,13 @@ export function postQuizResult(score) {
       dispatch(postQuizResultStatus());
       
       return axios
-        .post("http://localhost:8080/getQuizResult", score)
-        .then((response) => {
-          dispatch(postQuizResultSuccess(response.data));
+        .get("http://localhost:8080/getQuizResult", {
+          params: {
+            score: score,
+          },
+        })
+        .then(() => {
+          dispatch(postQuizResultSuccess());
         })
         .catch((error) => {
           dispatch(postQuizResultFailure());

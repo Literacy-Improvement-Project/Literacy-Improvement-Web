@@ -1,8 +1,7 @@
 import React, { Fragment, useEffect, useState } from "react";
 import { connect, useSelector } from "react-redux";
 import { Helmet } from "react-helmet";
-import M from "materialize-css";
-import Button from "@material-ui/core/Button";
+
 import { postQuizResult } from "../../redux";
 import { useLocation } from "react-router";
 import { Link, useHistory } from "react-router-dom";
@@ -11,9 +10,14 @@ import classnames from "classnames";
 import * as _ from "lodash";
 import { shuffle } from "lodash";
 
-function Quiz({ postQuizResult, match }) {
+import M from "materialize-css";
+import Grid from "@material-ui/core/Grid";
+import { Button, Typography } from "@material-ui/core";
+
+
+function Quiz({ postQuizResult, match, isLoggedIn, quizStatus }) {
   let history = useHistory();
-  const [end, setend] = useState(false);
+  const [end, setEnd] = useState(false);
   const [currentQuestion, setCurrentQuestion] = useState({});
   const [nextQuestion, setNextQuestion] = useState({});
   const [previousQuestion, setPreviousQuestion] = useState({});
@@ -31,6 +35,8 @@ function Quiz({ postQuizResult, match }) {
 
   const [NBDisabled, setNBDisabled] = useState(false);
   const [PBDisabled, setPBDisabled] = useState(false);
+
+  const [checkQuiz, setCheckQuiz] = useState(0)
 
   // const morphemeLoad = () => {
   //     for (let i = 0; i < 10; i++) {
@@ -51,12 +57,8 @@ function Quiz({ postQuizResult, match }) {
   };
 
   useEffect(() => {
-    const quizParam = match.params.quizStatus;
-    console.log("받아오기 성공!");
     displayQuestions();
   }, [match.params.quizStatus]);
-
-  const quizStatus = useSelector((state) => state.quiz.status.quizStatus);
 
   const displayQuestions = () => {
     console.log(myquestions);
@@ -83,13 +85,20 @@ function Quiz({ postQuizResult, match }) {
       setPreviousQuestion(myquestions[currentQuestionIndex - 1]);
     }
   };
-  function suffle(array) {
+
+  function shuffle(array) {
     array.sort(() => Math.random() - 0.5);
   }
   // const randomQuestion = () => {
   //     console.log(randomA);
   //     suffle(randomA);
   // }
+
+  function notEnd(){
+    console.log("not end quiz")
+
+  }
+
   const Quizend = () => {
     Summary.totalScore = score;
     Summary.totalNumberOfQuestions = numberOfQuestions;
@@ -98,14 +107,19 @@ function Quiz({ postQuizResult, match }) {
     Summary.totalWrongAnswers = wrongAnswers;
   };
   const endGame = () => {
-    Quizend();
-    postQuizResult(Summary.totalScore);
-    setTimeout(() => {
-      history.push({
-        pathname: "/Summary",
-        state: Summary,
-      });
-    }, 1000);
+    if ((numberOfAnswered) !== (numberOfQuestions)){
+      notEnd()
+    }
+    else{
+      Quizend();
+      postQuizResult(Summary.totalScore);
+      setTimeout(() => {
+        history.push({
+          pathname: "/Summary",
+          state: Summary,
+        });
+      }, 1000);
+    }
   };
   const handleOptionClick = (e) => {
     currentAnswer = currentQuestion.word_mean;
@@ -133,7 +147,7 @@ function Quiz({ postQuizResult, match }) {
       setScore(score + 1);
       setCorrectAnswers(correctAnswers + 1);
       setNumberOfAnswered(numberOfAnswered + 1);
-      setend(true);
+      setEnd(true);
     } else {
       displayQuestions();
     }
@@ -154,7 +168,7 @@ function Quiz({ postQuizResult, match }) {
     if (nextQuestion === undefined) {
       setWrongAnswers(wrongAnswers + 1);
       setNumberOfAnswered(numberOfAnswered + 1);
-      setend(true);
+      setEnd(true);
     } else {
       displayQuestions();
     }
@@ -215,12 +229,27 @@ function Quiz({ postQuizResult, match }) {
       setNBDisabled(false);
     }
   };
-  return (
-    <Fragment>
-      <Helmet>
-        <title>Quiz Page</title>
-      </Helmet>
-      {end ? (
+
+  const gotoLogin = (e) => {
+    window.location.replace("/Login");
+  };
+
+  const requestLogin = (
+    <Grid
+      container
+      direction="column"
+      justifyContent="center"
+      alignItems="center"
+    >
+      <Button color="primary" onClick={gotoLogin} variant="contained">
+        로그인 후 이용해 주세요.
+      </Button>
+    </Grid>
+  );
+
+  const showQuiz = (
+    <>
+    {end ? (
         <div className="questions">
           <h2>퀴즈가 끝났습니다.</h2>
           <button className="end-button" onClick={endGame}>
@@ -276,12 +305,25 @@ function Quiz({ postQuizResult, match }) {
           </div>
         </div>
       )}
+    </>
+  )
+
+  return (
+    <Fragment>
+      <Helmet>
+        <title>Quiz Page</title>
+      </Helmet>
+      {isLoggedIn ? showQuiz : requestLogin}
     </Fragment>
   );
 }
 
 const mapStateToProps = (state) => {
-  return {};
+  return {
+    isLoggedIn: state.kakaoAuth.status.isLoggedIn,
+    quizStatus: state.quiz.status.quizStatus,
+
+  };
 };
 const mapDispatchToProps = (dispatch) => {
   return {

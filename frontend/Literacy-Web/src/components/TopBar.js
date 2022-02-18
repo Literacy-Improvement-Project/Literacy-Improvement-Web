@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import {
   checkUserRequest,
@@ -18,25 +18,6 @@ import MenuIcon from "@material-ui/icons/Menu";
 
 import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// 색 적용은 나중에 해보기
-// import { createTheme } from '@material-ui/core/styles';
-
-// const theme = createTheme({
-//   palette: {
-//     primary: {
-//       light: '#ffd149',
-//       main: '#3f50b5',
-//       dark: '#002884',
-//       contrastText: '#fff',
-//     },
-//     secondary: {
-//       light: '#ff7961',
-//       main: '#f44336',
-//       dark: '#ba000d',
-//       contrastText: '#000',
-//     },
-//   },
-// });
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -51,9 +32,6 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function TopBar({
-  userStatus,
-  checkUserRequest,
-  logoutRequest,
   isLoggedIn,
   kakaoLogoutRequest,
   checkSessionRequest,

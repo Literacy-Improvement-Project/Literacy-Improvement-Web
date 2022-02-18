@@ -11,12 +11,14 @@ import {
   wordRankingRequest,
   quizRequest,
 } from "../redux";
-import Mainquiz from "../components/Mainquiz";
+import MainQuiz from "../components/MainQuiz";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 
 import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "./main.css";
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -39,7 +41,7 @@ function Main({
   item,
 }) {
   useEffect(() => {
-    quizRequest();
+    //quizRequest();
     dailyWordsRequest();
     wordRankingRequest();
   }, []);
@@ -63,35 +65,22 @@ function Main({
     morphemeCheckRequest(body);
   };
 
-  const toastCheckParaphrase = () => toast("같은 의미입니다!");
-  const toastCheckNonParaphrase = () =>
-    toast.error("다른 의미입니다. 다시 입력해 주세요.");
-  const toastCheckParaphraseFailure = () => toast.error("확인 실패했습니다.");
 
-  const onClickCheckParaphrase = (body) => {
-    paraphraseCheckRequest(body).then(() => {});
-  };
-
-  if (paraphraseCheckResult === "paraphrase") {
-    toastCheckParaphrase();
-  } else if (paraphraseCheckResult === "not paraphrase") {
-    toastCheckNonParaphrase();
-  }
   // 사용자에게 보여지는 부분
   return (
-    <div>
-      <div className={classes.root}>
+    <div className="main-box">
+      <div>
         <Grid container spacing={3}>
-          <Grid item xs={8}>
+          <Grid className="main-daily-word-box" item xs={8}>
             <MainWordOfTheDay
               isLoggedIn={isLoggedIn}
               dailyWordsList={dailyWordsList}
             ></MainWordOfTheDay>
           </Grid>
-          <Grid item xs={4}>
-            <Mainquiz quizStatus={quizStatus}></Mainquiz>
+          <Grid className="main-quiz-box" item xs={4}>
+            <MainQuiz quizStatus={quizStatus}></MainQuiz>
           </Grid>
-          <Grid item xs={12}>
+          <Grid className="main-word-mean-box" item xs={12}>
             <MainWordMeaning
               handleMorpheme={handleMorpheme}
               item={item}

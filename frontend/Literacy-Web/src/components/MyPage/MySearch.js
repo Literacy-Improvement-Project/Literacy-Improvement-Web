@@ -14,7 +14,6 @@ const useStyles = makeStyles((theme) => ({
     // maxWidth: '100ch',
     height: "42ch",
     backgroundColor: theme.palette.background.paper,
-    borderRadius: "20px",
     border: "1px solid #D9D9D9",
   },
   inline: {

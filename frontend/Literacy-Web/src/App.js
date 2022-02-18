@@ -9,8 +9,8 @@ import Word from "./page/Word";
 import MyPage from "./page/MyPage";
 import WordRanking from "./components/WordRanking";
 import OAuthRedirectHandler from "./components/login/OAuthRedirectHandler";
-import Quiz from "./components/quiz/Quiz";
-import Summary from "./components/quiz/Summary";
+import Quiz2 from "./components/quiz/Quiz2";
+import Summary2 from "./components/quiz/Summary2";
 
 function App() {
   return (
@@ -19,14 +19,14 @@ function App() {
         <Route path="/" component={TopBar} />
         <Switch>
           <Route path="/Home" component={Main} />
-          <Route path="/Quiz" component={Quiz} />
+          <Route path="/Quiz2" component={Quiz2} />
           <Route path="/Login" component={Login} />
           <Route path="/SignUp" component={SignUp} />
           <Route path="/MyPage" component={MyPage} />
           <Route path="/Word/:keyword" component={Word} />
           <Route path="/Ranking" component={WordRanking} />
           <Route path="/kakaoAuth" component={OAuthRedirectHandler} />
-          <Route path="/Summary" component={Summary} />
+          <Route path="/Summary2" component={Summary2} />
         </Switch>
       </div>
     </BrowserRouter>
