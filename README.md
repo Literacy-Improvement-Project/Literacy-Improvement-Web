@@ -48,7 +48,7 @@
 5. 퀴즈
   - 퀴즈화면
     
-  > ![image](https://user-images.githubusercontent.com/28720642/154076071-8102f377-3d7a-443a-a3eb-a0693c6d7986.png)
+  > ![image](https://user-images.githubusercontent.com/28720642/154694291-08b9170b-b0c5-402f-87e5-bfb79564e112.png)
     
   - 퀴즈결과
     
