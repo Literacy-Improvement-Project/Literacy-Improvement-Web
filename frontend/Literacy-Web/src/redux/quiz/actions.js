@@ -5,7 +5,8 @@ import {
     GET_QUIZ_REQUEST_FAILURE,
     POST_QUIZ_RESULT,
     POST_QUIZ_RESULT_SUCCESS,
-    POST_QUIZ_RESULT_FAILURE
+    POST_QUIZ_RESULT_FAILURE,
+    QUIZ_SUMMARY_UPDATE,
 } from "./types"
 
 export function quizRequest() {
@@ -57,23 +58,31 @@ export function postQuizResult(score) {
         .catch((error) => {
           dispatch(postQuizResultFailure());
         });
-    };
-  }
+  };
+}
   
-  export function postQuizResultStatus() {
-    return {
-      type: POST_QUIZ_RESULT,
-    };
-  }
+export function postQuizResultStatus() {
+  return {
+    type: POST_QUIZ_RESULT,
+  };
+}
   
-  export function postQuizResultSuccess() {
-    return {
-      type: POST_QUIZ_RESULT_SUCCESS,
-    };
-  }
+export function postQuizResultSuccess() {
+  return {
+    type: POST_QUIZ_RESULT_SUCCESS,
+  };
+}
   
-  export function postQuizResultFailure() {
-    return {
-      type: POST_QUIZ_RESULT_FAILURE,
-    };
-  }
+export function postQuizResultFailure() {
+  return {
+    type: POST_QUIZ_RESULT_FAILURE,
+  };
+}
+
+// Quiz Summary state
+export function quizSummaryUpdate(summary) {
+  return {
+    type: QUIZ_SUMMARY_UPDATE,
+    summary,
+  };
+}

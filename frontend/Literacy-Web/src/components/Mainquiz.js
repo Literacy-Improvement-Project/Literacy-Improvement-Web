@@ -8,7 +8,6 @@ const useStyles = makeStyles((theme) => ({
       paddingLeft: theme.spacing(5),
       paddingRight: theme.spacing(5),
       paddingBottom: theme.spacing(5),
-  
       // padding: theme.spacing(10),
       // width: '100%',
       // maxWidth: '30ch',
@@ -32,7 +31,7 @@ export default function MainQuiz()
 {
     const classes = useStyles();
     const handleClick = () => {
-      window.location.replace("/Quiz2");
+      window.location.replace("/Quiz");
     }
 return (
     <div className={classes.root}>

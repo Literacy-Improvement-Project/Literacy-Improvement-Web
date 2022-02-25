@@ -16,4 +16,4 @@ export {
   kakaoLogoutRequest,
   checkSessionRequest,
 } from "./kakaoAuth/actions";
-export { quizRequest, postQuizResult } from "./quiz/actions";
+export { quizRequest, postQuizResult, quizSummaryUpdate } from "./quiz/actions";

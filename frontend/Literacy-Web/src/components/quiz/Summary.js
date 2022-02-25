@@ -1,83 +1,84 @@
-import React, { Component, Fragment, useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
-import { Link } from "react-router-dom";
+import React, { Component, useEffect, useState } from "react";
+import { connect, useSelector } from "react-redux";
 import { useLocation } from "react-router";
-import { BiTimeFive } from "react-icons/bi";
-import "./_summary.scss";
+import { Link } from 'react-router-dom';
+import { Button } from "@material-ui/core";
+import "./quiz.css";
 
-export default function Suumary({}) {
-  useEffect(() => {
-    console.log("성공!");
-    console.log(Summary);
-    scoreMessage();
-  });
 
-  const Quiz = useLocation();
-  let Summary = Quiz.state;
-  let remark;
+function Summary({quizSummary, quizValid}) {
 
-  const userScore = Summary.totalScore;
+  const [isOpenAnswer, setIsOpenAnswer] = useState(false)
 
-  const scoreMessage = () => {
-    console.log();
-    if (userScore <= 3) {
-      remark = "좀 더 연습하세요!";
-    } else if (userScore > 3 && userScore <= 5) {
-      remark = "다음번엔 더 잘 할수 있을거에요!";
-    } else if (userScore <= 7 && userScore > 5) {
-      remark = "아쉬워요!";
-    } else if (userScore > 7 && userScore <= 8) {
-      remark = "잘했어요!";
-    } else {
-      remark = "매우 잘했어요!";
-    }
-  };
+  let quizAnswerList;
+
+  if (quizValid) {
+    quizAnswerList = quizSummary.quizList.map((quiz, index) => (
+      <li>
+        <Button fullWidth>
+        <Link to={`/Word/${quiz.word}`}>{quiz.word} - {quiz.word_mean}</Link>
+        </Button>
+      </li>
+    ));
+  }
+  else {
+  }
+
+
+  const closeAnswer = (
+    <Button onClick={() => {setIsOpenAnswer(true)}}>정답보기▼</Button>
+  )
+
+  const openAnswer = (
+    <>
+      <ol>
+        {quizAnswerList}
+      </ol>
+      <Button onClick={() => {setIsOpenAnswer(false)}}>접기▲</Button>
+    </>
+  )
+
+  const gotoQuiz = (
+    <Button color="primary" onClick={() => {window.location.replace("/Quiz");}} variant="contained">
+      퀴즈 풀러 가기
+    </Button>
+  );
+
+  const showSummary = (
+    <div>
+        <h2 className="quiz-summary-title">
+          퀴즈 결과
+        </h2>
+        <div>
+          <h2 className="quiz-summary-score"><b>{quizSummary.numberOfCorrect}</b>점</h2>
+          <h2 className="quiz-summary-count">총 <b>{quizSummary.numberOfQuestions}</b> 문제 중 <b>{quizSummary.numberOfCorrect}</b>
+          </h2>
+          <div>
+            {isOpenAnswer ? openAnswer : closeAnswer}
+          </div>
+        </div>
+    </div>
+  )
+
 
   return (
-    <div>
-      <Fragment>
-        <Helmet>
-          <title>퀴즈 결과</title>
-        </Helmet>
-        <div className="quiz-summary">
-          {Summary ? (
-            <Fragment>
-              <div style={{ textAlign: "center" }}>
-                <BiTimeFive className="success-icon" />
-              </div>
-              <h1>퀴즈 종료</h1>
-              <div className="container stats">
-                <h4>{remark}</h4>
-                <h2> score: {Summary.totalScore}점</h2>
-                <span className="stat left">전체 문제 수</span>
-                <span className="right">{Summary.totalNumberOfQuestions}</span>
-                <br />
-                <span className="stat left">정답 수</span>
-                <span className="right">{Summary.totalCorrectAnswers}</span>
-                <br />
-                <span className="stat left">오답 수</span>
-                <span className="right">{Summary.totalWrongAnswers}</span>
-              </div>
-              <section>
-                <ul>
-                  <li>
-                    <Link to="/Home">홈으로</Link>
-                  </li>
-                </ul>
-              </section>
-            </Fragment>
-          ) : (
-            <section>
-              <h1 className="no-state">결과가 없습니다.</h1>
-              <ul>
-                <li>
-                  <Link to="/Home">홈으로</Link>
-                </li>
-              </ul>
-            </section>
-          )}
-        </div>
-      </Fragment>
+    <div className="quiz-summary-box">
+      {quizValid ? showSummary : gotoQuiz}
     </div>
   );
 }
+
+
+const mapStateToProps = (state) => {
+  return {
+    isLoggedIn: state.kakaoAuth.status.isLoggedIn,
+    quizSummary: state.quiz.status.quizSummary,
+    quizValid: state.quiz.status.valid,
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Summary);

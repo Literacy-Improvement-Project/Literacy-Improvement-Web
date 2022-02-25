@@ -6,6 +6,7 @@ const initialState = {
         loading: false,
         get: false,
         quizStatus: [],
+        quizSummary: [],
     },
 };
 
@@ -65,6 +66,15 @@ export default function quiz(state = initialState, action) {
                     ...state.status,
                     valid: false,
                     loading: false,
+                },
+            };
+        // Quiz Summary state
+        case types.QUIZ_SUMMARY_UPDATE:
+            return {
+                ...state,
+                status: {
+                    ...state.status,
+                    quizSummary: action.summary
                 },
             };
         default:

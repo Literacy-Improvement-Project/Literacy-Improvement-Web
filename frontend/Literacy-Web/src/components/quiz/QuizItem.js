@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 import { Button, Grid, Typography  } from '@mui/material';
 
@@ -8,12 +8,15 @@ import "react-toastify/dist/ReactToastify.css";
 import "./quiz.css";
 
 
-function QuizItem({quizList, quizTemp, maxNumQuiz, postQuizResult}) {
+function QuizItem({quizList, quizTemp, maxNumQuiz, postQuizResult, quizSummaryUpdate}) {
 
-  // const [quizCorrectCount, setQuizCorrectCount] = useState(0)
-  // const [quizWrongCount, setQuizWrongCount] = useState(0)
-  let quizCorrectCount = 0;
-  let quizWrongCount = 0;
+  let history = useHistory()
+  const [quizCorrectCount, setQuizCorrectCount] = useState(0)
+  const [quizWrongCount, setQuizWrongCount] = useState(0)
+  //let quizCorrectCount = 0;
+  //let quizWrongCount = 0;
+
+  const [currentQuiz, setCurrentQuiz] = useState(0);
 
   const gotoSummary = () => {
     const summary = {
@@ -22,14 +25,10 @@ function QuizItem({quizList, quizTemp, maxNumQuiz, postQuizResult}) {
       numberOfWrong: quizWrongCount,
       quizList: quizList,
     };
-    console.log("postQuizResult")
+    console.log(summary)
     postQuizResult(quizCorrectCount);
-    // setTimeout(() => {
-    //   history.push({
-    //     pathname: "/Summary",
-    //     state: summary,
-    //   });
-    // }, 1000);
+    quizSummaryUpdate(summary);
+    history.push('/Summary')
   }
 
   // toast Alert (answer/wrong)
@@ -40,29 +39,26 @@ function QuizItem({quizList, quizTemp, maxNumQuiz, postQuizResult}) {
   const handleClickSelect = (select, index) => {
     // Check Answer & get score
     if (select === quizList[index].word_mean) {
-      //setQuizCorrectCount(quizCorrectCount + 1)
-      quizCorrectCount+=1
+      setQuizCorrectCount(quizCorrectCount+1)
       toastAnswer()
     }
     else {
-      // setQuizWrongCount(quizWrongCount + 1)
-      quizWrongCount+=1
+      setQuizWrongCount(quizWrongCount+1)
       toastWrong()
     }
-    console.log(quizCorrectCount+quizWrongCount)
-    // Check LastQuiz
-    if (quizCorrectCount+quizWrongCount === maxNumQuiz){
-      gotoSummary()
-    }
-
+    setCurrentQuiz(currentQuiz+1);
   }
 
+  // Check LastQuiz
+  if (quizCorrectCount+quizWrongCount === maxNumQuiz){
+    gotoSummary()
+  }
 
   return (
-    <div>
-      {
-        quizList.map((quiz, index) => (
-          <div className="quiz-multiple">
+    <div className="quiz-container">
+      {quizList.map((quiz, index) => {
+          return (
+            <div className={index === currentQuiz ? 'quiz-slide active' : 'quiz-slide'}>
               <Grid
             container
             direction="column"
@@ -98,8 +94,8 @@ function QuizItem({quizList, quizTemp, maxNumQuiz, postQuizResult}) {
               </Grid>
             </Grid>
             </div>
-        ))
-      }
+          )
+        })}
 
       <ToastContainer
         position="top-center"
