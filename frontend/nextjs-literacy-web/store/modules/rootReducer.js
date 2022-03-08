@@ -1,9 +1,9 @@
 import { combineReducers } from "@reduxjs/toolkit";
 import { HYDRATE } from "next-redux-wrapper";
 
-import counter from './counter';
+import counter from './counterSlice';
 
-const reducer = (state, action) => {
+const rootReducer = (state, action) => {
     if (action.type === HYDRATE) {
         return {
             ...state,
@@ -15,4 +15,4 @@ const reducer = (state, action) => {
     })(state, action);
 }
 
-export default reducer;
+export default rootReducer;
