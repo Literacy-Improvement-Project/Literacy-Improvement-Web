@@ -3,7 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as counterActions from '../store/modules/counterSlice';
 
 export default function Test() {
+
     const dispatch = useDispatch();
+
     const value = useSelector(({ counter }) => counter.value);
     const [incrementAmount, setIncrementAmount] = useState(2);
 

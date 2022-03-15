@@ -18,9 +18,8 @@ const counterSlice = createSlice({
 
 // 비동기적인 리듀서 함수를 정의하고자 할 땐
 // 객체의 프로퍼티로 extraReducers 객체를 추가한다.
- 
 
 // 액션과 리듀서를 export
-export const { increment, decrement, amountIncrement } = counterSlice.actions; // 액션 생성함수 
+export const { increment, decrement, amountIncrement } = counterSlice.actions; // 액션 생성함수
 
 export default counterSlice.reducer;
