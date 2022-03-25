@@ -1,4 +1,4 @@
-import KakaoLoginButton from "../components/atom/buttons/kakaoLoginBtn";
+import KakaoLoginButton from "../components/atom/buttons/KakaoLoginButton";
 
 export default function Login() {
 

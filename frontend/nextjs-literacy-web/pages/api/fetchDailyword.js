@@ -7,7 +7,12 @@ export const fetchDailyword = async () => {
 
   const { data } = await axios.get(
     `https://api.themoviedb.org/3/movie/popular?api_key=${API_KEY}`
-  );
+  ).then((response) => {
+    return response
+  })
+  .catch((error) => {
+    console.log(error)
+  });
   
     return data;
 }
