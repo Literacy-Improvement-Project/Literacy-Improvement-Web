@@ -1,7 +1,7 @@
 // components/layout/layout.js
 
-import Navbar from './organism/navbar/Navbar'
-import Footer from './organism/footer/Footer'
+import Navbar from './organism/navbar/navbar'
+import Footer from './organism/footer/footer'
 
 export default function Layout({ children }) {
   return (

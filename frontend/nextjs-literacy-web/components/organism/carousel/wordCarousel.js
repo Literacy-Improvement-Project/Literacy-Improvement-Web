@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styles from "./WordCarousel.module.css";
-import Card from "../../molecule/card/Card";
-import PrevNextButton from "../../molecule/buttons/PrevNextButton";
+import Card from "../../molecule/card/card";
+import PrevNextButton from "../../molecule/buttons/prevnextButton";
 
 export default function WordCarousel({slideItems}) {
 

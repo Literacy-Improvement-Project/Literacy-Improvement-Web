@@ -10,6 +10,9 @@ const URL = `https://opendict.korean.go.kr/api/search?certkey_no=3723&key=82B3B2
 const nextConfig = {
   reactStrictMode: true,
   
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 
   async rewrites() {
     
