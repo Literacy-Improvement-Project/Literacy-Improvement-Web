@@ -1,7 +1,7 @@
 import Link from 'next/link'
-import styles from './KakaoLoginButton.module.css'
+import styles from './KakaoLoginBtn.module.css'
 
-export default function KakaoLoginButton() {
+export default function KakaoLoginBtn() {
 
   return (
     <div className='container'>
