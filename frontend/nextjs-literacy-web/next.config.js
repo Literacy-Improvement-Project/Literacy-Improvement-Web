@@ -23,7 +23,7 @@ const nextConfig = {
       },
       {
         source: "/api/searchWord",
-        destination: encodeURI(`https://opendict.korean.go.kr/api/search?certkey_no=3723&key=${KO_API_KEY}&target_type=search&req_type=json&part=word&q=%EB%82%98%EB%AC%B4&sort=dict&start=1&num=10`),
+        destination: `https://opendict.korean.go.kr/api/search?certkey_no=3723&key=${KO_API_KEY}&target_type=search&req_type=json&part=word&q=%EB%82%98%EB%AC%B4&sort=dict&start=1&num=10`,
       }
     ]
   }

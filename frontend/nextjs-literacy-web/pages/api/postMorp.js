@@ -13,7 +13,7 @@ export const postMorp = async () => {
         'text': text,
         'analysis_code': ANALYSIS_CODE
     }
-};
+  };
 
   const { data } = await axios.post(
     "http://aiopen.etri.re.kr:8000/WiseNLU_spoken", requestJson)

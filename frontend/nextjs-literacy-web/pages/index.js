@@ -13,6 +13,7 @@ export default function Home() {
       <Link href="/dailyword"><a>DailyWord</a></Link>
       <Link href="/morp"><a>형태소분석</a></Link>
       <Link href="/searchWord"><a>단어검색</a></Link>
+      <Link href="/testNaverSearch"><a>네이버API</a></Link>
       <div>
         <Morp></Morp>
       </div> 
