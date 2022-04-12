@@ -45,3 +45,7 @@ a {
 h1 {
     display: none;
 }
+
+div {
+    display: block;
+}

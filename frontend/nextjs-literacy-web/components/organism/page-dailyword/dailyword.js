@@ -1,8 +1,9 @@
-import WordCarousel from "../components/organism/carousel/wordCarousel";
 import { dehydrate, QueryClient, useQuery } from "react-query";
-import { fetchDailyword } from "./api/fetchDailyword"
+import WordCarousel from "../carousel/wordCarousel"
+import { fetchDailyword } from "../../../pages/api/fetchDailyword"
+import styles from "./Dailyword.module.css"
 
-export default function DailyWord() {
+export default function Dailyword() {
 
   const { isLoading, isError, error, data } = useQuery('dailyword',() =>
     fetchDailyword(),
@@ -16,8 +17,10 @@ export default function DailyWord() {
 
 
   return (
-      <div>
-        <h2>오늘의 단어</h2>
+      <div className={styles.container}>
+        <div className={styles.title}>
+          오늘의 단어
+        </div>
         {isLoading ? (
           <div>Loading...</div>
         ) : isError ? (

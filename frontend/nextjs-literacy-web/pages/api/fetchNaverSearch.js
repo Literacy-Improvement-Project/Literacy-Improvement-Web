@@ -5,10 +5,10 @@ export const fetchNaverSearch = async (text) => {
 
   const client_id = 'U4Kp39tLVr5u1B6H1rnK';
   const client_secret = 'zUeLP9WPcK';
-  const word = " "
+  let word = "나무"
 
   if (text) {
-    word = text
+    word = text[0]
   }
 
   const { data } = await axios.get(
