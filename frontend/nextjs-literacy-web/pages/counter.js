@@ -1,6 +1,8 @@
 import { useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as counterActions from '../store/modules/counterSlice';
+import Nav from '../components/organism/Nav/Nav';
+import Header from '../components/organism/Header/Header';
 
 export default function Test() {
 
@@ -8,7 +10,6 @@ export default function Test() {
 
     const value = useSelector(({ counter }) => counter.value);
     const [incrementAmount, setIncrementAmount] = useState(2);
-
 
     const plus = useCallback(({ value }) => {
         dispatch(counterActions.increment({ value }));
@@ -25,7 +26,7 @@ export default function Test() {
 
     return (
         <div>
-            <h1>Counter</h1>
+            {/* <h1>Counter</h1>
             <button onClick={() => minus({ value })}>-</button>
             <span>{value}</span>
             <button onClick={() => plus({ value })}>+</button>
@@ -38,8 +39,18 @@ export default function Test() {
             <button
                 onClick={() => plusAmount()}
             >
-            Add Amount
-            </button>
+                Add Amount
+            </button> */}
+            <Nav></Nav>
+            <Header><a name="home">...</a></Header>
+            <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+            <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+            <a name="dailyWords">오늘의 단어</a>
+            <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+            <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+            <a name="quiz">퀴즈</a>
+            <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
+            <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
         </div>
     );
 }

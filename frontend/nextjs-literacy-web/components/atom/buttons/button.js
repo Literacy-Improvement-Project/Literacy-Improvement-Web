@@ -1,8 +1,10 @@
-import styles from './Button.module.css';
+import styles from './Button.module.css'
+export default function Button({types, label, onClick, size, variant }) {
 
-export default function Button(props) {
-    return (
-        <button className={`${styles.btn3} ${styles.custombtn}`}
-            onClick={props.onClick}><span>{props.label}</span></button>
-    )
+  return (
+    <button className={styles.button} onClick={() => onClick()}>
+      <span className="screen-reader-text"></span>
+      {label}
+    </button>
+  )
 }

@@ -1,9 +1,11 @@
-// components/layout/layout.js
+import Nav from "./organism/Nav/Nav";
 
 export default function Layout({ children }) {
-  return (
-    <>
-        <main>{children}</main>
-    </>
-  )
+    return (
+        <>
+            <Nav>
+            </Nav>
+            <main>{children}</main>
+        </>
+    )
 }

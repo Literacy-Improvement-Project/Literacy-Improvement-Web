@@ -1,0 +1,15 @@
+.container {
+    display: flex;
+    width : 50%;
+    /* If you want to place the icon before the text input */
+    flex-direction: row-reverse;
+
+    /* Border */
+    border: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.container__input {
+    border-color: transparent;
+    /* Take available width */
+    flex: 1;
+}
