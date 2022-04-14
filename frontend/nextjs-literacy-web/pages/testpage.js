@@ -1,5 +1,5 @@
-import SearchWordMeaning from "../UI/organism/SearchWordMeaning/SearchWordMeaning";
-import AfterSearchWordMeaning from "../UI/organism/SearchWordMeaning/AfterSearchWordMeaning";
+import SearchWordMeaning from "../components/organism/SearchWordMeaning/SearchWordMeaning";
+import AfterSearchWordMeaning from "../components/organism/SearchWordMeaning/AfterSearchWordMeaning";
 import { dehydrate, QueryClient, useQuery } from "react-query";
 import { fetchDailyword } from "./api/fetchDailyword";
 import { fetchWords } from "./api/fetchWords";

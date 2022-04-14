@@ -9,10 +9,7 @@ export default function SearchWordMeaning(props) {
 
     //click event
     const [account, setAccount] = useState("");
-    const [account2, setAccount2] = useState("");
     const click = (() => {
-
-        setAccount2(account);
         props.getAccount(account);
         props.setistrue(1);
         console.log(account);
@@ -27,7 +24,7 @@ export default function SearchWordMeaning(props) {
         <div>
             <Button click={click}></Button>
             <Search getText={getText}></Search>
-            {/* {istrue ? <AfterSearchWordMeaning account={account2}></AfterSearchWordMeaning> : <div></div>} */}
+            {/* {istrue ? <AfterSearchWordMeaning account={account}></AfterSearchWordMeaning> : <div></div>} */}
         </div>
     )
 }

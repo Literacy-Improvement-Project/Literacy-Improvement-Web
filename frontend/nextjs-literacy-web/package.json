@@ -6,22 +6,34 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "export": "next export"
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.8.0",
     "axios": "^0.26.1",
-    "next": "12.1.0",
-    "next-auth": "^4.3.0",
+    "next": "^12.1.0",
     "next-redux-wrapper": "^7.0.5",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
     "react-query": "^3.34.16",
     "react-redux": "^7.2.6"
   },
   "devDependencies": {
-    "eslint": "8.10.0",
+    "@babel/core": "^7.17.8",
+    "@babel/eslint-parser": "^7.17.0",
+    "@babel/preset-env": "^7.16.11",
+    "@next/eslint-plugin-next": "^12.1.0",
+    "babel-eslint": "^10.1.0",
+    "babel-preset-env": "^1.7.0",
+    "eslint": "^7.32.0",
     "eslint-config-next": "12.1.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-babel": "^5.3.1",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.29.4",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "prettier": "^2.6.1",
     "redux-logger": "^3.0.6"
   }
 }

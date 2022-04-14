@@ -1,11 +1,13 @@
 import { useState, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import * as counterActions from '../store/modules/counterSlice';
-import Nav from '../UI/organism/Nav/Nav';
-import Header from '../UI/organism/Header/Header';
+import Nav from '../components/organism/Nav/Nav';
+import Header from '../components/organism/Header/Header';
 
 export default function Test() {
+
     const dispatch = useDispatch();
+
     const value = useSelector(({ counter }) => counter.value);
     const [incrementAmount, setIncrementAmount] = useState(2);
 
