@@ -630,7 +630,7 @@
 
 .btn10:hover:after {
   background: rgb(0, 3, 255);
-  background: linear-gradient(0deg, rgba(2, 126, 251, 1) 0%, rgba(0, 3, 255, 1)100%);
+  background: linear-gradient(0deg, rgba(2, 126, 251, 1) 0%, rgba(0, 3, 255, 1) 100%);
   -webkit-transform: scale(1);
   transform: scale(1);
 }

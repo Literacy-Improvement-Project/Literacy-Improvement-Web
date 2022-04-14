@@ -2,10 +2,10 @@ export default function Modal() {
 
   return (
     <div className="modal">
-    {/* <!-- Header --> */}
+      {/* <!-- Header --> */}
       <div className="modal__header">
-          로그인
-          <div></div>
+        로그인
+        <div></div>
       </div>
 
       {/* <!-- Content --> */}
@@ -13,7 +13,7 @@ export default function Modal() {
 
       {/* <!-- Footer --> */}
       <div className="modal__footer">
-          ...
+        ...
       </div>
     </div>
   )

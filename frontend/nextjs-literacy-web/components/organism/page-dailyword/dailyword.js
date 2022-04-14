@@ -5,7 +5,7 @@ import styles from "./Dailyword.module.css"
 
 export default function Dailyword() {
 
-  const { isLoading, isError, error, data } = useQuery('dailyword',() =>
+  const { isLoading, isError, error, data } = useQuery('dailyword', () =>
     fetchDailyword(),
     {
       keepPreviousData: true,
@@ -17,20 +17,20 @@ export default function Dailyword() {
 
 
   return (
-      <div className={styles.container}>
-        <div className={styles.title}>
-          오늘의 단어
-        </div>
-        {isLoading ? (
-          <div>Loading...</div>
-        ) : isError ? (
-            <div>Error: {error.message}</div>
-          ) : (
-          <div>
-            <WordCarousel slideItems={data.results}></WordCarousel>
-          </div>
-        )}
+    <div className={styles.container}>
+      <div className={styles.title}>
+        오늘의 단어
       </div>
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : isError ? (
+        <div>Error: {error.message}</div>
+      ) : (
+        <div>
+          <WordCarousel slideItems={data.results}></WordCarousel>
+        </div>
+      )}
+    </div>
   );
 }
 
@@ -39,13 +39,13 @@ export async function getServerSideProps(context) {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery(
-    "dailyword", 
+    "dailyword",
     async () => await fetchDailyword()
   );
 
-  return { 
-    props: { 
+  return {
+    props: {
       dehydratedState: dehydrate(queryClient),
-    } 
+    }
   }
 }
