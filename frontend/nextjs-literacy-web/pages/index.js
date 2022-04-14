@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
 import Morp from './morp'
-import { dehydrate, QueryClient, useQuery } from "react-query";
 import { useState } from 'react';
 import DescribePage from '../components/organism/page-describe/describePage';
 import Dailyword from '../components/organism/page-dailyword/dailyword';
@@ -39,5 +38,3 @@ export default function Home() {
     </div>
   )
 }
-
-
