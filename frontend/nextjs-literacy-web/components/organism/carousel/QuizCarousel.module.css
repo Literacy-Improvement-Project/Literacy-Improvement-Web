@@ -11,6 +11,7 @@
     justify-content: center;
     width: 100%;
     height: auto;
+    text-align: center;
 }
 
 .slide {
@@ -33,4 +34,19 @@
 
 .btn_prevnext {
     position: relative;
+}
+
+.span {
+    flex: auto;
+}
+
+.submit_button {
+    flex: auto;
+}
+
+.text {
+    flex: auto;
+    text-align: center;
+    align-items: center;
+    margin: 15px;
 }

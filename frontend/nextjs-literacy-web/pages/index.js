@@ -1,10 +1,9 @@
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
-import Morp from './morp'
 import { useState } from 'react';
 import DescribePage from '../components/organism/page-describe/describePage';
 import Dailyword from '../components/organism/page-dailyword/dailyword';
-
+import MainQuiz from '../components/organism/page-quiz/mainQuiz';
 
 export default function Home() {
 
@@ -19,8 +18,8 @@ export default function Home() {
       <ul>
         <li><DescribePage></DescribePage></li>
         <li><Dailyword></Dailyword> </li>
+        <li><MainQuiz></MainQuiz></li>
         <li><Link href="/counter"><a>Counter</a></Link></li>
-        <li><Link href="/morp"><a>형태소분석</a></Link></li>
         <li><Link href="/testpage"><a>TestPage</a></Link></li>
         <li>
           <input type="text" value={searchText} onChange={(e) => handleSearchText(e)} />

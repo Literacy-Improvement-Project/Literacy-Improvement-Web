@@ -3,7 +3,7 @@ import styles from './Nav.module.css';
 
 export default function Nav(props) {
     return (
-        <div>
+        <div className={styles.container}>
             <nav className={styles.nav}>
                 <ul className={styles.ul}>
                     <li className={styles.test}><a className={styles.a} href="#home">home</a></li>

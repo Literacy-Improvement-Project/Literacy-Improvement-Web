@@ -13,6 +13,7 @@ export default function Dailyword() {
       refetchOnWindowFocus: false,
     }
   );
+
   console.log(data)
 
 

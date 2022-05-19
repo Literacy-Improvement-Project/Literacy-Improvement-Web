@@ -1,11 +1,10 @@
 import Button from "../../atom/Button/Button";
-import styles from "./PrevNextButton.module.css"
+import styles from "./PrevButton.module.css"
 
-export default function PrevNextButton({prevEvent, nextEvent}) {
+export default function PrevButton({prevEvent}) {
   return (
     <div className={styles.container}>
       <Button label={"❮"} onClick={() => prevEvent()}></Button>
-      <Button label={"❯"} onClick={() => nextEvent()}></Button>
     </div>
   )
 }

@@ -1,0 +1,99 @@
+.container {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: beige;
+    margin: 0px auto;
+}
+
+.title {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin: 20px;
+    width: 100%;
+}
+
+.content_header {
+    display: flex;
+    margin-top: 20px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.profile_icon {
+    position: relative;
+    width: 80px;
+    height: auto;
+}
+
+.img {
+    border: 0px;
+    max-width: 100%;
+    vertical-align: middle;
+    border-radius: 20px;
+}
+
+.info {
+    margin-left: 24px;
+}
+
+.name {
+    align-items: center;
+    height: 32px;
+    font-size: 4vh;
+    font-weight: bold;
+}
+
+.prev_rank {
+    line-height: 16px;
+    margin-top: 8px;
+    color: gray;
+    font-size: 20px;
+}
+
+.ranking {
+    font-size: 3.5vh;
+    color: slateblue;
+}
+
+.prev_score {
+    line-height: 16px;
+    margin-top: 6px;
+    color: gray;
+    font-size: 2.8vh;
+}
+
+.rank_num {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.text_userName {}
+
+.text_userRank {}
+
+.table {
+    align-items: center;
+    text-align: center;
+    border-spacing: 0;
+    margin-top: 4vh;
+}
+
+.caption {
+    display: none;
+}
+
+.thead {
+    text-align: center;
+    align-items: center;
+}
+
+.tr {
+    height: 160px;
+}

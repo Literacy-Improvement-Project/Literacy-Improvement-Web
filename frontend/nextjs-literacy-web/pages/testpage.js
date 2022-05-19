@@ -21,11 +21,9 @@ export default function Testpage() {
     console.log(data);
     let sentences;
     if (data != null) {
-        sentences = data.return_object.sentence;
+        sentences = data.return_object;
         console.log(sentences);
     }
-
-
 
     const getAccount = ((tmp) => {
         setAccount(tmp);
