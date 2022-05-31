@@ -3,7 +3,7 @@ import styles from "./WordCarousel.module.css";
 import Card from "../../molecule/card/card";
 import PrevNextButton from "../../molecule/buttons/prevnextButton";
 
-export default function WordCarousel({slideItems}) {
+export default function WordCarousel({ slideItems }) {
 
   const [slideTotal, setSlideTotal] = useState(slideItems.length);
   const [slideCurrent, setSlideCurrent] = useState(0);
@@ -31,8 +31,8 @@ export default function WordCarousel({slideItems}) {
     <div className={`${styles.box} ${styles.container}`}>
       {slideItems.map((slide, index) => {
         return (
-          <div key={index} className={index === slideCurrent 
-            ? `${styles.slide} ${styles.active}` 
+          <div key={index} className={index === slideCurrent
+            ? `${styles.slide} ${styles.active}`
             : `${styles.slide}`}
           >
             <Card content={slide}></Card>
@@ -40,7 +40,7 @@ export default function WordCarousel({slideItems}) {
         )
       })}
       <div className={styles.btn_prevnext}>
-        <PrevNextButton prevEvent={() => slideLeft()} nextEvent={() => slideRight()}/>
+        <PrevNextButton prevEvent={() => slideLeft()} nextEvent={() => slideRight()} />
       </div>
     </div>
   )

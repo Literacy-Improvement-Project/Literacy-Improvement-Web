@@ -1,17 +1,15 @@
 import Button from '../../atom/Button/Button';
 import Search from '../../atom/Search/Search';
 import { useState, useCallback } from 'react';
-import { fetchDailyword } from '../../../pages/api/fetchDailyword';
-import { dehydrate, QueryClient, useQuery } from "react-query";
 import AfterSearchWordMeaning from './AfterSearchWordMeaning';
 
 export default function SearchWordMeaning(props) {
 
     //click event
     const [account, setAccount] = useState("");
-    const click = (() => {
+    const onClick = (() => {
         props.getAccount(account);
-        props.setistrue(1);
+        props.getistrue(1);
         console.log(account);
     })
 
@@ -22,9 +20,8 @@ export default function SearchWordMeaning(props) {
 
     return (
         <div>
-            <Button click={click}></Button>
+            <Button onClick={onClick} label="클릭"></Button>
             <Search getText={getText}></Search>
-            {/* {istrue ? <AfterSearchWordMeaning account={account}></AfterSearchWordMeaning> : <div></div>} */}
         </div>
     )
 }

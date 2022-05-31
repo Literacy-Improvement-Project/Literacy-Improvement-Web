@@ -1,0 +1,28 @@
+.card_container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background-color: #fffffff8;
+    margin: 10px;
+    border: 10px;
+    margin-left: 500px;
+    margin-right: 500px;
+}
+
+.card_cover {
+    height: 50px;
+    width: 100px;
+}
+
+.card_content {
+    /* Take available height */
+    flex: 1;
+}
+
+.mean_cover {
+    background-color: #f3f1ec98;
+    height: 50px;
+    width: 150px;
+    margin-left: auto;
+    margin-right: auto;
+}

@@ -10,9 +10,9 @@ export const fetchDailyword = async () => {
   ).then((response) => {
     return response
   })
-  .catch((error) => {
-    console.log(error)
-  });
-  
-    return data;
+    .catch((error) => {
+      console.log(error)
+    });
+
+  return data;
 }

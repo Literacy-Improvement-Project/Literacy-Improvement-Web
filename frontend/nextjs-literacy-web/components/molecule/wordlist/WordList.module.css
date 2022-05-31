@@ -1,0 +1,36 @@
+.card_container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    background-color: #f3f1ec98;
+    margin: 10px;
+    border: 10px;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+
+.card_cover {
+    height: 50px;
+    width: 100px;
+}
+
+.card_content {
+    /* Take available height */
+    flex: 1;
+}
+
+.mean_cover {
+    background-color: #f3f1ecb0;
+    height: 50px;
+    /* width: 450px; */
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-right: auto;
+}
+
+.title {
+    margin-left: 5px;
+    margin-top: 5px;
+}
+
+.test {}

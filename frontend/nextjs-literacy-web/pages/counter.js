@@ -3,9 +3,17 @@ import { useSelector, useDispatch } from 'react-redux';
 import * as counterActions from '../store/modules/counterSlice';
 import Nav from '../components/organism/Nav/Nav';
 import Header from '../components/organism/Header/Header';
+import { fetchWords } from './api/fetchWords';
+import { dehydrate, QueryClient, useQuery } from "react-query";
 
 export default function Test() {
-
+    const { isLoading, error, data } = useQuery('Morp', () =>
+        fetchWords(),
+        {
+            keepPreviousData: true,
+            refetchOnMount: false,
+            refetchOnWindowFocus: false,
+        });
     const dispatch = useDispatch();
 
     const value = useSelector(({ counter }) => counter.value);
@@ -53,4 +61,18 @@ export default function Test() {
             <br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br><br></br>
         </div>
     );
+}
+export async function getServerSideProps(context) {
+
+    const queryClient = new QueryClient();
+
+    await queryClient.prefetchQuery(
+        'Morp',
+        async () => await fetchWords());
+
+    return {
+        props: {
+            dehydratedState: dehydrate(queryClient),
+        }
+    }
 }

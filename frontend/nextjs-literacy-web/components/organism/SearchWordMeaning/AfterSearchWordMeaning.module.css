@@ -1,0 +1,18 @@
+.sentences {
+    display: inline-block;
+    margin-right: 7px;
+}
+
+.words {
+    display: inline-block;
+    margin-right: 2px;
+
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.default {
+    cursor: default;
+}
