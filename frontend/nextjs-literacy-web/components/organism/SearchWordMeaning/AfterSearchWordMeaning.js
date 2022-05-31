@@ -1,26 +1,38 @@
 import { dehydrate, QueryClient, useQuery } from "react-query";
 import { fetchDailyword } from "../../../pages/api/fetchDailyword";
+import Link from 'next/link'
+import styles from './AfterSearchWordMeaning.module.css';
+export default function AfterSearchWordMeaning({ sentences }) {
 
-export default function AfterSearchWordMeaning({ account }) {
 
+    const onClick = (e) => {
+        console.log(e.target.innerText);
 
-
+    }
 
     return (
         <div>
-            {/* {
+            {
                 sentences.map((item) => (
-                    <div className="word" key={item.id}>
+                    <ul key={item.id}>
                         {
                             item.morp.map((word) => (
-                                <div key={word.id}>
-                                    <h2>{word.lemma}</h2>
-                                    <h2>{word.type}</h2>
-                                </div>
+                                <ul className={styles.sentences} key={word.id}>
+                                    <li className={`${styles.words} ${styles.pointer}`} onClick={onClick}>
+                                        <Link href={{
+                                            pathname: '/word',
+                                            query: { word: word.lemma }
+                                        }}
+                                        >
+                                            {word.lemma}
+                                        </Link>
+                                    </li>
+                                    <li className={`${styles.words} ${styles.default}`}>{`(${word.type})`}</li>
+                                </ul>
                             ))}
-                    </div>
+                    </ul>
                 ))
-            } */}
+            }
         </div>
     );
 }

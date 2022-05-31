@@ -1,26 +1,29 @@
 // pages/api/postMorp.js
 import axios from "axios";
 
-export const postMorp = async () => {
+export const postMorp = async (txt) => {
+  const access_key = '9c46ad05-ca7a-4326-8a93-64501b67e95b';
+  const analysisCode = "wsd_poly";
+  let text = '나는 여전히 배가 고프다. 그치만 집에도  가고싶다. 어제는 가족여행을 다녀왔다.';
 
-  const API_KEY = "9c46ad05-ca7a-4326-8a93-64501b67e95b";
-  const ANALYSIS_CODE = "morp"
-  const text = "우리는 지금 강을 건너고 있다. 건너는 도중에 친구 정원이형을 만났다."
-
+  if (txt != null) {
+    text = txt;
+  }
   const requestJson = {
-    'access_key': API_KEY,
+    'access_key': access_key,
     'argument': {
-        'text': text,
-        'analysis_code': ANALYSIS_CODE
+      'text': text,
+      'analysis_code': analysisCode
     }
   };
 
-  const { data } = await axios.post(
-    "http://aiopen.etri.re.kr:8000/WiseNLU_spoken", requestJson)
-    .then((response) => {
-      return response
-    })
-    .catch((error) => console.log(error))
+  console.log(txt);
 
-  return data
+  const { data } = await axios.post(
+    "http://aiopen.etri.re.kr:8000/WiseNLU", requestJson
+  ).then((response) => {
+    return response;
+  }).catch((error) => console.log(error))
+
+  return data;
 }

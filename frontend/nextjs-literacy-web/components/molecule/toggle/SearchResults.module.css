@@ -1,0 +1,50 @@
+.toggle_button {
+    cursor: pointer;
+    display: block;
+    text-align: center;
+    border: 1px solid #ccc;
+    background: #eee;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    /* margin-bottom: 5px; */
+
+}
+
+#toggle_button,
+#toggle_contents {
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+}
+
+#toggle_button:checked+#toggle_contents {
+
+    height: auto;
+    cursor: pointer;
+    /* position: relative; */
+    border: 1px solid #ccc;
+    border-top: 0;
+    padding: 10px;
+    overflow-y: scroll;
+    position: absolute;
+    width: 346px;
+    max-height: 150px;
+    border-radius: 4px;
+    background-color: #31313C;
+    box-shadow: rgb(0 0 0 / 30%) 0px 8px 12px 0px;
+    color: #ececfd;
+    z-index: 1;
+}
+
+
+.close_button {
+    cursor: pointer;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    padding: 3px;
+    font-size: 10px;
+    line-height: 1;
+    background: #555;
+    color: #fff;
+}

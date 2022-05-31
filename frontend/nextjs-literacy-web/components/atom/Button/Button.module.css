@@ -28,14 +28,17 @@
   margin: 20px;
 }
 
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+
 .custombtn {
   width: 130px;
-  height: 40px;
+  height: 20px;
   color: #fff;
   border-radius: 5px;
-  padding: 10px 25px;
-  font-family: 'Lato', sans-serif;
+  /* padding: 10px 25px; */
+  font-family: 'Hanna', sans-serif;
   font-weight: 500;
+  font-size: 50%;
   background: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -841,7 +844,7 @@
 .btn15 {
   background: #b621fe;
   border: none;
-  z-index: 1;
+  /* z-index: 1; */
 }
 
 .btn15:after {
