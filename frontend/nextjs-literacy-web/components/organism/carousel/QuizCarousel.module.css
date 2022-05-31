@@ -10,11 +10,32 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: auto;
-    text-align: center;
+    height: 94vh;
+}
+
+.title {
+    width: 100%;
+    height: 20px;
+    position: absolute;
+    top: 5vh;
+    left: 5vh;
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+.content {
+    background-color: bisque;
+    justify-content: center;
+    align-items: center;
+    width: 70%;
+    height: 50vh;
+    border-radius: 6px;
+    box-shadow: 1px 4px 4px 0 rgb(117 121 125 / 6%), 0 1px 3px 0 rgb(113 117 121 / 20%);
 }
 
 .slide {
+    top: 2vh;
+    margin-top: 4vh;
     position: absolute;
     opacity: 0;
     /* background-color: var(--card-bg-color); */
@@ -24,8 +45,7 @@
     display: flex;
     position: relative;
     align-items: center;
-    left: 50;
-    top: 20;
+    justify-content: center;
     z-index: 0;
     opacity: 1;
     transition: all 0.5s ease-in-out;
@@ -33,7 +53,8 @@
 }
 
 .btn_prevnext {
-    position: relative;
+    display: flex;
+    justify-content: center;
 }
 
 .span {
@@ -46,7 +67,14 @@
 
 .text {
     flex: auto;
-    text-align: center;
-    align-items: center;
     margin: 15px;
+}
+
+.end_quiz_container {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    margin-top: 8vh;
+    margin-bottom: 5vh;
 }

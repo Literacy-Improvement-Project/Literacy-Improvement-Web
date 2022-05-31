@@ -4,7 +4,7 @@ import { useState } from 'react';
 import DescribePage from '../components/organism/page-describe/describePage';
 import Dailyword from '../components/organism/page-dailyword/dailyword';
 import MainQuiz from '../components/organism/page-quiz/mainQuiz';
-
+import OpenDictionary from '../components/organism/page-openDictionary/openDictionary';
 export default function Home() {
 
   const [searchText, setSearchText] = useState("")
@@ -19,6 +19,7 @@ export default function Home() {
         <li><DescribePage></DescribePage></li>
         <li><Dailyword></Dailyword> </li>
         <li><MainQuiz></MainQuiz></li>
+        <li><OpenDictionary></OpenDictionary></li>
         <li><Link href="/counter"><a>Counter</a></Link></li>
         <li><Link href="/testpage"><a>TestPage</a></Link></li>
         <li>

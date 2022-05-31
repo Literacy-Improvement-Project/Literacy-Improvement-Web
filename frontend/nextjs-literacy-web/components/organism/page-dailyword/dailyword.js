@@ -14,8 +14,6 @@ export default function Dailyword() {
     }
   );
 
-  console.log(data)
-
 
   return (
       <div className={styles.container}>
@@ -27,7 +25,7 @@ export default function Dailyword() {
         ) : isError ? (
             <div>Error: {error.message}</div>
           ) : (
-          <div>
+          <div className={styles.word_container}>
             <WordCarousel slideItems={data.results}></WordCarousel>
           </div>
         )}

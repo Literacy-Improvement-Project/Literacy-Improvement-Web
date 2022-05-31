@@ -2,7 +2,7 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    background-color: var(--carousel-bg-color);
+    background-color: bisque;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -10,8 +10,18 @@
 }
 
 .title {
-    text-align: center;
-    font-size: 1.5em;
+    font-size: 1.4em;
     font-weight: bold;
+}
+
+.word_container {
+    margin: 2vh;
+    align-items: center;
     justify-content: center;
+    width: 95vh;
+    height: 30vh;
+    background-color: beige;
+    border-radius: 6px;
+    box-shadow: 1px 4px 4px 0 rgb(117 121 125 / 6%), 0 1px 3px 0 rgb(113 117 121 / 20%);
+    ;
 }

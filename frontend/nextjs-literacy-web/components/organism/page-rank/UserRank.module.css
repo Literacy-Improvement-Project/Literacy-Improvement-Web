@@ -21,6 +21,7 @@
 .content_header {
     display: flex;
     margin-top: 20px;
+    height: 15vh;
     align-items: center;
     text-align: center;
     justify-content: center;
@@ -45,8 +46,7 @@
 
 .name {
     align-items: center;
-    height: 32px;
-    font-size: 4vh;
+    font-size: 2em;
     font-weight: bold;
 }
 
@@ -54,11 +54,11 @@
     line-height: 16px;
     margin-top: 8px;
     color: gray;
-    font-size: 20px;
+    font-size: 1em;
 }
 
 .ranking {
-    font-size: 3.5vh;
+    font-size: 1.6em;
     color: slateblue;
 }
 
@@ -66,11 +66,11 @@
     line-height: 16px;
     margin-top: 6px;
     color: gray;
-    font-size: 2.8vh;
+    font-size: 1.3em;
 }
 
 .rank_num {
-    font-size: 20px;
+    font-size: 1.4em;
     font-weight: bold;
 }
 

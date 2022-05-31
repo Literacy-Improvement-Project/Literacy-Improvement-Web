@@ -69,40 +69,41 @@ export default function QuizCarousel({slideItems}) {
 
   return (
     <div className={`${styles.box} ${styles.container}`}>
-      <h2 className={styles.text}>우리말 뜻풀이</h2>
-      <div>
-        {(slideCurrent<=slideTotal)?
-        // 퀴즈가 진행중
-          slideItems.map((slide, index) => {
-            return (
-              <div key={index} className={index === slideCurrent 
-                ? `${styles.slide} ${styles.active}` 
-                : `${styles.slide}`}
-              >
-                <QuizItem
-                content={slide} 
-                setAnswerList={setAnswerList} 
-                countAnswer={countAnswer}>
-                </QuizItem>
-              </div>
-            )
-          }):
-          // 퀴즈가 끝나면
-          <div>
-            <h3 className={styles.text}>퀴즈가 종료되었습니다!</h3>
-            {isSubmitAnswer
-            ?quizSummary
-            :<Button className={styles.submit_button} label="제출하기" onClick={() => submitAnswer()}></Button>
-            }
-          </div>
-        }
-      </div>
-      
-      <div className={styles.btn_prevnext}>
-        {slideCurrent>slideTotal
-        ?(isSubmitAnswer?<Button label="홈으로"></Button>:<PrevButton prevEvent={() => slideLeft()}/>)
-        :<PrevNextButton prevEvent={() => slideLeft()} nextEvent={() => slideRight()}/>
-        }
+      <h2 className={styles.title}>우리말 뜻풀이</h2>
+      <div className={styles.content}>
+        <div>
+          {(slideCurrent<=slideTotal)?
+          // 퀴즈가 진행중
+            slideItems.map((slide, index) => {
+              return (
+                <div key={index} className={index === slideCurrent 
+                  ? `${styles.slide} ${styles.active}` 
+                  : `${styles.slide}`}
+                >
+                  <QuizItem
+                  content={slide} 
+                  setAnswerList={setAnswerList} 
+                  countAnswer={countAnswer}>
+                  </QuizItem>
+                </div>
+              )
+            }):
+            // 퀴즈가 끝나면
+            <div className={styles.end_quiz_container}>
+              <h3 className={styles.text}>퀴즈가 종료되었습니다!</h3>
+              {isSubmitAnswer
+              ?quizSummary
+              :<Button className={styles.submit_button} label="제출하기" onClick={() => submitAnswer()}></Button>
+              }
+            </div>
+          }
+        </div>
+        <div className={styles.btn_prevnext}>
+          {slideCurrent>slideTotal
+          ?(isSubmitAnswer?<Button label="홈으로"></Button>:<PrevButton prevEvent={() => slideLeft()}/>)
+          :<PrevNextButton prevEvent={() => slideLeft()} nextEvent={() => slideRight()}/>
+          }
+        </div>
       </div>
     </div>
   )

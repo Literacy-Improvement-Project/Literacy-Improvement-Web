@@ -4,6 +4,7 @@
 }
 
 .container {
+    flex: auto;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -14,17 +15,18 @@
 }
 
 .slide {
+    top: 2.5vh;
+    margin: 2vh;
     position: absolute;
     opacity: 0;
     /* background-color: var(--card-bg-color); */
 }
 
 .slide.active {
-    display: flex;
+    margin: 2vh;
+    justify-content: center;
     position: relative;
     align-items: center;
-    left: 50;
-    top: 20;
     z-index: 0;
     opacity: 1;
     transition: all 0.5s ease-in-out;
@@ -32,5 +34,7 @@
 }
 
 .btn_prevnext {
-    position: relative;
+    top: 17.5vh;
+    position: absolute;
+    margin-top: 5vh;
 }

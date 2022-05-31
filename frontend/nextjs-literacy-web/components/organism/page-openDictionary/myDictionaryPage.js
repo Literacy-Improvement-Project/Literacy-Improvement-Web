@@ -1,0 +1,63 @@
+import { dehydrate, QueryClient, useQuery } from "react-query";
+import { fetchMyDictionary } from "../../../pages/api/fetchMyDictionary"
+import styles from "./MyDictionaryPage.module.css"
+import Link from 'next/link'
+import DeleteButton from "../../atom/Button/DeleteButton";
+
+
+export default function MyDictionaryPage() {
+
+  const { isLoading, isError, error, data } = useQuery('myDictionary',() =>
+    fetchMyDictionary(),
+    {
+      keepPreviousData: true,
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
+    }
+  );
+
+  let dictionaryList = []
+  if (data) {
+    dictionaryList = data.results
+  }
+  console.log(dictionaryList)
+
+
+  return (
+      <div className={styles.container}>
+        <div className={styles.title}>나의 오픈사전</div>
+        {isLoading ? (
+          <div>Loading...</div>
+        ) : isError ? (
+            <div>Error: {error.message}</div>
+          ) : (
+          <ul className={styles.dictionary_list}>
+            {dictionaryList.map((dict, index) => {
+              return (
+                <li className={styles.item} key={index}>
+                  <DeleteButton></DeleteButton>
+                  <span className={styles.dict_title}>{dict.title}</span>
+                </li>
+              )
+            })}
+          </ul>
+        )}
+      </div>
+  );
+}
+
+export async function getServerSideProps(context) {
+
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(
+    "myDictionary", 
+    async () => await fetchMyDictionary()
+  );
+
+  return { 
+    props: { 
+      dehydratedState: dehydrate(queryClient),
+    } 
+  }
+}
