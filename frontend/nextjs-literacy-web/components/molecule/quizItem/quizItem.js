@@ -1,5 +1,4 @@
 import { useState } from 'react'
-import Button from '../../atom/Button/Button'
 import styles from './QuizItem.module.css'
 
 export default function QuizItem({content, countAnswer, setAnswerList}) {
@@ -22,12 +21,12 @@ export default function QuizItem({content, countAnswer, setAnswerList}) {
   return (
     <div className={styles.container}>
       <div className={styles.content}>
-        <h2>"{content.word}"의 뜻은?</h2>
+        <h2 className={styles.question}>"{content.word}"의 뜻은?</h2>
         <div className={styles.button_container}>
-          <Button onClick={() => onClickAnswer(content.word_mean)} label={content.word_mean}></Button>
-          <Button onClick={() => onClickAnswer(content.wrong_answer1)} label={content.wrong_answer1}></Button>
-          <Button onClick={() => onClickAnswer(content.wrong_answer2)} label={content.wrong_answer2}></Button>
-          <Button onClick={() => onClickAnswer(content.wrong_answer3)} label={content.wrong_answer3}></Button>
+          <a className={styles.item} onClick={() => onClickAnswer(content.word_mean)}><p><span>{content.word_mean}</span></p></a>
+          <a className={styles.item} onClick={() => onClickAnswer(content.wrong_answer1)}><p><span>{content.wrong_answer1}</span></p></a>
+          <a className={styles.item} onClick={() => onClickAnswer(content.wrong_answer2)}><p><span>{content.wrong_answer2}</span></p></a>
+          <a className={styles.item} onClick={() => onClickAnswer(content.wrong_answer3)}><p><span>{content.wrong_answer3}</span></p></a>
         </div>
       </div>
     </div>

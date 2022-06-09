@@ -5,19 +5,14 @@
     margin-left: 10px;
     margin-right: 10px;
     border: 10px;
+    width: 80vh;
+    height: 45vh;
 }
 
-.cover {
-    height: 50px;
-    width: 100%;
-}
-
-.content {
-    /* Take available height */
-    flex: 1;
-}
+.content {}
 
 .word {
+    font-family: 'Jalnan';
     position: relative;
     text-align: center;
     font-size: 3vh;
@@ -25,4 +20,15 @@
     margin-bottom: 1.5vh;
 }
 
-.mean {}
+.morphem {}
+
+.mean {
+    margin: 10px;
+    font-size: 2vh;
+    font-weight: 600;
+}
+
+@font-face {
+    font-family: 'Jalnan';
+    src: url("../../../public//fonts/JalnanOTF.otf") format('opentype');
+}

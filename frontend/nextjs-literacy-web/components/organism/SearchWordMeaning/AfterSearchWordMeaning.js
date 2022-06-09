@@ -2,13 +2,14 @@ import { dehydrate, QueryClient, useQuery } from "react-query";
 import { fetchDailyword } from "../../../pages/api/fetchDailyword";
 import Link from 'next/link'
 import styles from './AfterSearchWordMeaning.module.css';
+import Meanbox from "../../molecule/box/meanbox";
 export default function AfterSearchWordMeaning({ sentences }) {
 
 
     const onClick = (e) => {
         console.log(e.target.innerText);
-
     }
+    console.log(sentences)
 
     return (
         <div>
@@ -18,7 +19,10 @@ export default function AfterSearchWordMeaning({ sentences }) {
                         {
                             item.morp.map((word) => (
                                 <ul className={styles.sentences} key={word.id}>
-                                    <li className={`${styles.words} ${styles.pointer}`} onClick={onClick}>
+                                    <li className={`${styles.words} ${styles.pointer}`}>
+                                        <Meanbox word={word}></Meanbox>
+                                    </li>
+                                    {/* <li className={`${styles.words} ${styles.pointer}`} onClick={onClick}>
                                         <Link href={{
                                             pathname: '/word',
                                             query: { word: word.lemma }
@@ -27,7 +31,7 @@ export default function AfterSearchWordMeaning({ sentences }) {
                                             {word.lemma}
                                         </Link>
                                     </li>
-                                    <li className={`${styles.words} ${styles.default}`}>{`(${word.type})`}</li>
+                                    <li className={`${styles.words} ${styles.default}`}>{`(${word.type})`}</li> */}
                                 </ul>
                             ))}
                     </ul>

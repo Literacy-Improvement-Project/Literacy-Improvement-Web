@@ -5,17 +5,28 @@ import PrevButton from "../../molecule/buttons/prevButton";
 import QuizItem from "../../molecule/quizItem/quizitem";
 import Button from "../../atom/Button/Button";
 import Link from "next/link";
+import { useSelector, useDispatch } from 'react-redux'
+import { dehydrate, QueryClient, useQuery, useMutation } from "react-query";
+import { fetchQuizResult } from "../../../pages/api/fetchQuizResult";
+import axios from "axios";
+
 
 export default function QuizCarousel({slideItems}) {
 
+  const email = useSelector((state) => state.authSlice.email)
   const [slideTotal, setSlideTotal] = useState(slideItems.length-1);
   const [slideCurrent, setSlideCurrent] = useState(0);
   const [correctCount, setCorrectCount] = useState(0);
   const [isSubmitAnswer, setIsSubmitAnswer] = useState(false);
 
+  const mutation = useMutation(score => {
+    let body = {score: score}
+    console.log(body)
+    return fetchQuizResult(body)
+  })
+
   let answerList = []
   answerList.length = slideTotal+1
-
 
   const slideLeft = () => {
     if (slideCurrent < 1) {
@@ -34,33 +45,32 @@ export default function QuizCarousel({slideItems}) {
       setSlideCurrent(slideCurrent + 1)
     }
   }
-  console.log(slideItems)
-  console.log(answerList)
 
   const countAnswer = (isAnswer) => {
     {isAnswer? setCorrectCount(correctCount + 1) : {}}
     slideRight()
-    console.log(isAnswer)
   }
 
   const setAnswerList = (userAnswer) => {
     answerList[slideCurrent] = userAnswer
-    console.log(answerList)
   }
 
   const submitAnswer = () => {
     // 퀴즈 결과 제출, 포인트 제출 (backendAPI-post로 전송)
     setIsSubmitAnswer(true)
+    mutation.mutate(correctCount)
   }
 
   const quizSummary = (
-    <div>
-      <h2>{correctCount}점</h2>
-      <h2>{correctCount}/{slideTotal+1}</h2>
+    <div className={styles.container_summary}>
+      <div className={styles.summary}>
+        <h2>{correctCount}점</h2>
+        <h2>{correctCount}/{slideTotal+1}</h2>
+      </div>
       <ul>
         {slideItems.map((slide, index) => {
           return (
-            <h4>{slide.word} - {slide.word_mean}</h4>
+            <li key={index} className={styles.answer}>{slide.word} - {slide.word_mean}</li>
           )
         })}
       </ul>
@@ -100,7 +110,7 @@ export default function QuizCarousel({slideItems}) {
         </div>
         <div className={styles.btn_prevnext}>
           {slideCurrent>slideTotal
-          ?(isSubmitAnswer?<Button label="홈으로"></Button>:<PrevButton prevEvent={() => slideLeft()}/>)
+          ?(isSubmitAnswer?<Button label="홈으로"><Link href="/"></Link></Button>:<PrevButton prevEvent={() => slideLeft()}/>)
           :<PrevNextButton prevEvent={() => slideLeft()} nextEvent={() => slideRight()}/>
           }
         </div>

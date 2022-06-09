@@ -2,6 +2,8 @@ import { combineReducers } from "@reduxjs/toolkit";
 import { HYDRATE } from "next-redux-wrapper";
 
 import counter from './counterSlice';
+import quizSlice from "./quizSlice";
+import authSlice from "./authSlice";
 
 const rootReducer = (state, action) => {
     if (action.type === HYDRATE) {
@@ -11,7 +13,10 @@ const rootReducer = (state, action) => {
         };
     }
     return combineReducers({
-        counter, // 여기에 추가 
+        counter,
+        quizSlice,
+        authSlice,
+        // 여기에 추가 
     })(state, action);
 }
 

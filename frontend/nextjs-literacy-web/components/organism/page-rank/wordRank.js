@@ -1,10 +1,25 @@
+import { dehydrate, QueryClient, useQuery } from "react-query";
 import styles from "./WordRank.module.css"
 import { Button } from "../../atom/Button/Button"
+import { fetchWordRank } from "../../../pages/api/fetchWordRank"
+
 
 export default function WordRank({wordList}) {
 
   let rank_base_url = "https://ssl.nexon.com/s2/game/maplestory/renewal/common/ranking_num0"
 
+  const { isLoading, isError, error, data } = useQuery('wordRank', () =>
+    fetchWordRank(),
+    {
+      keepPreviousData: true,
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
+    }
+  );
+
+  if(data) {
+    console.log(data)
+  }
 
   return (
     <div className={styles.container}>
@@ -31,7 +46,12 @@ export default function WordRank({wordList}) {
           </tr>
         </thead>
         <tbody>
-          {wordList.map((word, index) => {
+        {isLoading ? (
+          <div>Loading...</div>
+        ) : isError ? (
+          <div>Error: {error.message}</div>
+        ) : (
+          wordList.map((word, index) => {
             return (
               <tr className={styles.tr}>
                 <td>
@@ -45,9 +65,26 @@ export default function WordRank({wordList}) {
                 <td>{word.score}</td>
               </tr>
             )
-          })}
+          })         
+        )}
         </tbody>
       </table>
     </div>
   )
+}
+
+export async function getServerSideProps(context) {
+
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(
+    "wordRank",
+    async () => await fetchWordRank()
+  );
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    }
+  }
 }

@@ -14,71 +14,81 @@ import { useState } from "react";
 
 export default function QuizItems() {
 
-  // const { isLoading, isError, error, data } = useQuery('quizcontent',() =>
-  //   fetchQuizItem(),
-  //   {
-  //     keepPreviousData: true,
-  //     refetchOnMount: false,
-  //     refetchOnWindowFocus: false,
-  //   }
-  // );
-
-  const data = [
+  const { isLoading, isError, error, data } = useQuery('getQuizContent',() =>
+    fetchQuizItem(),
     {
-      word: "가나다",
-      word_mean: "정답",
-      wrong_answer1: "오답1",
-      wrong_answer2: "오답2",
-      wrong_answer3: "오답3",
+      keepPreviousData: true,
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
+    }
+  );
+
+  const data2 = [
+    {
+      word: "벼룩잠",
+      word_mean: "깊이 잠들지 못하고 자꾸 자다가 깨는 잠",
+      wrong_answer1: "비좁은 방에서 여럿이 모로 끼어 자는 잠",
+      wrong_answer2: "한 번 들었던 잠이 깨었다가 다시 드는 잠",
+      wrong_answer3: "남의 눈에 띄지 않도록 몰래 자는 잠",
     }, {
-      word: "라마바",
-      word_mean: "정답",
-      wrong_answer1: "오답1",
-      wrong_answer2: "오답2",
-      wrong_answer3: "오답3",
+      word: "된비알",
+      word_mean: "몹시 험한 비탈",
+      wrong_answer1: "길흉화복을 예언하여 적은 기록",
+      wrong_answer2: "깊이 감추어진 내막의 비밀",
+      wrong_answer3: "깎아 세운 듯한 돌의 언덕",
     }, {
-      word: "아자차",
-      word_mean: "정답",
-      wrong_answer1: "오답1",
-      wrong_answer2: "오답2",
-      wrong_answer3: "오답3",
+      word: "에움길",
+      word_mean: "굽은 길",
+      wrong_answer1: "좁은 길",
+      wrong_answer2: "곧은 길",
+      wrong_answer3: "넓은 길",
     }, {
-      word: "타파",
-      word_mean: "정답",
-      wrong_answer1: "오답1",
-      wrong_answer2: "오답2",
-      wrong_answer3: "오답3",
+      word: "단출내기",
+      word_mean: "식구가 없어 홀가분한 사람",
+      wrong_answer1: "만만하게 여길 만큼 평범한 사람",
+      wrong_answer2: "하찮은 공로나 출세로 거들먹거리는 사람",
+      wrong_answer3: "어떤 일에 처음 나서서 일이 서투른 사람",
     }, {
-      word: "하하하",
-      word_mean: "정답",
-      wrong_answer1: "오답1",
-      wrong_answer2: "오답2",
-      wrong_answer3: "오답3",
+      word: "꿈지러기",
+      word_mean: "음식물에서 생긴 구더기",
+      wrong_answer1: "헐어서 못 쓰게 된 물건",
+      wrong_answer2: "잘게 부스러진 물건",
+      wrong_answer3: "잘라 내고 남은 나머지",
     }
   ]
 
-  console.log(data)
+  if (data) {
+    console.log(data)
+  }
 
 
   return (
-      <div>
-        <QuizCarousel slideItems={data}/>
+      <div className={styles.container}>
+        {isLoading ? (
+          <div>Loading...</div>
+        ) : isError ? (
+          <div>Error: {error.message}</div>
+        ) : (
+          <div>
+            <QuizCarousel slideItems={data}/>
+          </div>
+        )}
       </div>
   );
 }
 
 export async function getServerSideProps(context) {
 
-  // const queryClient = new QueryClient();
+  const queryClient = new QueryClient();
 
-  // await queryClient.prefetchQuery(
-  //   "quizcontent", 
-  //   async () => await fetchQuizItem()
-  // );
+  await queryClient.prefetchQuery(
+    "getQuizContent", 
+    async () => await fetchQuizItem()
+  );
 
-  // return { 
-  //   props: { 
-  //     dehydratedState: dehydrate(queryClient),
-  //   } 
-  // }
+  return { 
+    props: { 
+      dehydratedState: dehydrate(queryClient),
+    } 
+  }
 }

@@ -43,7 +43,7 @@ export default function UserRank({userList, userInfo}) {
             <th align="left" scope="col">점수</th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className={styles.tbody}>
           {userList.map((user, index) => {
             return (
               <tr className={styles.tr}>

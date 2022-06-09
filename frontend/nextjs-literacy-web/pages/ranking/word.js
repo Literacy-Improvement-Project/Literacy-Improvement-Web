@@ -3,13 +3,13 @@ import WordRank from "../../components/organism/page-rank/wordRank"
 export default function WordRanking() {
 
   let wordList = [
-    {word: "word1", mean: "mean", score: 10}, 
-    {word: "word2", mean: "mean", score: 9}, 
-    {word: "word3", mean: "mean", score: 8}, 
-    {word: "word4", mean: "mean", score: 7}, 
-    {word: "word5", mean: "mean", score: 6}, 
-    {word: "word6", mean: "mean", score: 4}, 
-    {word: "word7", mean: "mean", score: 2}, 
+    {word: "겨레", mean: "같은 핏줄을 이어받은 민족.", score: 10}, 
+    {word: "이윽고", mean: "얼마 있다가. 또는 얼마쯤 시간이 흐른 뒤에.", score: 9}, 
+    {word: "담은", mean: "은혜를 널리 베풂.", score: 8}, 
+    {word: "아담하다", mean: "고상하면서 담백하다.", score: 7}, 
+    {word: "갖추갖추", mean: "여럿이 모두 있는 대로", score: 6}, 
+    {word: "제잡이", mean: "스스로 자기 자신을 망치는 일", score: 4}, 
+    {word: "되틀다", mean: "반대쪽으로 틀다", score: 2}, 
   ]
   
   return (

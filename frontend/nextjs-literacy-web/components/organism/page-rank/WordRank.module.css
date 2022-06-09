@@ -1,4 +1,5 @@
 .container {
+    font-family: 'Jalnan';
     position: relative;
     box-sizing: border-box;
     display: flex;
@@ -6,15 +7,15 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    background-color: beige;
+    background-image: linear-gradient(to right top, #ffffff, #f4ffff, #deffff, #d7ffef, #effdce);
     margin: 0px auto;
 }
 
 .title {
     display: flex;
     align-items: center;
-    justify-content: left;
-    margin: 20px;
+    justify-content: center;
+    margin: 5vh;
     width: 100%;
 }
 
@@ -107,7 +108,7 @@
     position: relative;
     height: 40px;
     user-select: none;
-    background: #e6eaf3;
+    background: #d8e4ff;
     color: #464555;
     font-size: 15px;
     line-height: 1.3;
@@ -134,4 +135,9 @@
     font-weight: normal;
     vertical-align: middle;
     padding: 8px 4px;
+}
+
+@font-face {
+    font-family: 'Jalnan';
+    src: url("../../../public//fonts/JalnanOTF.otf") format('opentype');
 }

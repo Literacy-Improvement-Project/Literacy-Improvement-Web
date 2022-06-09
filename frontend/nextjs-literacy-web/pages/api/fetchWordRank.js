@@ -1,10 +1,10 @@
-// pages/api/fetchQuizItem.js
+// pages/api/fetchWordRank.js
 import axios from "axios";
 
-export const fetchQuizItem = async () => {
+export const fetchWordRank = async () => {
 
-  const { data } = await axios.get(
-    "http://61.255.221.125:9999/wordQuiz"
+  const { data } = await axios.post(
+    "http://61.255.221.125:9999/wordRank"
   ).then((response) => {
     return response
   })

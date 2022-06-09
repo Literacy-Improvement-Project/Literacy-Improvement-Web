@@ -1,15 +1,18 @@
 .container {
+    margin: 5px;
     display: flex;
-    width : 50%;
-    /* If you want to place the icon before the text input */
-    flex-direction: row-reverse;
-
-    /* Border */
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    width: 500px;
+    height: 45px;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid #97e053;
+    border-radius: 30px;
+    box-sizing: border-box;
 }
 
-.container__input {
+.input {
     border-color: transparent;
     /* Take available width */
-    flex: 1;
+    font-size: medium;
+    width: 460px;
 }

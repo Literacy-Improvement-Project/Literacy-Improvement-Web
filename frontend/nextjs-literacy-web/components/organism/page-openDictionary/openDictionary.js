@@ -19,7 +19,6 @@ export default function OpenDictionary() {
   if (data) {
     dictionaryList = data.results
   }
-  console.log(dictionaryList)
 
   const gotoMyDictionary = () => {
     console.log("hi")

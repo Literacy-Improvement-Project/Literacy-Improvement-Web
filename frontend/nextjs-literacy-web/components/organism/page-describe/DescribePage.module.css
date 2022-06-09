@@ -10,9 +10,17 @@
 }
 
 .title {
+    margin: 2vh;
+    font-family: 'Jalnan';
     text-align: center;
 }
 
 .text {
+    margin: 2vh;
     text-align: center;
+}
+
+@font-face {
+    font-family: 'Jalnan';
+    src: url("../../../public//fonts/JalnanOTF.otf") format('opentype');
 }

@@ -3,6 +3,8 @@ import AfterSearchWordMeaning from "./AfterSearchWordMeaning";
 import { dehydrate, QueryClient, useQuery } from "react-query";
 import { postMorp } from "../../../pages/api/postMorp";
 import { useState } from "react";
+import styles from './SearchWord.module.css'
+
 
 export default function SearchWord() {
 
@@ -31,7 +33,7 @@ export default function SearchWord() {
     setAccount(tmp);
   })
   return (
-    <div>
+    <div className={styles.container}>
       < SearchWordMeaning getistrue={getistrue} getAccount={getAccount} setistrue={setistrue}></SearchWordMeaning >
       {istrue ? <AfterSearchWordMeaning sentences={sentences}></AfterSearchWordMeaning> : <div></div>}
     </div>

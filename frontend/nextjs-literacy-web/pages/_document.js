@@ -10,7 +10,9 @@ class MainDocument extends Document {
   render() {
     return (
       <Html>
-        <Head />
+        <Head>
+          <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+        </Head>
         <body>
           <Main />
           <NextScript />
