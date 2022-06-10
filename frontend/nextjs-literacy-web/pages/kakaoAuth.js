@@ -22,11 +22,20 @@ export default function kakaoAuth({params}) {
 
   if(data){
     dispatch(loginUser(data))
-    // alert('로그인 되었습니다.')
+    alert({data}+"님 로그인 되었습니다!")
+    router.push('/')
   }
 
   return (
-    <h2>Loading...</h2>
+    <>
+      {isLoading ? (
+          <div>로그인 중...</div>
+        ) : isError ? (
+          <div>Error: {error.message}</div>
+        ) : (
+          <div>안녕하세요, 바른말 배움터에 오신 것을 환영합니다.</div>      
+        )}
+    </>
   )
 }
 

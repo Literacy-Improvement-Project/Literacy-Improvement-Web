@@ -1,7 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = { 
-  email: "",
+    isLogin: false,
+    email: "",
 }; // 초기 상태 정의
 
 const authSlice = createSlice({
@@ -11,6 +12,7 @@ const authSlice = createSlice({
         loginUser: (state, action) => {
             console.log(action.payload)
             state.email = action.payload;
+            state.isLogin = true
         }
     },
 });

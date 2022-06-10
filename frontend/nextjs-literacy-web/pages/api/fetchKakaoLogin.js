@@ -10,7 +10,6 @@ export const fetchKakaoLogin = async (code) => {
       }
     }
   ).then((response) => {
-    console.log(response)
     return response
   })
     .catch((error) => {

@@ -1,18 +1,23 @@
 import { dehydrate, QueryClient, useQuery } from "react-query";
 import UserRank from "../../components/organism/page-rank/userRank";
-// import { getUserRank } from "./api/getUserRank"
+import { fetchUserRank } from "../api/fetchUserRank";
 
 export default function UserRanking() {
 
-  // const { isLoading, isError, error, data } = useQuery('userRank',() =>
-  // getUserRank(),
-  //   {
-  //     keepPreviousData: true,
-  //     refetchOnMount: false,
-  //     refetchOnWindowFocus: false,
-  //   }
-  // );
-  // console.log(data)
+  const { isLoading, isError, error, data } = useQuery('userRank', () =>
+    fetchUserRank(),
+    {
+      keepPreviousData: true,
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
+    }
+  );
+
+  if(data) {
+    console.log(data)
+  }
+
+
   let img_URL = "https://opgg-static.akamaized.net/images/profile_icons/profileIcon4690.jpg?image=q_auto&image=q_auto,f_png,w_64&v=1652433080439"
 
   let userList = [
@@ -30,24 +35,30 @@ export default function UserRanking() {
 
   return (
     <div>
-      <UserRank userList={userList} userInfo={userInfo}></UserRank>
+      {isLoading ? (
+        <div>Loading...</div>
+        ) : isError ? (
+          <div>Error: {error.message}</div>
+        ) : (
+          <UserRank userList={userList} userInfo={userInfo}></UserRank>
+        )}
     </div>
   )
 
 }
 
-// export async function getServerSideProps(context) {
+export async function getServerSideProps(context) {
 
-//   const queryClient = new QueryClient();
+  const queryClient = new QueryClient();
 
-//   await queryClient.prefetchQuery(
-//     "userRank", 
-//     async () => await getUserRank()
-//   );
+  await queryClient.prefetchQuery(
+    "userRank",
+    async () => await fetchWordRank()
+  );
 
-//   return { 
-//     props: { 
-//       dehydratedState: dehydrate(queryClient),
-//     } 
-//   }
-// }
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    }
+  }
+}

@@ -7,8 +7,7 @@ import Dailyword from '../components/organism/page-dailyword/dailyword';
 import MainQuiz from '../components/organism/page-quiz/mainQuiz';
 import OpenDictionary from '../components/organism/page-openDictionary/openDictionary';
 import SearchWord from '../components/organism/SearchWordMeaning/searchWord';
-
-import LoginModal from '../components/organism/Modal/LoginModal'
+import LoginCheck from '../components/organism/page-login/LoginCheck';
 
 export default function Home() {
 
@@ -16,33 +15,25 @@ export default function Home() {
   // const handleSearchText = ({ target }) => {
   //   setSearchText(target.value);
   // };
-  const [showModal, setShowModal] = useState(false);
-
 
   return (
     <div className={`${styles.container} ${styles.scroll_container}`}>
       <ul>
+        <li><LoginCheck></LoginCheck></li>
         <li>
           <a name="searchWords"><SearchWord></SearchWord></a>
         </li>
         <li><DescribePage></DescribePage></li>
-        <button onClick={() => setShowModal(true)}>로그인</button>
-        <LoginModal
-          onClose={() => setShowModal(false)}
-          show={showModal}
-          maskClosable={true}
-        >
-        </LoginModal>
-        <li><a name="dailyWords"><Dailyword></Dailyword></a> </li>
+        <li><a name="dailyWords"><Dailyword></Dailyword></a></li>
         <li><MainQuiz></MainQuiz></li>
         <li><a name="openDictionary"><OpenDictionary></OpenDictionary></a></li>
+        <li><a name="myDictionary"></a><MyDictionary></MyDictionary></li>
         {/* <li>
           <input type="text" value={searchText} onChange={(e) => handleSearchText(e)} />
           <button label="검색">
             <Link href={`/testNaverSearch/${searchText}`}><a>네이버API</a></Link>
           </button>
         </li> */}
-        <li><a name="myDictionary"></a><MyDictionary></MyDictionary></li>
       </ul>
     </div>
   )

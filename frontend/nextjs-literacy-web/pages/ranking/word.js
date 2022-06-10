@@ -1,4 +1,6 @@
+import { dehydrate, QueryClient, useQuery } from "react-query";
 import WordRank from "../../components/organism/page-rank/wordRank"
+import { fetchWordRank } from "../api/fetchWordRank";
 
 export default function WordRanking() {
 
@@ -11,10 +13,39 @@ export default function WordRanking() {
     {word: "제잡이", mean: "스스로 자기 자신을 망치는 일", score: 4}, 
     {word: "되틀다", mean: "반대쪽으로 틀다", score: 2}, 
   ]
+
+  const { isLoading, isError, error, data } = useQuery('wordRank', () =>
+    fetchWordRank(),
+    {
+      keepPreviousData: true,
+      refetchOnMount: false,
+      refetchOnWindowFocus: false,
+    }
+  );
+
+  if(data) {
+    console.log(data)
+  }
   
   return (
     <div>
       <WordRank wordList={wordList}></WordRank>
     </div>
   )
+}
+
+export async function getServerSideProps(context) {
+
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(
+    "wordRank",
+    async () => await fetchWordRank()
+  );
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    }
+  }
 }
