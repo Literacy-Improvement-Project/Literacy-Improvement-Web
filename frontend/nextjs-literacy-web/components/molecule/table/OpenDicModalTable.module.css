@@ -1,0 +1,30 @@
+.width {
+    width: 21vh;
+    height: 5vh;
+    flex-direction: column;
+}
+
+.tr {
+    height: 9vh;
+    /* position: relative;
+    display: flex; */
+}
+
+.containner {
+    width: 65vh;
+    height: 46.9vh;
+    overflow-y: scroll;
+    margin: auto;
+}
+
+.table {
+    /* overflow-y: scroll;
+    align-items: center;
+    justify-content: center; */
+    margin: auto;
+}
+
+.link {
+    width: 21vh;
+    height: 8vh;
+}

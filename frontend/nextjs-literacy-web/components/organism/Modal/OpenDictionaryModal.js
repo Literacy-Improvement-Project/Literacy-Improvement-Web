@@ -1,11 +1,11 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import styled from 'styled-components'
-import ReactDOM from 'react-dom'
-import ModalBox from '../../atom/ModalBox/ModalBox';
-import ModalTable from '../../molecule/table/ModalTable';
 
-const Modal = ({ show, maskClosable, onClose, children, title, data }) => {
+import ReactDOM from 'react-dom'
+import OpenDicModalTable from '../../molecule/table/OpenDicModalTable';
+
+const OpenDictionaryModal = ({ show, maskClosable, onClose, children, title, data }) => {
     const [isBrowser, setIsBrowser] = useState(false);
     console.log(data)
     const onMaskClick = (e) => {
@@ -37,10 +37,10 @@ const Modal = ({ show, maskClosable, onClose, children, title, data }) => {
                         x
                     </a>
                 </StyledModalHeader>
-                {title && <StyledModalTitle>오픈사전에 등록하기</StyledModalTitle>}
+                {title && <StyledModalTitle>{"한의학"}</StyledModalTitle>}
+                <StyledModalSubTitle>{"Made by 철"}</StyledModalSubTitle>
                 <StyledModalBody>{children}
-                    <ModalBox>{title}</ModalBox>
-                    <ModalTable data={data} handleCloseClick={handleCloseClick}></ModalTable>
+                    <OpenDicModalTable data={data} handleCloseClick={handleCloseClick}></OpenDicModalTable>
                 </StyledModalBody>
             </StyledModal>
         </StyledModalOverlay>
@@ -61,7 +61,7 @@ const StyledModalOverlay = styled.div`
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     display: ${(props) => (props.visible ? 'flex' : 'none')};
     justify-content: center;
     align-items: center;
@@ -71,8 +71,8 @@ const StyledModalOverlay = styled.div`
 
 const StyledModal = styled.div`
     background: white;
-    width: 500px;
-    height: 600px;
+    width: 70vh;
+    height: 70vh;
     border-radius: 15px;
     padding: 15px;
     box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.5);
@@ -99,6 +99,15 @@ const StyledModalTitle = styled.div`
     text-align: center;
     font-weight: bold;
   `;
+const StyledModalSubTitle = styled.div`
+    padding-top: 5px;
+    padding-bottom: 10px;
+    display: block;
+    justify-content: flex-end;
+    font-size: 15px;
+    text-align: center;
+    font-weight: bold;
+  `;
 
 
-export default Modal;
+export default OpenDictionaryModal;

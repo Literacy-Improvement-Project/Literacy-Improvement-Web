@@ -1,10 +1,11 @@
 //for Navigation bar
 import Link from 'next/link';
-import MainQuiz from '../page-quiz/mainQuiz';
+import { useState } from 'react';
 import styles from './Nav.module.css';
 import { useRouter } from "next/router";
 
-export default function Nav(props) {
+export default function Nav() {
+    const [check, setCheck] = useState(false);
 
     const index = {
         home: "#home",
@@ -17,30 +18,40 @@ export default function Nav(props) {
 
     const router = useRouter();
 
-    console.log(router.pathname)
-    if (router.pathname === '/'){
-
-    }
-
     return (
         <div className={styles.container}>
             <nav className={styles.nav}>
                 <ul className={styles.ul}>
-                    <li className={styles.home}><a className={styles.a} href="/">home</a></li>
+
+                    <li className={styles.test}><a className={styles.a} href="/"><img className={styles.img} src="./images/picture01.png" /></a></li>
                     {router.pathname === '/'?
                     <>
-                        <li className={styles.li}><a className={styles.a} href={index.dailyWords}><span className={styles.span}>오늘의 단어</span></a></li>
-                        <li className={styles.li}><a className={styles.a} href={index.searchWords}>단어 검색</a></li>
-                        <li className={styles.li}><a className={styles.a} href={index.openDictionary}>오픈 사전</a></li>
+                        <li className={styles.li}><a className={styles.a} href={index.dailyWords}><img className={styles.img2} src="./images/daily_word.png" /></a></li>
+                        <li className={styles.li}><a className={styles.a} href={index.searchWords}><img className={styles.img2} src="./images/search_word02.png" /></a></li>
+                        <li className={styles.li}><a className={styles.a} href={index.openDictionary}><img className={styles.img2} src="./images/openDictionary.png" /></a></li>
                     </> :
                     <>
-                        <li className={styles.li}><Link href="/"><a className={styles.a} >오늘의 단어</a></Link></li>
-                        <li className={styles.li}><Link href="/"><a className={styles.a} >단어 검색</a></Link></li>
-                        <li className={styles.li}><Link href="/"><a className={styles.a} >오픈 사전</a></Link></li> 
+                        <li className={styles.li}><Link href="/"><a className={styles.a} href={index.dailyWords}><img className={styles.img2} src="./images/daily_word.png" /></a></Link></li>
+                        <li className={styles.li}><Link href="/"><a className={styles.a} href={index.searchWords}><img className={styles.img2} src="./images/search_word02.png" /></a></Link></li>
+                        <li className={styles.li}><Link href="/"><a className={styles.a} href={index.openDictionary}><img className={styles.img2} src="./images/openDictionary.png" /></a></Link></li>
                     </>
                     }
-                    <li className={styles.li}><Link href="/quiz"><a className={styles.a} >퀴즈</a></Link></li>
-                    <li className={styles.li}><Link href="/mydictionary"><a className={styles.a} >나만의 단어장</a></Link></li>
+                    <li className={styles.li}><Link href="/quiz"><a className={styles.a} ><img className={styles.img2} src="./images/quiz02.png" /></a></Link></li>
+                    <li className={styles.li}><Link href="/mydictionary"><a className={styles.a} ><img className={styles.img2} src="./images/myDictionary.png" /></a></Link></li>
+                    <li className={styles.li}>
+                        <button className={styles.title_ranking} onClick={() => setCheck(!check)}>
+                            <img className={styles.img2} src="./images/ranking01.png" />
+                        </button>
+                        {check ? 
+                        <div className={styles.body_ranking}>
+                            <Link href="/userRank"><a className={styles.a} onClick={() => { setCheck(false) }} >
+                                <img className={styles.user_ranking} src="./images/user_ranking01.png" /></a>
+                            </Link>
+                            <Link href="/wordRank"><a className={styles.a} onClick={() => { setCheck(false) }} >
+                                <img className={styles.word_ranking} src="./images/word_ranking01.png" /></a>
+                            </Link>
+                        </div> : <></>}
+                    </li>
                 </ul>
             </nav>
         </div>

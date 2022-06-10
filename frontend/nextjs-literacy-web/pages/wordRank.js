@@ -1,6 +1,6 @@
 import { dehydrate, QueryClient, useQuery } from "react-query";
-import WordRank from "../../components/organism/page-rank/wordRank"
-import { fetchWordRank } from "../api/fetchWordRank";
+import WordRank from "../components/organism/page-rank/wordRank"
+import { fetchWordRank } from "./api/fetchWordRank";
 
 export default function WordRanking() {
 
@@ -29,7 +29,13 @@ export default function WordRanking() {
   
   return (
     <div>
-      <WordRank wordList={wordList}></WordRank>
+      {/* {isLoading ? (
+        <div>Loading...</div>
+        ) : isError ? (
+          <div>Error: {error.message}</div>
+        ) : ( */}
+        <WordRank wordList={wordList}></WordRank>
+      {/* )} */}
     </div>
   )
 }

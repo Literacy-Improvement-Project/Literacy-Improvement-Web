@@ -64,15 +64,15 @@ export default function QuizItems() {
 
   return (
       <div className={styles.container}>
-        {isLoading ? (
+        {/* {isLoading ? (
           <div>Loading...</div>
         ) : isError ? (
           <div>Error: {error.message}</div>
-        ) : (
+        ) : ( */}
           <div>
-            <QuizCarousel slideItems={data}/>
+            <QuizCarousel slideItems={data2}/>
           </div>
-        )}
+        {/* )} */}
       </div>
   );
 }

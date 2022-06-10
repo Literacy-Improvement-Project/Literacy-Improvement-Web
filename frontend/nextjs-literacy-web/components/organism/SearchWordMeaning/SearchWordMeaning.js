@@ -3,7 +3,6 @@ import Search from '../../atom/Search/Search';
 import { useState, useCallback } from 'react';
 import styles from './SearchWordMeaning.module.css'
 
-
 export default function SearchWordMeaning(props) {
 
     //click event

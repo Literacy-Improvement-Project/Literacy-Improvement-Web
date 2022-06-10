@@ -2,37 +2,27 @@ import { dehydrate, QueryClient, useQuery } from "react-query";
 import { fetchDailyword } from "../../../pages/api/fetchDailyword";
 import Link from 'next/link'
 import styles from './AfterSearchWordMeaning.module.css';
-import Meanbox from "../../molecule/box/meanbox";
+import Meanbox from "../../molecule/meanbox/Meanbox";
 export default function AfterSearchWordMeaning({ sentences }) {
 
 
     const onClick = (e) => {
-        console.log(e.target.innerText);
+        // console.log(e.target.innerText);
+
     }
-    console.log(sentences)
 
     return (
-        <div>
+        <div className={styles.container} >
             {
                 sentences.map((item) => (
                     <ul key={item.id}>
                         {
                             item.morp.map((word) => (
-                                <ul className={styles.sentences} key={word.id}>
-                                    <li className={`${styles.words} ${styles.pointer}`}>
+                                <div className={styles.sentences} key={word.id}>
+                                    <li key={word.id} className={`${styles.words} ${styles.pointer}`} onClick={onClick}>
                                         <Meanbox word={word}></Meanbox>
                                     </li>
-                                    {/* <li className={`${styles.words} ${styles.pointer}`} onClick={onClick}>
-                                        <Link href={{
-                                            pathname: '/word',
-                                            query: { word: word.lemma }
-                                        }}
-                                        >
-                                            {word.lemma}
-                                        </Link>
-                                    </li>
-                                    <li className={`${styles.words} ${styles.default}`}>{`(${word.type})`}</li> */}
-                                </ul>
+                                </div>
                             ))}
                     </ul>
                 ))

@@ -1,6 +1,6 @@
 import { dehydrate, QueryClient, useQuery } from "react-query";
-import UserRank from "../../components/organism/page-rank/userRank";
-import { fetchUserRank } from "../api/fetchUserRank";
+import UserRank from "../components/organism/page-rank/userRank";
+import { fetchUserRank } from "./api/fetchUserRank";
 
 export default function UserRanking() {
 
@@ -35,13 +35,13 @@ export default function UserRanking() {
 
   return (
     <div>
-      {isLoading ? (
+      {/* {isLoading ? (
         <div>Loading...</div>
         ) : isError ? (
           <div>Error: {error.message}</div>
-        ) : (
+        ) : ( */}
           <UserRank userList={userList} userInfo={userInfo}></UserRank>
-        )}
+        {/* )} */}
     </div>
   )
 

@@ -19,14 +19,14 @@ const SearchResults = ({ setCategory }) => {
                 카테고리 종류▼</label>}
             <input type="checkbox" id={styles.toggle_button} />
             <div id={styles.toggle_contents}>
-                <label htmlFor={styles.toggle_button} className={styles.close_button} >X</label>
-                <div id="1" onClick={onclick}>Contents
+                <label htmlfor={styles.toggle_button} className={styles.close_button} >X</label>
+                <div id="1" onClick={onclick}>한의학
                 </div>
-                <div id="2" onClick={onclick}>Contents2
+                <div id="2" onClick={onclick}>동물
                 </div>
-                <div id="3" onClick={onclick}>Contents3
+                <div id="3" onClick={onclick}>야구
                 </div>
-                <div id="4" onClick={onclick}>Contents4
+                <div id="4" onClick={onclick}>학교
                 </div>
 
             </div>

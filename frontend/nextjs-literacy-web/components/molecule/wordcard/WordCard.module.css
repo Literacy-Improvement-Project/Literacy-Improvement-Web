@@ -1,28 +1,28 @@
 .card_container {
-    box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    background-color: #fffffff8;
-    margin: 10px;
+    background-color: #F4FCF1;
+    align-items: center;
+    margin: 20px;
     border: 10px;
-    margin-left: 500px;
-    margin-right: 500px;
+    border-radius: 6vh 1vh / 1vh 6vh;
 }
 
-.card_cover {
-    height: 50px;
-    width: 100px;
-}
-
-.card_content {
-    /* Take available height */
-    flex: 1;
+.h1 {
+    margin: 1vh;
+    font-family: 'Jalnan';
+    /* color: rgb(0, 178, 209); */
 }
 
 .mean_cover {
-    background-color: #f3f1ec98;
-    height: 50px;
-    width: 150px;
-    margin-left: auto;
-    margin-right: auto;
+    /* height: 50px; */
+    margin-left: 1vh;
+    margin-right: 1vh;
+    margin-top: 1vh;
+    margin-bottom: 2vh;
+}
+
+@font-face {
+    font-family: 'Jalnan';
+    src: url("../../../public//fonts/JalnanOTF.otf") format('opentype');
 }

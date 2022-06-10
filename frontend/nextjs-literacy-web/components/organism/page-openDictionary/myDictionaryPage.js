@@ -1,13 +1,14 @@
 import { dehydrate, QueryClient, useQuery } from "react-query";
 import { fetchMyDictionary } from "../../../pages/api/fetchMyDictionary"
 import styles from "./MyDictionaryPage.module.css"
-import Link from 'next/link'
+import OpenDictionaryModal from "../Modal/OpenDictionaryModal";
+import { useState } from "react";
 import DeleteButton from "../../atom/Button/DeleteButton";
 
 
 export default function MyDictionaryPage() {
 
-  const { isLoading, isError, error, data } = useQuery('myDictionary',() =>
+  const { isLoading, isError, error, data } = useQuery('myDictionary', () =>
     fetchMyDictionary(),
     {
       keepPreviousData: true,
@@ -15,6 +16,8 @@ export default function MyDictionaryPage() {
       refetchOnWindowFocus: false,
     }
   );
+
+  const [showModal, setShowModal] = useState(false);
 
   let dictionaryList = []
   if (data) {
@@ -24,25 +27,33 @@ export default function MyDictionaryPage() {
 
 
   return (
-      <div className={styles.container}>
-        <div className={styles.title}>나의 오픈사전</div>
-        {isLoading ? (
-          <div>Loading...</div>
-        ) : isError ? (
-            <div>Error: {error.message}</div>
-          ) : (
-          <ul className={styles.dictionary_list}>
-            {dictionaryList.map((dict, index) => {
-              return (
-                <li className={styles.item} key={index}>
-                  <DeleteButton></DeleteButton>
-                  <span className={styles.dict_title}>{dict.title}</span>
-                </li>
-              )
-            })}
-          </ul>
-        )}
-      </div>
+    <div className={styles.container}>
+      <div className={styles.title}>나의 오픈사전</div>
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : isError ? (
+        <div>Error: {error.message}</div>
+      ) : (
+        <ul className={styles.dictionary_list}>
+          {dictionaryList.map((dict, index) => {
+            return (
+              <li className={styles.item} key={index} onClick={() => setShowModal(true)}>
+                <DeleteButton></DeleteButton>
+                <span className={styles.dict_title}>{dict.title}</span>
+              </li>
+            )
+          })}
+        </ul>
+      )}
+      <OpenDictionaryModal
+        onClose={() => setShowModal(false)}
+        show={showModal}
+        title="tt"
+        maskClosable={true}
+        data="tttttt"
+      >
+      </OpenDictionaryModal>
+    </div>
   );
 }
 
@@ -51,13 +62,13 @@ export async function getServerSideProps(context) {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery(
-    "myDictionary", 
+    "myDictionary",
     async () => await fetchMyDictionary()
   );
 
-  return { 
-    props: { 
+  return {
+    props: {
       dehydratedState: dehydrate(queryClient),
-    } 
+    }
   }
 }

@@ -18,11 +18,41 @@ export default function SearchWord() {
       refetchOnMount: false,
       refetchOnWindowFocus: false,
     });
-  console.log(data);
+
   let sentences;
+
+  let tmp = [
+    {
+      morp: [
+
+      ]
+    },
+    {
+      morp: [
+
+      ]
+    },
+    {
+      morp: [
+
+      ]
+    }
+  ];
+
+  const POS = ["NNG", "NR", "NP", "VV", "VA", "VX", "MM", "MAG", "MAJ"];
+
+
+
   if (data != null) {
     sentences = data.return_object.sentence;
-    console.log(sentences);
+    for (let i = 0; i < sentences.length; i++) {
+      for (let word of sentences[i].morp) {
+        if (POS.includes(word.type)) {
+          tmp[i].morp.push(word);
+        }
+      }
+    }
+    console.log(tmp);
   }
 
   const getistrue = ((temp) => {
@@ -35,10 +65,11 @@ export default function SearchWord() {
   return (
     <div className={styles.container}>
       < SearchWordMeaning getistrue={getistrue} getAccount={getAccount} setistrue={setistrue}></SearchWordMeaning >
-      {istrue ? <AfterSearchWordMeaning sentences={sentences}></AfterSearchWordMeaning> : <div></div>}
+      {istrue ? <AfterSearchWordMeaning sentences={tmp}></AfterSearchWordMeaning> : <div></div>}
     </div>
   );
 }
+
 export async function getServerSideProps(context) {
 
   const queryClient = new QueryClient();

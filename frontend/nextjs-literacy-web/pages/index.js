@@ -1,11 +1,8 @@
-import Link from 'next/link'
 import styles from '../styles/Home.module.css'
-import { useState } from 'react';
-import MyDictionary from '../components/organism/page-myDictionary/MyDictionary';
 import DescribePage from '../components/organism/page-describe/describePage';
 import Dailyword from '../components/organism/page-dailyword/dailyword';
-import MainQuiz from '../components/organism/page-quiz/mainQuiz';
 import OpenDictionary from '../components/organism/page-openDictionary/openDictionary';
+import MyDictionary from '../components/organism/page-myDictionary/MyDictionary'
 import SearchWord from '../components/organism/SearchWordMeaning/searchWord';
 import LoginCheck from '../components/organism/page-login/LoginCheck';
 
@@ -25,9 +22,7 @@ export default function Home() {
         </li>
         <li><DescribePage></DescribePage></li>
         <li><a name="dailyWords"><Dailyword></Dailyword></a></li>
-        <li><MainQuiz></MainQuiz></li>
-        <li><a name="openDictionary"><OpenDictionary></OpenDictionary></a></li>
-        <li><a name="myDictionary"></a><MyDictionary></MyDictionary></li>
+        <li><a name="openDictionary"></a><OpenDictionary></OpenDictionary></li>
         {/* <li>
           <input type="text" value={searchText} onChange={(e) => handleSearchText(e)} />
           <button label="검색">
