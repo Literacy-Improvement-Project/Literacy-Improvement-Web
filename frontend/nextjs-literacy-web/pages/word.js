@@ -2,6 +2,7 @@ import { dehydrate, QueryClient, useQuery } from "react-query";
 import Word from "../components/organism/page-word/Word";
 import { useRouter } from 'next/router';
 import { fetchWords } from "./api/fetchWords";
+import postAddToDictionary from './api/postAddtoDictionary';
 
 export default function word() {
 
@@ -20,11 +21,13 @@ export default function word() {
 
   let words = null;
   if (data) {
-    words = data.channel.item[0].sense;
-    if (words) {
-      check = 1;
+    if (data.channel.item) {
+      words = data.channel.item[0].sense;
+      if (words) {
+        check = 1;
+      }
+      console.log(words);
     }
-    console.log(words);
   }
 
   return (
@@ -35,13 +38,14 @@ export default function word() {
 }
 export async function getServerSideProps(context) {
 
+
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery(
     "word",
     async () => await fetchWords(word)
   );
-
+  console.log(queryClient);
   return {
     props: {
       dehydratedState: dehydrate(queryClient),

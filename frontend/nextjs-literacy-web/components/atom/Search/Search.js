@@ -6,7 +6,7 @@ export default function Search(props) {
 
     return (
         <div className={styles.container}>
-            <input type="text" className={styles.container__input} placeholder="입력해주세요" onChange={props.getText} />
+            <input type="text" className={styles.input} placeholder="입력해주세요" onChange={props.getText} />
         </div>
     )
 }

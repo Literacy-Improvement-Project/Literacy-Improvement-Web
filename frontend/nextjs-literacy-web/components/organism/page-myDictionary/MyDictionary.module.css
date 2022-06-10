@@ -1,8 +1,9 @@
 .container {
     background-color: #ced1faa1;
     display: block;
+    position: relative;
     width: 100%;
-    height: 100vh;
+    height: 95vh;
 }
 
 .li {
@@ -11,4 +12,14 @@
 
 .title {
     font-weight: bold;
+    font-family: 'Jalnan';
+    font-size: 30px;
+    left: 33%;
+    position: relative;
+    padding-top: 5vh;
+}
+
+@font-face {
+    font-family: 'Jalnan';
+    src: url("../../../public//fonts/JalnanOTF.otf") format('opentype');
 }

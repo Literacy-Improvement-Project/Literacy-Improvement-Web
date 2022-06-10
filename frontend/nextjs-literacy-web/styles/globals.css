@@ -27,6 +27,7 @@
 }
 
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -49,4 +50,8 @@ h1 {
 
 div {
     display: block;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }

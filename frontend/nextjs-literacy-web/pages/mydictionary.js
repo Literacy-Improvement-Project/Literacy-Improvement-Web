@@ -1,10 +1,10 @@
-import MyDictionaryPage from "../components/organism/page-openDictionary/myDictionaryPage"
+import MyDictionary from "../components/organism/page-myDictionary/myDictionary"
 
-export default function MyDictionary() {
+export default function myDictionary() {
 
   return (
     <div>
-      <MyDictionaryPage></MyDictionaryPage>
+      <MyDictionary></MyDictionary>
     </div>
   )
 

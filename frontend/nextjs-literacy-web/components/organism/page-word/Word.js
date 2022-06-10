@@ -45,7 +45,7 @@ export default function Word({ word, words }) {
             <div className={styles.title}>
                 {word}
             </div>
-            <ul>
+            <ul className={styles.item_cover}>
                 {
                     words.map((item, index) => (
                         <div key={index}>

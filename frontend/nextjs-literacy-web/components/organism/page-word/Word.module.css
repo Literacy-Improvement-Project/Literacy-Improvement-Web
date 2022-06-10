@@ -1,0 +1,23 @@
+@font-face {
+    font-family: 'Jalnan';
+    src: url("../../../public//fonts/JalnanOTF.otf") format('opentype');
+}
+
+.title {
+    margin-top: 4vh;
+    margin-bottom: 1vh;
+    font-family: 'Jalnan';
+    position: relative;
+    left: 13%;
+    font-size: 30px;
+    color: rgba(4, 105, 63, 0.863);
+
+}
+
+.item_cover {
+    /* position: absolute; */
+    /* width: 200vh;
+    left: 13%;
+    top: 13%; */
+    list-style: none;
+}

@@ -1,7 +1,7 @@
 import Button from '../../atom/Button/Button';
 import Search from '../../atom/Search/Search';
 import { useState, useCallback } from 'react';
-import AfterSearchWordMeaning from './AfterSearchWordMeaning';
+import styles from './SearchWordMeaning.module.css'
 
 export default function SearchWordMeaning(props) {
 
@@ -19,9 +19,10 @@ export default function SearchWordMeaning(props) {
     })
 
     return (
-        <div>
-            <Button onClick={onClick} label="클릭"></Button>
+        <div className={styles.container}>
+
             <Search getText={getText}></Search>
+            <Button onClick={onClick} label="클릭"></Button>
         </div>
     )
 }

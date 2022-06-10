@@ -1,0 +1,9 @@
+.container {
+    position: relative;
+    display: flex;
+    text-align: center;
+    left: 30%;
+    padding-top: 2vh;
+    padding-bottom: 1vh;
+
+}
