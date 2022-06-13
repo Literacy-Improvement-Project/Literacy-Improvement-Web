@@ -10,6 +10,8 @@ export default function ModalTable({ children, data, handleCloseClick }) {
         console.log(category)
     })
 
+    console.log(data)
+
 
     return (
         <div>
@@ -27,7 +29,7 @@ export default function ModalTable({ children, data, handleCloseClick }) {
                     <tr>
                         <th className={styles.center}>
                             <AddModalBox onClick={onClick} id="ModalAdd" data={category}>
-                                <a href="#" onClick={handleCloseClick}>
+                                <a href="#" onClick={(e) => handleCloseClick(e)}>
                                     등록하기
                                 </a>
                             </AddModalBox>

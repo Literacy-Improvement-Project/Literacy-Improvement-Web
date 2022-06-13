@@ -29,6 +29,8 @@
 }
 
 .content {
+    font-family: 'GmarketSansMedium';
+    font-size: 1.2em;
     background-color: bisque;
     justify-content: center;
     align-items: center;
@@ -93,6 +95,8 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 20px;
+    padding-top: 20px;
 }
 
 .answer {
@@ -113,4 +117,9 @@
 @font-face {
     font-family: 'Jalnan';
     src: url("../../../public//fonts/JalnanOTF.otf") format('opentype');
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url("../../../public//fonts/GmarketSansMedium.otf") format('opentype');
 }

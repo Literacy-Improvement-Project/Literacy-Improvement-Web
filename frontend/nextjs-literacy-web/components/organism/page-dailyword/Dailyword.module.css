@@ -10,11 +10,14 @@
 }
 
 .title {
+    font-family: 'Jalnan';
     font-size: 1.4em;
     font-weight: bold;
+    margin: 5px;
 }
 
 .word_container {
+    font-family: 'GmarketSansMedium';
     margin: 2vh;
     align-items: center;
     justify-content: center;
@@ -24,4 +27,14 @@
     border-radius: 6px;
     box-shadow: 1px 4px 4px 0 rgb(117 121 125 / 6%), 0 1px 3px 0 rgb(113 117 121 / 20%);
     ;
+}
+
+@font-face {
+    font-family: 'Jalnan';
+    src: url("../../../public//fonts/JalnanOTF.otf") format('opentype');
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url("../../../public//fonts/GmarketSansMedium.otf") format('opentype');
 }

@@ -2,15 +2,24 @@
 
 import { useState, Fragment } from "react";
 import styles from "./SearchResults.module.css";
+import { useSelector, useDispatch } from 'react-redux'
+import { addCategory } from "../../../store/modules/myOpenDictSlice";
 
 const SearchResults = ({ setCategory }) => {
-    const [content, setContent] = useState("");
-    let elem = document.getElementById('1');
-    console.log(content)
-    const onclick = ((e) => {
-        setContent(e.target.innerText);
-        setCategory(content);
+    const [content, setContent] = useState("")
+    const [userInput, setUserInput] = useState("");
+    const categoryList = useSelector((state) => state.myOpenDictSlice.category)
+    const dispatch = useDispatch()
+
+
+    const changeCategory = ((e) => {
+        setContent(() => e.target.innerText)
+        setCategory(() => e.target.innerText)
     })
+
+    const clickAddCategory = () => {
+        dispatch(addCategory(userInput))
+    }
 
     return (
         <div>
@@ -19,16 +28,17 @@ const SearchResults = ({ setCategory }) => {
                 카테고리 종류▼</label>}
             <input type="checkbox" id={styles.toggle_button} />
             <div id={styles.toggle_contents}>
-                <label htmlfor={styles.toggle_button} className={styles.close_button} >X</label>
-                <div id="1" onClick={onclick}>한의학
+                <label htmlFor={styles.toggle_button} className={styles.close_button}>X</label>
+                {categoryList?.map((item, index) => {
+                    return (
+                    <div className={styles.selection} key={index} onClick={(e) => changeCategory(e)}>{item}
+                    </div>)
+                })}
+                <div className={styles.input_box}>
+                    <input className={styles.input} type="text" onChange={(e) => setUserInput(e.target.value)}></input>
+                    <button className={styles.add_button} onClick={() => clickAddCategory()}>+</button>
                 </div>
-                <div id="2" onClick={onclick}>동물
-                </div>
-                <div id="3" onClick={onclick}>야구
-                </div>
-                <div id="4" onClick={onclick}>학교
-                </div>
-
+                
             </div>
         </div >
     );

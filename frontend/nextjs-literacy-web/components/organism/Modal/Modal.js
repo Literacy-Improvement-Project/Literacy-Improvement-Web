@@ -10,13 +10,7 @@ const Modal = ({ show, maskClosable, onClose, children, title, data }) => {
     console.log(data)
     const onMaskClick = (e) => {
         if (e.target === e.currentTarget) {
-            onClose(e)
-        }
-    }
-
-    const close = (e) => {
-        if (onClose) {
-            onClose(e)
+            onClose()
         }
     }
 

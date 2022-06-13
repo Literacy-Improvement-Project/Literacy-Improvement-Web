@@ -4,7 +4,8 @@ import styles from "./MyDictionaryPage.module.css"
 import OpenDictionaryModal from "../Modal/OpenDictionaryModal";
 import { useState } from "react";
 import DeleteButton from "../../atom/Button/DeleteButton";
-
+import { useSelector, useDispatch } from 'react-redux'
+import { setData } from "../../../store/modules/myOpenDictSlice";
 
 export default function MyDictionaryPage() {
 
@@ -17,13 +18,15 @@ export default function MyDictionaryPage() {
     }
   );
 
+  const dispatch = useDispatch()
+
   const [showModal, setShowModal] = useState(false);
 
   let dictionaryList = []
   if (data) {
     dictionaryList = data.results
+    dispatch(setData(data.results))
   }
-  console.log(dictionaryList)
 
 
   return (

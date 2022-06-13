@@ -8,7 +8,7 @@ import styles from './SearchWord.module.css'
 
 export default function SearchWord() {
 
-  const [account, setAccount] = useState("김정원은 바보다");
+  const [account, setAccount] = useState("");
   const [istrue, setistrue] = useState(0);
 
   const { isLoading, error, data } = useQuery(['Morp', account], () =>

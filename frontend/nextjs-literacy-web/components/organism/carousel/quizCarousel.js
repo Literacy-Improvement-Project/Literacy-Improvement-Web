@@ -61,6 +61,8 @@ export default function QuizCarousel({slideItems}) {
     mutation.mutate(correctCount)
   }
 
+  console.log(slideItems)
+
   const quizSummary = (
     <div className={styles.container_summary}>
       <div className={styles.summary}>
@@ -110,7 +112,7 @@ export default function QuizCarousel({slideItems}) {
         </div>
         <div className={styles.btn_prevnext}>
           {slideCurrent>slideTotal
-          ?(isSubmitAnswer?<Button label="홈으로"><Link href="/"></Link></Button>:<PrevButton prevEvent={() => slideLeft()}/>)
+          ?(isSubmitAnswer?<Link href="/"><Button label="홈으로"></Button></Link>:<PrevButton prevEvent={() => slideLeft()}/>)
           :<PrevNextButton prevEvent={() => slideLeft()} nextEvent={() => slideRight()}/>
           }
         </div>

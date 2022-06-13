@@ -2,10 +2,8 @@ import { dehydrate, QueryClient, useQuery } from "react-query";
 import { getMyDictionary } from "../../../pages/api/getMyDictionary";
 import { useState } from "react";
 import WordList from "../../molecule/wordlist/WordList";
-import Modal from "../Modal/Modal";
 import styles from "./Word.module.css"
 export default function Word({ word, words }) {
-    const [showModal, setShowModal] = useState(false);
 
     // const { isLoading, isError, error, data } = useQuery(['Word',], () =>
     //     getMyDictionary(),

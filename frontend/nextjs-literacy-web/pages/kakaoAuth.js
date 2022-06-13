@@ -1,6 +1,5 @@
 import { dehydrate, QueryClient, useQuery } from "react-query";
 import { useRouter } from "next/router";
-import { getToken } from "./api/getToken";
 import { fetchKakaoLogin } from "./api/fetchKakaoLogin";
 import { useSelector, useDispatch } from 'react-redux'
 import { loginUser } from "../store/modules/authSlice";
