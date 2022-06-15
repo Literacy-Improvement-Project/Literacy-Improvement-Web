@@ -3,6 +3,7 @@ import QuizCarousel from "../carousel/quizCarousel"
 import styles from "./QuizItems.module.css"
 import { fetchQuizItem } from "../../../pages/api/fetchQuizItem";
 import { useState } from "react";
+import Loading from "../page-loading/Loading";
 /*
 퀴즈 기능
 1. 퀴즈 리스트 받아오기
@@ -64,15 +65,15 @@ export default function QuizItems() {
 
   return (
       <div className={styles.container}>
-        {/* {isLoading ? (
-          <div>Loading...</div>
+        {isLoading ? (
+          <Loading></Loading>
         ) : isError ? (
           <div>Error: {error.message}</div>
-        ) : ( */}
+        ) : (
           <div>
-            <QuizCarousel slideItems={data2}/>
+            <QuizCarousel slideItems={data}/>
           </div>
-        {/* )} */}
+        )}
       </div>
   );
 }

@@ -2,9 +2,9 @@ import styles from '../styles/Home.module.css'
 import DescribePage from '../components/organism/page-describe/describePage';
 import Dailyword from '../components/organism/page-dailyword/dailyword';
 import OpenDictionary from '../components/organism/page-openDictionary/openDictionary';
-import MyDictionary from '../components/organism/page-myDictionary/MyDictionary'
 import SearchWord from '../components/organism/SearchWordMeaning/searchWord';
-import LoginCheck from '../components/organism/page-login/LoginCheck';
+import Loading from '../components/organism/page-loading/Loading';
+import Logout from '../components/atom/kakaoButton/LogoutBtn';
 
 export default function Home() {
 
@@ -13,10 +13,11 @@ export default function Home() {
   //   setSearchText(target.value);
   // };
 
+
   return (
     <div className={`${styles.container} ${styles.scroll_container}`}>
       <ul>
-        <li><LoginCheck></LoginCheck></li>
+        <li><Loading label="검색 중 ..."></Loading></li>
         <li>
           <a name="searchWords"><SearchWord></SearchWord></a>
         </li>
@@ -29,6 +30,7 @@ export default function Home() {
             <Link href={`/testNaverSearch/${searchText}`}><a>네이버API</a></Link>
           </button>
         </li> */}
+        <li><Logout></Logout></li>
       </ul>
     </div>
   )

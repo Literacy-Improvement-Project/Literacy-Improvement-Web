@@ -1,4 +1,5 @@
 import { dehydrate, QueryClient, useQuery } from "react-query";
+import Loading from "../components/organism/page-loading/Loading";
 import WordRank from "../components/organism/page-rank/wordRank"
 import { fetchWordRank } from "./api/fetchWordRank";
 
@@ -22,20 +23,21 @@ export default function WordRanking() {
       refetchOnWindowFocus: false,
     }
   );
-
+  
   if(data) {
     console.log(data)
   }
-  
+
   return (
     <div>
-      {/* {isLoading ? (
-        <div>Loading...</div>
+      {isLoading ? (
+        <Loading></Loading>
         ) : isError ? (
           <div>Error: {error.message}</div>
-        ) : ( */}
-        <WordRank wordList={wordList}></WordRank>
-      {/* )} */}
+        ) : (
+        <WordRank wordList={data}></WordRank>
+        )
+      }
     </div>
   )
 }

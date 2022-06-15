@@ -34,7 +34,7 @@ const Modal = ({ show, maskClosable, onClose, children, title, data }) => {
                 {title && <StyledModalTitle>오픈사전에 등록하기</StyledModalTitle>}
                 <StyledModalBody>{children}
                     <ModalBox>{title}</ModalBox>
-                    <ModalTable data={data} handleCloseClick={handleCloseClick}></ModalTable>
+                    <ModalTable title={title} data={data} handleCloseClick={handleCloseClick}></ModalTable>
                 </StyledModalBody>
             </StyledModal>
         </StyledModalOverlay>

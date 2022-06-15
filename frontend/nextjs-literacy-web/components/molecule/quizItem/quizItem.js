@@ -3,6 +3,7 @@ import styles from './QuizItem.module.css'
 
 export default function QuizItem({content, countAnswer, setAnswerList}) {
 
+
   let isAnswer = false
   let answer = ""
 
@@ -17,14 +18,14 @@ export default function QuizItem({content, countAnswer, setAnswerList}) {
     setAnswerList(answer)
   }
 
-  const randomItems = [
-    <a className={styles.item} onClick={() => onClickAnswer(content.word_mean)}><p><span>{content.word_mean}</span></p></a>,
-    <a className={styles.item} onClick={() => onClickAnswer(content.wrong_answer1)}><p><span>{content.wrong_answer1}</span></p></a>,
-    <a className={styles.item} onClick={() => onClickAnswer(content.wrong_answer2)}><p><span>{content.wrong_answer2}</span></p></a>,
-    <a className={styles.item} onClick={() => onClickAnswer(content.wrong_answer3)}><p><span>{content.wrong_answer3}</span></p></a>,
+  let randomItems = [
+    content.word_mean, 
+    content.wrong_answer1, 
+    content.wrong_answer2, 
+    content.wrong_answer3
   ]
 
-  function shuffle(array) {
+  const shuffle = (array) => {
     array.sort(() => Math.random() - 0.5);
   }
   shuffle(randomItems)
@@ -34,7 +35,11 @@ export default function QuizItem({content, countAnswer, setAnswerList}) {
       <div className={styles.content}>
         <h2 className={styles.question}>"{content.word}"의 뜻은?</h2>
         <div className={styles.button_container}>
-          {randomItems}
+          {randomItems.map((example, index) => {
+            return (
+              <a key={index} className={styles.item} onClick={() => onClickAnswer(example)}><p><span>{example}</span></p></a>
+            )
+          })}
         </div>
       </div>
     </div>

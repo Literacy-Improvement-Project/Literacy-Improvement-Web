@@ -2,6 +2,7 @@ import { dehydrate, QueryClient, useQuery } from "react-query";
 import Word from "../components/organism/page-word/Word";
 import { useRouter } from 'next/router';
 import { fetchWords } from "./api/fetchWords";
+import Loading from "../components/organism/page-loading/Loading";
 
 export default function word() {
 
@@ -31,12 +32,11 @@ export default function word() {
 
   return (
     <div>
-      {check == 1 ? <Word word={word} words={words} ></Word> : <div>결과없음</div>}
+      {check == 1 ? <Word word={word} words={words} ></Word> : <Loading label="검색 중 ..."></Loading>}
     </div>
   );
 }
 export async function getServerSideProps(context) {
-
 
   const queryClient = new QueryClient();
 

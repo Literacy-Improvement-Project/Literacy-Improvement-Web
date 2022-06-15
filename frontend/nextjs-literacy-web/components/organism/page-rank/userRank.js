@@ -17,14 +17,14 @@ export default function UserRank({userList, userInfo}) {
         <h2>개인 순위</h2>
       </div>
       <div className={styles.content_header}>
-        <div className={styles.profile_icon}><img className={styles.img} src={userInfo.profile} alt="아이콘 이미지"></img></div>
+        <div className={styles.profile_icon}><img className={styles.img} src={userInfo.image} alt="아이콘 이미지"></img></div>
         <div className={styles.info}>
-          <div className={styles.name}><span>{userInfo.userName}</span></div>
+          <div className={styles.name}><span>{userInfo.userId}</span></div>
           <div className={styles.prev_rank}>
             <span className={styles.ranking}>{userInfo.rank}</span>
             등
           </div>
-          <div className={styles.prev_score}><span>{userInfo.score}점</span></div>
+          <div className={styles.prev_score}><span>{userInfo.point}점</span></div>
         </div>
       </div>
       <table className={styles.table}>
@@ -54,9 +54,9 @@ export default function UserRank({userList, userInfo}) {
                     :<span className={styles.rank_num}>{index+1}</span>
                   }
                   </td>
-                <td><img src={user_base_url}></img></td>
-                <td>{user.userName}</td>
-                <td>{user.score}점</td>
+                <td><img className={styles.img} src={user.image}></img></td>
+                <td>{user.userId}</td>
+                <td>{user.point}점</td>
               </tr>
             )
           })}

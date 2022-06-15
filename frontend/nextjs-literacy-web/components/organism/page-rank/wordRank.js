@@ -42,7 +42,7 @@ export default function WordRank({wordList}) {
                   </td>
                 <td>{word.word}</td>
                 <td>{word.mean}</td>
-                <td>{word.score}</td>
+                <td>{word.point}</td>
               </tr>
             )
           })}

@@ -12,6 +12,7 @@
     "dependencies": {
         "@reduxjs/toolkit": "^1.8.0",
         "axios": "^0.26.1",
+        "cookies-next": "^2.0.4",
         "next": "^12.1.0",
         "next-images": "^1.8.4",
         "next-redux-wrapper": "^7.0.5",

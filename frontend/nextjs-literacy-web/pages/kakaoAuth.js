@@ -3,6 +3,9 @@ import { useRouter } from "next/router";
 import { fetchKakaoLogin } from "./api/fetchKakaoLogin";
 import { useSelector, useDispatch } from 'react-redux'
 import { loginUser } from "../store/modules/authSlice";
+import { setCookies, getCookie } from 'cookies-next';
+import { useEffect } from "react";
+
 
 export default function kakaoAuth({params}) {
   const router = useRouter()
@@ -18,12 +21,17 @@ export default function kakaoAuth({params}) {
       refetchOnWindowFocus: false,
     }
   );
+  
+  useEffect(() => {
+    if(data){
+      setCookies('userID', data);
+      dispatch(loginUser(data))
+      console.log(getCookie('userID'))
+      router.push('/')
+      alert(data+"님 로그인 되었습니다!")
+    }
+  })
 
-  if(data){
-    dispatch(loginUser(data))
-    alert({data}+"님 로그인 되었습니다!")
-    router.push('/')
-  }
 
   return (
     <>

@@ -4,11 +4,10 @@ import PrevNextButton from "../../molecule/buttons/prevnextButton";
 import PrevButton from "../../molecule/buttons/prevButton";
 import QuizItem from "../../molecule/quizItem/quizitem";
 import Button from "../../atom/Button/Button";
-import Link from "next/link";
-import { useSelector, useDispatch } from 'react-redux'
-import { dehydrate, QueryClient, useQuery, useMutation } from "react-query";
+import { useSelector } from 'react-redux'
+import { useMutation } from "react-query";
 import { fetchQuizResult } from "../../../pages/api/fetchQuizResult";
-import axios from "axios";
+import { useRouter } from "next/router";
 
 
 export default function QuizCarousel({slideItems}) {
@@ -18,6 +17,8 @@ export default function QuizCarousel({slideItems}) {
   const [slideCurrent, setSlideCurrent] = useState(0);
   const [correctCount, setCorrectCount] = useState(0);
   const [isSubmitAnswer, setIsSubmitAnswer] = useState(false);
+  const router = useRouter();
+
 
   const mutation = useMutation(score => {
     let body = {score: score}
@@ -61,8 +62,6 @@ export default function QuizCarousel({slideItems}) {
     mutation.mutate(correctCount)
   }
 
-  console.log(slideItems)
-
   const quizSummary = (
     <div className={styles.container_summary}>
       <div className={styles.summary}>
@@ -72,12 +71,16 @@ export default function QuizCarousel({slideItems}) {
       <ul>
         {slideItems.map((slide, index) => {
           return (
-            <li key={index} className={styles.answer}>{slide.word} - {slide.word_mean}</li>
+            <li key={String(index)} className={styles.answer}>{slide.word} - {slide.word_mean}</li>
           )
         })}
       </ul>
     </div>
   )
+  
+  const gotoHome = () => {
+    console.log(router.push('/'))
+  }
 
   return (
     <div className={`${styles.box} ${styles.container}`}>
@@ -88,7 +91,7 @@ export default function QuizCarousel({slideItems}) {
           // 퀴즈가 진행중
             slideItems.map((slide, index) => {
               return (
-                <div key={index} className={index === slideCurrent 
+                <div key={slide.word} className={index === slideCurrent 
                   ? `${styles.slide} ${styles.active}` 
                   : `${styles.slide}`}
                 >
@@ -112,7 +115,7 @@ export default function QuizCarousel({slideItems}) {
         </div>
         <div className={styles.btn_prevnext}>
           {slideCurrent>slideTotal
-          ?(isSubmitAnswer?<Link href="/"><Button label="홈으로"></Button></Link>:<PrevButton prevEvent={() => slideLeft()}/>)
+          ?(isSubmitAnswer?<Button label="홈으로" onClick={() => gotoHome()}></Button>:<PrevButton prevEvent={() => slideLeft()}/>)
           :<PrevNextButton prevEvent={() => slideLeft()} nextEvent={() => slideRight()}/>
           }
         </div>

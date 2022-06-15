@@ -3,11 +3,17 @@ import AddModalBox from '../../atom/ModalBox/AddModalBox'
 import SearchResults from '../toggle/SearchResults'
 import styles from './ModalTable.module.css'
 import { useState } from 'react';
-export default function ModalTable({ children, data, handleCloseClick }) {
+export default function ModalTable({ children, data, handleCloseClick, title }) {
     const [category, setCategory] = useState("");
 
     const onClick = (() => {
-        console.log(category)
+        let body = {
+            word: title,
+            mean: data.definition,
+            morpheme: data.pos,
+            category: category,
+        }
+        console.log(body)
     })
 
     console.log(data)
