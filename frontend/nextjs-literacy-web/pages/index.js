@@ -13,6 +13,7 @@ export default function Home() {
   //   setSearchText(target.value);
   // };
 
+
   return (
     <div className={`${styles.container} ${styles.scroll_container}`}>
       <ul>

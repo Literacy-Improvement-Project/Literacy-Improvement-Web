@@ -3,40 +3,17 @@ import { getMyDictionary } from "../../../pages/api/getMyDictionary";
 import { useState } from "react";
 import WordList from "../../molecule/wordlist/WordList";
 import styles from "./Word.module.css"
+import { addToDictionary } from "../../../lib/myDictionary";
 export default function Word({ word, words }) {
 
-    // const { isLoading, isError, error, data } = useQuery(['Word',], () =>
-    //     getMyDictionary(),
-    //     {
-    //         keepPreviousData: true,
-    //         refetchOnMount: false,
-    //         refetchOnWindowFocus: false,
-    //     }
-    // );
-
-    const addMyDictionary = (Word) => {
-        // deleteMyDictionary(word);
-        console.log(Word);
+    const addMyDictionary = (Word, Mean) => {
+        addToDictionary(Word, Mean);
     }
     const addOpenDictionary = (Word) => {
         // deleteMyDictionary(word);
         console.log(Word);
 
     }
-    // const Words = [
-    //     {
-    //         word: props.word,
-    //         mean: '넓고 푸르다.'
-    //     },
-    //     {
-    //         word: props.word,
-    //         mean: '넓고 푸르다.'
-    //     },
-    //     {
-    //         word: props.word,
-    //         mean: '더럽다.'
-    //     }
-    // ]
 
     return (
         <div className={styles.container}>

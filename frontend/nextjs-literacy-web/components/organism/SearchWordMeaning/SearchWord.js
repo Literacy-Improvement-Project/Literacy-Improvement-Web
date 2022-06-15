@@ -39,7 +39,7 @@ export default function SearchWord() {
     }
   ];
 
-  const POS = ["NNG", "NR", "NP", "VV", "VA", "VX", "MM", "MAG", "MAJ"];
+  const POS = ["NNG", "NNP", "NR", "NP", "VV", "VA", "VX", "MM", "MAG", "MAJ"];
 
 
 

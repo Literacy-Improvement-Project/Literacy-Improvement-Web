@@ -1,8 +1,10 @@
 import { dehydrate, QueryClient, useQuery } from "react-query";
 import { fetchOpenDictionary } from "../../../pages/api/fetchOpenDictionary"
-
+import { useState } from "react";
 import styles from "./OpenDictionary.module.css"
 import Link from 'next/link'
+import OpenDictionaryModal from "../Modal/OpenDictionaryModal";
+import { categorize } from "../../../lib/categorize";
 
 
 
@@ -16,18 +18,22 @@ export default function OpenDictionary() {
       refetchOnWindowFocus: false,
     }
   );
+  //data 카테고리화
+  // const dictionaryList = categorize(data);
 
+  const [showModal, setShowModal] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState();
 
-
-  let dictionaryList = []
-  if (data) {
-    dictionaryList = data.results
-  }
+  // let dictionaryList = []
+  // if (data) {
+  //   dictionaryList = data.results
+  // }
 
 
   const gotoMyDictionary = () => {
     console.log("hi")
   }
+  console.log(selectedCategory)
 
   return (
     <div className={styles.container}>
@@ -41,13 +47,21 @@ export default function OpenDictionary() {
         <ul className={styles.dictionary_list}>
           {dictionaryList.map((dict, index) => {
             return (
-              <li className={styles.item} key={index} >
-                <span>{dict.title}</span>
+              <li className={styles.item} key={index} onClick={() => { setShowModal(true); setSelectedCategory(dict) }} >
+                <span>{dict.category}</span>
               </li>
             )
           })}
         </ul>
       )}
+      <OpenDictionaryModal
+        onClose={() => setShowModal(false)}
+        show={showModal}
+        title="tt"        // title={selectedCategory.category}
+        maskClosable={true}
+        data="tttt"// data={selectedCategory.words}
+      >
+      </OpenDictionaryModal>
     </div>
   );
 }

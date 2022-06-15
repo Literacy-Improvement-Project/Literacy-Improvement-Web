@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-export const AddToDictionary = async (word, mean) => {
+export const addToDictionary = async (word, mean) => {
     const { data } = await axios.get("http://localhost:8080/addToNote", {
         params: {
             q: word,
@@ -9,6 +9,16 @@ export const AddToDictionary = async (word, mean) => {
     })
     console.log(data);
 }
+
+export const deleteNote = async (word) => {
+    const { data } = await axios.get("http://localhost:8080/deleteNote", {
+        params: {
+            q: word,
+        },
+    })
+    console.log(data);
+}
+
 export const test = async () => {
 
     const API_KEY = "7b82392ee18c86e443bf9e74f0cc7c77";
