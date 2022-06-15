@@ -17,7 +17,6 @@ export default function Home() {
   return (
     <div className={`${styles.container} ${styles.scroll_container}`}>
       <ul>
-        <li><Loading label="검색 중 ..."></Loading></li>
         <li>
           <a name="searchWords"><SearchWord></SearchWord></a>
         </li>

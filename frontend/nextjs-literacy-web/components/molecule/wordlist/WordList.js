@@ -6,9 +6,7 @@ import { useState } from 'react';
 export default function WordCard({ word, content, addMyDictionary, addOpenDictionary, index }) {
     const [showModal, setShowModal] = useState(false);
     const AddkMyDictionary = () => {
-        addMyDictionary(word);
-        test();
-        // AddToDictionary(word, content.definition);
+        addMyDictionary(word, content.definition);
     };
     const AddOpenDictionary = () => {
         addOpenDictionary(content.word);
