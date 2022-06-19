@@ -1,15 +1,12 @@
 import styles from './WordList.module.css'
 import Button from '../../atom/Button/Button'
 import Modal from '../../organism/Modal/Modal';
-import { AddToDictionary, test } from '../../../lib/myDictionary';
+import { addToDictionary, AddToDictionary, test } from '../../../lib/myDictionary';
 import { useState } from 'react';
 export default function WordCard({ word, content, addMyDictionary, addOpenDictionary, index }) {
     const [showModal, setShowModal] = useState(false);
     const AddkMyDictionary = () => {
-        addMyDictionary(word, content.definition);
-    };
-    const AddOpenDictionary = () => {
-        addOpenDictionary(content.word);
+        addMyDictionary(word, content.definition)
     };
 
 

@@ -1,11 +1,10 @@
 import React from 'react'
 import { useState, useEffect } from "react";
 import styled from 'styled-components'
-
 import ReactDOM from 'react-dom'
-import OpenDicModalTable from '../../molecule/table/OpenDicModalTable';
+import MyOpenDicModalTable from '../../molecule/table/MyOpenDicModalTable';
 
-const OpenDictionaryModal = ({ show, maskClosable, onClose, children, title, data }) => {
+const MyOpenDictionaryModal = ({ show, maskClosable, onClose, children, title, data }) => {
     const [isBrowser, setIsBrowser] = useState(false);
     console.log(data)
     const onMaskClick = (e) => {
@@ -40,7 +39,7 @@ const OpenDictionaryModal = ({ show, maskClosable, onClose, children, title, dat
                 {title && <StyledModalTitle>{title}</StyledModalTitle>}
                 <StyledModalSubTitle>{"Made by " + data.userId.split('@', 1)}</StyledModalSubTitle>
                 <StyledModalBody>{children}
-                    <OpenDicModalTable data={data.words} handleCloseClick={handleCloseClick}></OpenDicModalTable>
+                    <MyOpenDicModalTable data={data.words} handleCloseClick={handleCloseClick}></MyOpenDicModalTable>
                 </StyledModalBody>
             </StyledModal>
         </StyledModalOverlay>
@@ -110,4 +109,4 @@ const StyledModalSubTitle = styled.div`
   `;
 
 
-export default OpenDictionaryModal;
+export default MyOpenDictionaryModal;

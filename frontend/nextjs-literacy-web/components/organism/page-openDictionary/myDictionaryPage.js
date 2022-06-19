@@ -1,16 +1,19 @@
 import { dehydrate, QueryClient, useQuery } from "react-query";
 import { fetchMyDictionary } from "../../../pages/api/fetchMyDictionary"
 import styles from "./MyDictionaryPage.module.css"
-import OpenDictionaryModal from "../Modal/OpenDictionaryModal";
+import MyOpenDictionaryModal from "../Modal/MyOpenDictionaryModal";
 import { useState } from "react";
-import DeleteButton from "../../atom/Button/DeleteButton";
 import { useSelector, useDispatch } from 'react-redux'
 import { setData } from "../../../store/modules/myOpenDictSlice";
+import { fetchMyOpenDictionary } from "../../../pages/api/fetchOpenDictionary";
+import { myCategorize } from "../../../lib/categorize";
+import DeleteButton from "../../atom/Button/DeleteButton";
 
-export default function MyDictionaryPage({ userID }) {
+export default function MyDictionaryPage() {
 
-  const { isLoading, isError, error, data } = useQuery(['myDictionary', userID], () =>
-    fetchMyDictionary(userID),
+  const userID = useSelector((state) => state.authSlice.email)
+  const { isLoading, isError, error, data } = useQuery(['myOpenDictionary', userID], () =>
+    fetchMyOpenDictionary(userID),
     {
       keepPreviousData: true,
       refetchOnMount: false,
@@ -21,11 +24,15 @@ export default function MyDictionaryPage({ userID }) {
   const dispatch = useDispatch()
 
   const [showModal, setShowModal] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState([]);
 
-  let dictionaryList = []
+  //data 카테고리화
+  let dictionaryList;
+  console.log(data);
   if (data) {
-    dictionaryList = data.results
-    dispatch(setData(data.results))
+    dictionaryList = myCategorize(data);
+    console.log(dictionaryList);
+    dispatch(setData(dictionaryList));
   }
 
 
@@ -38,9 +45,9 @@ export default function MyDictionaryPage({ userID }) {
         <div>Error: {error.message}</div>
       ) : (
         <ul className={styles.dictionary_list}>
-          {data.map((dict, index) => {
+          {dictionaryList.map((dict, index) => {
             return (
-              <li className={styles.item} key={index} onClick={() => setShowModal(true)}>
+              <li className={styles.item} key={index} onClick={() => { setShowModal(true); setSelectedCategory(dict) }}>
                 <DeleteButton></DeleteButton>
                 <span className={styles.dict_title}>{dict.category}</span>
               </li>
@@ -48,14 +55,14 @@ export default function MyDictionaryPage({ userID }) {
           })}
         </ul>
       )}
-      <OpenDictionaryModal
+      <MyOpenDictionaryModal
         onClose={() => setShowModal(false)}
         show={showModal}
-        title="tt"
+        title={selectedCategory.category ? selectedCategory.category : "error"}
         maskClosable={true}
-        data={data}
+        data={selectedCategory ? selectedCategory : "error"}
       >
-      </OpenDictionaryModal>
+      </MyOpenDictionaryModal>
     </div>
   );
 }
@@ -65,7 +72,7 @@ export async function getServerSideProps(context) {
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery(
-    "myDictionary",
+    'myOpenDictionary',
     async () => await fetchMyDictionary()
   );
 

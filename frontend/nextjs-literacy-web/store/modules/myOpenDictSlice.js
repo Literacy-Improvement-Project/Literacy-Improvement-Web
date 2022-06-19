@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
-  data: [],
-  category: [],
+    data: [],
+    category: [],
 }; // 초기 상태 정의
 
 const myOpenDictSlice = createSlice({
@@ -11,7 +11,7 @@ const myOpenDictSlice = createSlice({
     reducers: {
         setData: (state, action) => {
             state.data = action.payload;
-            state.data.map((item) => {state.category.push(item.title)})
+            state.data.map((item) => { state.category.push(item.category) })
             console.log(state.category)
         },
         addCategory: (state, action) => {

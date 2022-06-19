@@ -3,17 +3,19 @@ import AddModalBox from '../../atom/ModalBox/AddModalBox'
 import SearchResults from '../toggle/SearchResults'
 import styles from './ModalTable.module.css'
 import { useState } from 'react';
+import { addToOpen } from '../../../lib/openDictionary';
 export default function ModalTable({ children, data, handleCloseClick, title }) {
     const [category, setCategory] = useState("");
 
     const onClick = (() => {
         let body = {
+            morpheme: data.pos,
             word: title,
             mean: data.definition,
-            morpheme: data.pos,
             category: category,
         }
         console.log(body)
+        addToOpen(body);
     })
 
     console.log(data)
@@ -35,7 +37,9 @@ export default function ModalTable({ children, data, handleCloseClick, title }) 
                     <tr>
                         <th className={styles.center}>
                             <AddModalBox onClick={onClick} id="ModalAdd" data={category}>
-                                <a href="#" onClick={(e) => handleCloseClick(e)}>
+                                <a href="#" onClick={(e) => {
+                                    handleCloseClick(e);
+                                }}>
                                     등록하기
                                 </a>
                             </AddModalBox>

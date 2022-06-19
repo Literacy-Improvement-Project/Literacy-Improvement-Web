@@ -9,8 +9,7 @@ export default function LoginCheck() {
   const isLogin = useSelector((state) => state.authSlice.isLogin)
   const [showModal, setShowModal] = useState(isLogin)
 
-  useEffect(() => 
-  {
+  useEffect(() => {
     if (checkCookies('userID') === true) {
       // 로그인 토큰 정보 -> 리덕스로 저장
       const token = getCookie('userID');
@@ -25,17 +24,17 @@ export default function LoginCheck() {
     <div>
       <LoginModal
         onClose={() => setShowModal(true)}
-        show={!isLogin}
+        show={false}
         maskClosable={true}
       >
       </LoginModal>
     </div>
-    
+
   )
 }
 
 export const getServerSideProps = ({ req, res }) => {
-  
-  
-  return { props: {}};
+
+
+  return { props: {} };
 }

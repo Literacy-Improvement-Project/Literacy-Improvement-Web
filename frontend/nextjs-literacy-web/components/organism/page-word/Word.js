@@ -9,9 +9,7 @@ export default function Word({ word, words }) {
     const addMyDictionary = (Word, Mean) => {
         addToDictionary(Word, Mean);
     }
-    const addOpenDictionary = (Word) => {
-        // deleteMyDictionary(word);
-        console.log(Word);
+    const addOpenDictionary = (Word, Mean) => {
 
     }
 
