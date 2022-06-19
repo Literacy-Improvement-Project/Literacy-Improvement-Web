@@ -4,17 +4,20 @@ import WordCard from "../../molecule/wordcard/WordCard";
 import styles from "./MyDictionary.module.css"
 import { useRouter } from 'next/router'
 
-export default function MyDictionary({ dictionary, clickDelete }) {
+export default function MyDictionary({ dictionary }) {
+
 
     const router = useRouter()
 
-    // const clickDelete = (word) => {
-    //     deleteNote(word);
-    //     dictionary
-    // }
+    const refreshServerSide = () => {
+        router.replace(router.asPath)
+    }
+    const clickDelete = (word) => {
+        deleteNote(word);
+        refreshServerSide();
+    }
 
-    console.log(dictionary)
-
+    
     return (
         <div className={styles.container}>
             <div className={styles.title}>

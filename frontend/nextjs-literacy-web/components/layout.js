@@ -7,9 +7,9 @@ export default function Layout({ children }) {
     return (
         <>
             <Nav></Nav>
-            <LoginCheck></LoginCheck>
             <main>{children}</main>
             <Footer></Footer>
+            <LoginCheck></LoginCheck>
         </>
     )
 }

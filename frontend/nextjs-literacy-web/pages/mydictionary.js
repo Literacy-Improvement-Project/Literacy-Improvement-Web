@@ -8,7 +8,6 @@ import { useRouter } from "next/router";
 
 export default function myDictionary() {
 
-  const router = useRouter()
   const { isLoading, isError, error, data } = useQuery('mydictionary', () =>
     getMyDictionary(),
     {
@@ -18,16 +17,6 @@ export default function myDictionary() {
     }
   );
 
-  const refreshServerSide = () => {
-    router.replace(router.asPath)
-  }
-
-  const clickDelete = (word) => {
-    deleteNote(word);
-    refreshServerSide()
-  }
-
-
 
   return (
     <div>
@@ -36,7 +25,7 @@ export default function myDictionary() {
       ) : isError ? (
         <div><NoLogin></NoLogin></div>
       ) : (<div>
-        <MyDictionary dictionary={data} clickDelete={clickDelete}></MyDictionary>
+        <MyDictionary dictionary={data}></MyDictionary>
       </div>)}
     </div>
   )

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const addToOpen = async (body) => {
-    const { data } = await axios.get("http://61.255.221.125:9999/addtoOpen", {
+    const { data } = await axios.get("http://61.255.221.125:9999/addToOpen", {
         params: {
             morpheme: body.morpheme,
             word: body.word,

@@ -4,14 +4,16 @@ import Link from 'next/link';
 
 export default function Meanbox({word}) {
 
-
     return (
         <div className={styles.box}>
             <Link href={{
                 pathname: '/word',
-                query: { word: word.lemma }
-            }}>
-                {word.lemma}
+
+                query: { word: word }
+            }}
+                passHref
+            >
+                {word}
             </Link>
             {/* <Link href={{
                 pathname: '/word',

@@ -10,7 +10,6 @@ export const addToDictionary = async (word, mean) => {
 }
 
 export const deleteNote = async (word) => {
-    console.log(word)
     const { data } = await axios.get("http://61.255.221.125:9999/deleteFromNote", {
         params: {
             word: word,
