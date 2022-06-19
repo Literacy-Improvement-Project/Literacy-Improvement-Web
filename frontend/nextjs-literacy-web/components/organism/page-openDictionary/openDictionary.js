@@ -25,10 +25,11 @@ export default function OpenDictionary() {
   const [showModal, setShowModal] = useState(false);
   const [selectedCategory, setSelectedCategory] = useState();
 
-  // let dictionaryList = []
-  // if (data) {
-  //   dictionaryList = data.results
-  // }
+  let dictionaryList = []
+  if (data) {
+    console.log(data)
+    dictionaryList = data.results
+  }
 
 
   const gotoMyDictionary = () => {
@@ -46,7 +47,7 @@ export default function OpenDictionary() {
         <div>Error: {error.message}</div>
       ) : (
         <ul className={styles.dictionary_list}>
-          {dictionaryList.map((dict, index) => {
+          {dictionaryList?.map((dict, index) => {
             return (
               <li className={styles.item} key={index} onClick={() => { setShowModal(true); setSelectedCategory(dict) }} >
                 <span>{dict.category}</span>

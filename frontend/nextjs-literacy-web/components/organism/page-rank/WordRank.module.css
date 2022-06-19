@@ -101,7 +101,7 @@
     display: table-row;
     vertical-align: inherit;
     border-color: inherit;
-    height: 160px;
+    height: 90px;
 }
 
 .thead th {
@@ -137,7 +137,39 @@
     padding: 8px 4px;
 }
 
+.word {
+    box-sizing: border-box;
+}
+
+.word:hover {
+    cursor: pointer;
+}
+
+.arrow_box {
+    display: none;
+    position: absolute;
+    width: 100px;
+    padding: 7px;
+    left: 35%;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    background: #333;
+    color: #fff;
+    font-size: 14px;
+    z-index: 0;
+}
+
+.word:hover~.arrow_box {
+    display: block;
+}
+
 @font-face {
     font-family: 'Jalnan';
     src: url("../../../public//fonts/JalnanOTF.otf") format('opentype');
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url("../../../public//fonts/GmarketSansMedium.otf") format('opentype');
 }

@@ -20,22 +20,20 @@ export default function LoginCheck() {
   }, [isLogin])
 
 
-
   return (
     <div>
       <LoginModal
         onClose={() => setShowModal(true)}
         show={!isLogin}
+        // show={false}
         maskClosable={true}
       >
       </LoginModal>
     </div>
-    
   )
 }
 
 export const getServerSideProps = ({ req, res }) => {
-  
   
   return { props: {}};
 }

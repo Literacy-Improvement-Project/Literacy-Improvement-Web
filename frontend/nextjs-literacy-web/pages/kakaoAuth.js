@@ -5,6 +5,8 @@ import { useSelector, useDispatch } from 'react-redux'
 import { loginUser } from "../store/modules/authSlice";
 import { setCookies, getCookie } from 'cookies-next';
 import { useEffect } from "react";
+import DescribePage from "../components/organism/page-describe/describePage";
+import Loading from "../components/organism/page-loading/Loading";
 
 
 export default function kakaoAuth({params}) {
@@ -26,23 +28,22 @@ export default function kakaoAuth({params}) {
     if(data){
       setCookies('userID', data);
       dispatch(loginUser(data))
-      console.log(getCookie('userID'))
-      router.push('/')
       alert(data+"님 로그인 되었습니다!")
+      router.push('/')
     }
   })
 
 
   return (
-    <>
+    <div>
       {isLoading ? (
-          <div>로그인 중...</div>
+          <Loading label="로그인 중"></Loading>
         ) : isError ? (
           <div>Error: {error.message}</div>
         ) : (
-          <div>안녕하세요, 바른말 배움터에 오신 것을 환영합니다.</div>      
+          <DescribePage></DescribePage>
         )}
-    </>
+    </div>
   )
 }
 

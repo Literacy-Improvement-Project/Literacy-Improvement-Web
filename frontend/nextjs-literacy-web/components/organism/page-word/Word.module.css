@@ -3,21 +3,28 @@
     src: url("../../../public//fonts/JalnanOTF.otf") format('opentype');
 }
 
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
 .title {
     margin-top: 4vh;
-    margin-bottom: 1vh;
+    margin-left: 42%;
+    margin-bottom: 2vh;
+    width: 100%;
     font-family: 'Jalnan';
-    position: relative;
-    left: 13%;
     font-size: 30px;
     color: rgba(4, 105, 63, 0.863);
-
 }
 
 .item_cover {
-    /* position: absolute; */
-    /* width: 200vh;
-    left: 13%;
-    top: 13%; */
     list-style: none;
+    max-width: 60%;
+    border-radius: 10px;
+    /* 너비 | 스타일 | 색 */
+    border: 10px solid rgba(170, 227, 170, 0.374);
+    margin-bottom: 3%;
 }

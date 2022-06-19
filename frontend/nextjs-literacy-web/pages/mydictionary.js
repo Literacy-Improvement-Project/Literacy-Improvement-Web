@@ -1,5 +1,5 @@
 import MyDictionary from "../components/organism/page-myDictionary/myDictionary"
-import { useQuery } from "react-query";
+import { dehydrate, QueryClient, useQuery } from "react-query";
 import { getMyDictionary } from "./api/getMyDictionary";
 import NoLogin from "../components/organism/noLogin/NoLogin";
 
@@ -14,6 +14,10 @@ export default function myDictionary() {
     }
   );
 
+  if (data) {
+    console.log(data)
+  }
+
   return (
     <div>
       {isLoading ? (
@@ -25,5 +29,21 @@ export default function myDictionary() {
       </div>)}
     </div>
   )
+}
 
+
+export async function getServerSideProps(context) {
+
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery(
+    "mydictionary",
+    async () => await getMyDictionary()
+  );
+
+  return {
+    props: {
+      dehydratedState: dehydrate(queryClient),
+    }
+  }
 }

@@ -12,7 +12,6 @@ export default function Word({ word, words }) {
     const addOpenDictionary = (Word) => {
         // deleteMyDictionary(word);
         console.log(Word);
-
     }
 
     return (
@@ -24,7 +23,7 @@ export default function Word({ word, words }) {
                 {
                     words.map((item, index) => (
                         <div key={index}>
-                            <li><WordList word={word} content={words[index]} addMyDictionary={addMyDictionary} addOpenDictionary={addOpenDictionary} index={index} ></WordList></li>
+                            <li><WordList word={item.word} content={item.sense[0]} addMyDictionary={addMyDictionary} addOpenDictionary={addOpenDictionary} index={index} ></WordList></li>
                         </div>
                     ))
                 }

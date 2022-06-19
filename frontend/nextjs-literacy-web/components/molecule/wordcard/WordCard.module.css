@@ -14,6 +14,10 @@
     /* color: rgb(0, 178, 209); */
 }
 
+.h2 {
+    font-family: 'GmarketSansMedium';
+}
+
 .mean_cover {
     /* height: 50px; */
     margin-left: 1vh;
@@ -25,4 +29,9 @@
 @font-face {
     font-family: 'Jalnan';
     src: url("../../../public//fonts/JalnanOTF.otf") format('opentype');
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url("../../../public//fonts/GmarketSansMedium.otf") format('opentype');
 }

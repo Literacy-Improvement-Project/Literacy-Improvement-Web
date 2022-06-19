@@ -14,15 +14,8 @@ export default function Dailyword() {
       refetchOnWindowFocus: false,
     }
   );
-  
 
-  let data2 = [
-    {
-      word: "이윽고",
-      morpheme: "부사",
-      mean: "얼마 있다가. 또는 얼마쯤 시간이 흐른 뒤에"
-    }
-  ]
+  
 
 
   return (

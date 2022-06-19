@@ -30,7 +30,7 @@
     justify-content: center;
     position: relative;
     align-items: center;
-    z-index: 0;
+    z-index: 5;
     opacity: 1;
     transition: all 0.1s ease-in-out;
     transform: scale(0.9);
@@ -40,4 +40,5 @@
     top: 25vh;
     position: absolute;
     margin-top: 5vh;
+    z-index: 5;
 }

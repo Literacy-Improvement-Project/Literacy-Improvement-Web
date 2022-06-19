@@ -7,7 +7,7 @@ import ModalTable from '../../molecule/table/ModalTable';
 
 const Modal = ({ show, maskClosable, onClose, children, title, data }) => {
     const [isBrowser, setIsBrowser] = useState(false);
-    console.log(data)
+
     const onMaskClick = (e) => {
         if (e.target === e.currentTarget) {
             onClose()
@@ -51,7 +51,7 @@ const Modal = ({ show, maskClosable, onClose, children, title, data }) => {
 };
 
 const StyledModalOverlay = styled.div`
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     width: 100%;

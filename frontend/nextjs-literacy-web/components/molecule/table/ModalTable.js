@@ -3,8 +3,16 @@ import AddModalBox from '../../atom/ModalBox/AddModalBox'
 import SearchResults from '../toggle/SearchResults'
 import styles from './ModalTable.module.css'
 import { useState } from 'react';
+import { useMutation } from 'react-query';
+
 export default function ModalTable({ children, data, handleCloseClick, title }) {
     const [category, setCategory] = useState("");
+
+    const mutation = useMutation((body) => {
+        console.log(body)
+
+        return fetchQuizResult(body)
+      })
 
     const onClick = (() => {
         let body = {
@@ -14,6 +22,7 @@ export default function ModalTable({ children, data, handleCloseClick, title }) 
             category: category,
         }
         console.log(body)
+
     })
 
     console.log(data)

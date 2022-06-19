@@ -9,6 +9,7 @@ export default function word() {
   const router = useRouter();
   const word = router.query.word;
   let check = 0;
+  let isNoItem = false;
 
   const { isLoading, isError, error, data } = useQuery(['word', word], () =>
     fetchWords(word),
@@ -21,18 +22,19 @@ export default function word() {
 
   let words = null;
   if (data) {
-    if (data.channel.item) {
-      words = data.channel.item[0].sense;
-      if (words) {
-        check = 1;
-      }
-      console.log(words);
+    words = data.channel.item
+    if(words) {
+      check = 1;
+    }
+    if (data.channel.item.length === 0) {
+      isNoItem = true
     }
   }
 
   return (
     <div>
       {check == 1 ? <Word word={word} words={words} ></Word> : <Loading label="검색 중 ..."></Loading>}
+      {isNoItem? <div>검색 결과가 없습니다.</div> : <></>}
     </div>
   );
 }

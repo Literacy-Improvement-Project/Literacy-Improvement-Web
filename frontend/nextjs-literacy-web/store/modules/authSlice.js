@@ -10,9 +10,12 @@ const authSlice = createSlice({
     initialState,
     reducers: {
         loginUser: (state, action) => {
-            console.log(action.payload)
             state.email = action.payload;
             state.isLogin = true
+        },
+        logoutUser: (state) => {
+            state.email = "";
+            state.isLogin = false
         }
     },
 });
@@ -21,6 +24,6 @@ const authSlice = createSlice({
 // 객체의 프로퍼티로 extraReducers 객체를 추가한다.
 
 // 액션과 리듀서를 export
-export const { loginUser } = authSlice.actions; // 액션 생성함수
+export const { loginUser, logoutUser } = authSlice.actions; // 액션 생성함수
 
 export default authSlice.reducer;

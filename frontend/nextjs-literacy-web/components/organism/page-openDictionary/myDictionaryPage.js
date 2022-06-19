@@ -7,13 +7,14 @@ import DeleteButton from "../../atom/Button/DeleteButton";
 import { useSelector, useDispatch } from 'react-redux'
 import { setData } from "../../../store/modules/myOpenDictSlice";
 
-export default function MyDictionaryPage({ userID }) {
+export default function MyDictionaryPage() {
 
+  const userID = useSelector((state) => state.authSlice.email)
   const { isLoading, isError, error, data } = useQuery(['myDictionary', userID], () =>
     fetchMyDictionary(userID),
     {
       keepPreviousData: true,
-      refetchOnMount: false,
+      refetchOnMount: false, 
       refetchOnWindowFocus: false,
     }
   );
@@ -38,7 +39,7 @@ export default function MyDictionaryPage({ userID }) {
         <div>Error: {error.message}</div>
       ) : (
         <ul className={styles.dictionary_list}>
-          {data.map((dict, index) => {
+          {data?.map((dict, index) => {
             return (
               <li className={styles.item} key={index} onClick={() => setShowModal(true)}>
                 <DeleteButton></DeleteButton>

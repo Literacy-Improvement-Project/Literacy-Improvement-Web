@@ -1,3 +1,4 @@
+import Link from "next/link"
 import styles from "./WordRank.module.css"
 
 
@@ -39,10 +40,15 @@ export default function WordRank({wordList}) {
                     ?<img src={rank_base_url+(index+1)+".png"}></img>
                     :<span className={styles.rank_num}>{index+1}</span>
                   }
-                  </td>
-                <td>{word.word}</td>
-                <td>{word.mean}</td>
+                </td>
+                <Link href={{
+                  pathname: '/word',
+                  query: { word:word.word }}}>
+                  <td className={styles.word}>{word.word}</td>
+                </Link>
+                <td className={styles.mean}>{word.mean}</td>
                 <td>{word.point}</td>
+                <p className={styles.arrow_box}>눌러서 검색!</p>
               </tr>
             )
           })}

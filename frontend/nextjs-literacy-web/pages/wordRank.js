@@ -30,14 +30,14 @@ export default function WordRanking() {
 
   return (
     <div>
-      {isLoading ? (
+      {/* {isLoading ? (
         <Loading></Loading>
         ) : isError ? (
           <div>Error: {error.message}</div>
-        ) : (
-        <WordRank wordList={data}></WordRank>
-        )
-      }
+        ) : ( */}
+        <WordRank wordList={wordList}></WordRank>
+        {/* )
+      } */}
     </div>
   )
 }

@@ -1,38 +1,28 @@
 .card_container {
-    box-sizing: border-box;
+    font-family: 'GmarketSansMedium';
     display: flex;
-    position: relative;
-    flex-direction: column;
-    background-color: #d9f8e3b4;
-    margin: 10px;
-    max-width: 100vh;
-    height: 20vh;
+    flex-direction: row;
+    /* background-color: #d9f8e3b4; */
+    align-items: center;
+    justify-content: space-between;
+    margin: 13px 10px;
+    height: auto;
     border: 10px;
-    margin-left: 200px;
-    margin-right: 200px;
+    padding: 0 20px;
+    border-radius: 10px;
 }
 
-.card_cover {
-    height: 50px;
-    width: 100px;
+.content {
+    display: flex;
+    flex-direction: column;
 }
 
-.card_content {
-    /* Take available height */
-    flex: 1;
-}
-
-.mean_cover {
-    /* height: 50px; */
-    /* width: 450px; */
-    margin-left: 1vh;
-    margin-top: 10px;
-    margin-right: auto;
+.title_cover {
+    margin-top: 5px;
 }
 
 .title {
     margin-left: 5px;
-    margin-top: 5px;
     display: inline-block;
 }
 
@@ -41,11 +31,31 @@
     display: inline-block;
 }
 
-.title_cover {
-    display: inline-block;
+.mean_cover {
+    font-family: 'GmarketSansLight';
+    height: auto;
+    margin: 8px 8px;
+    font-weight: 100;
 }
 
 .button_cover {
-    position: absolute;
-    bottom: 2vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 5px;
+}
+
+@font-face {
+    font-family: 'Jalnan';
+    src: url("../../../public//fonts/JalnanOTF.otf") format('opentype');
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url("../../../public//fonts/GmarketSansMedium.otf") format('opentype');
+}
+
+@font-face {
+    font-family: 'GmarketSansLight';
+    src: url("../../../public//fonts/GmarketSansLight.otf") format('opentype');
 }
