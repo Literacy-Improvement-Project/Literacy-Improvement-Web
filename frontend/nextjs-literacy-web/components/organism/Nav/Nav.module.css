@@ -1,10 +1,14 @@
 /* main */
 
 .container {
+    position: sticky;
+    bottom: 10px;
     display: flex;
     flex-basis: auto;
     width: auto;
     height: auto;
+    top: 0;
+    z-index: var(--z-index-top);
 }
 
 .nav {

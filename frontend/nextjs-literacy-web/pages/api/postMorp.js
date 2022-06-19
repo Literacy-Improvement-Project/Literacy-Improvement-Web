@@ -6,9 +6,10 @@ export const postMorp = async (txt) => {
   const analysisCode = "wsd_poly";
   let text = '';
 
-  if (txt != null) {
+  if (txt) {
     text = txt;
   }
+
   const requestJson = {
     'access_key': access_key,
     'argument': {

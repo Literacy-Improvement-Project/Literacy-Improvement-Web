@@ -9,12 +9,11 @@ export default function AfterSearchWordMeaning({ sentences }) {
                 sentences.map((item) => (
                     <ul key={item.id}>
                         {
-                            item.morp.map((word) => (
-                                <div className={styles.sentences} key={word.id}>
-                                    <li key={word.id} className={`${styles.words} ${styles.pointer}`}>
-                                        <Meanbox word={word}></Meanbox>
-                                    </li>
-                                </div>
+                            item.morp.map((word, index) => (
+                                <li className={styles.sentences} key={word.id+index}>
+                                    <Meanbox word={word}></Meanbox>
+                                    {console.log(word)}
+                                </li>
                             ))}
                     </ul>
                 ))

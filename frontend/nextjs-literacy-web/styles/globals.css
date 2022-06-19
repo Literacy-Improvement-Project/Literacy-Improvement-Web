@@ -24,6 +24,9 @@
     --font-medium: 14px;
     --font-small: 12px;
     --font-micro: 10px;
+    /* z index*/
+    --z-index-top: 40;
+    --z-index-modal: 45;
 }
 
 @import url(//fonts.googleapis.com/earlyaccess/hanna.css);

@@ -2,9 +2,13 @@ import MyDictionary from "../components/organism/page-myDictionary/myDictionary"
 import { dehydrate, QueryClient, useQuery } from "react-query";
 import { getMyDictionary } from "./api/getMyDictionary";
 import NoLogin from "../components/organism/noLogin/NoLogin";
+import { deleteNote } from "../lib/myDictionary";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/router";
 
 export default function myDictionary() {
 
+  const router = useRouter()
   const { isLoading, isError, error, data } = useQuery('mydictionary', () =>
     getMyDictionary(),
     {
@@ -14,9 +18,16 @@ export default function myDictionary() {
     }
   );
 
-  if (data) {
-    console.log(data)
+  const refreshServerSide = () => {
+    router.replace(router.asPath)
   }
+
+  const clickDelete = (word) => {
+    deleteNote(word);
+    refreshServerSide()
+  }
+
+
 
   return (
     <div>
@@ -25,7 +36,7 @@ export default function myDictionary() {
       ) : isError ? (
         <div><NoLogin></NoLogin></div>
       ) : (<div>
-        <MyDictionary dictionary={data}></MyDictionary>
+        <MyDictionary dictionary={data} clickDelete={clickDelete}></MyDictionary>
       </div>)}
     </div>
   )

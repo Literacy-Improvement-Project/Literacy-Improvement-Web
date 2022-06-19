@@ -4,13 +4,14 @@ import WordCard from "../../molecule/wordcard/WordCard";
 import styles from "./MyDictionary.module.css"
 import { useRouter } from 'next/router'
 
-export default function MyDictionary({ dictionary }) {
+export default function MyDictionary({ dictionary, clickDelete }) {
 
     const router = useRouter()
 
-    const clickDelete = (word) => {
-        deleteNote(word);
-    }
+    // const clickDelete = (word) => {
+    //     deleteNote(word);
+    //     dictionary
+    // }
 
     console.log(dictionary)
 
