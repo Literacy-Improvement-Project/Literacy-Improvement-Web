@@ -19,7 +19,7 @@ export const fetchOpenDictionary = async () => {
 export const fetchMyOpenDictionary = async (userID) => {
 
   const { data } = await axios.get(
-    `http://61.255.221.125:9999/loadtoOpen`, {
+    `http://61.255.221.125:9999/loadFromOpen`, {
     params: {
       userID: userID,
     },

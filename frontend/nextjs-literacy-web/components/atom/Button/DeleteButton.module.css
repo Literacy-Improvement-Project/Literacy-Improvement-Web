@@ -10,9 +10,12 @@
     margin: 0;
     font-size: 1.4em;
     line-height: 1em;
+    border: none;
+    cursor: pointer;
 }
 
 .button_delete:hover {
     background-color: rgb(243, 12, 12);
     transition: all 0.3s ease;
+    z-index: 10;
 }

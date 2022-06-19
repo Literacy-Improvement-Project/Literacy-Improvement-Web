@@ -26,7 +26,9 @@ export default function OpenDictionary() {
   const [selectedCategory, setSelectedCategory] = useState([]);
 
   if (data) {
+    console.log(data)
     dictionaryList = categorize(data);
+    console.log(dictionaryList)
   }
 
   return (

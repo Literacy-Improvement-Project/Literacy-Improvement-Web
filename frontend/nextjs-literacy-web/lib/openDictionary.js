@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export const addToOpen = async (body) => {
-    const { data } = await axios.get("http://61.255.221.125:9999/addtoOpen", {
+    const { data } = await axios.get("http://61.255.221.125:9999/addToOpen", {
         params: {
             morpheme: body.morpheme,
             word: body.word,
@@ -14,8 +14,21 @@ export const addToOpen = async (body) => {
 
 
 
-// export const deleteNote = async (word) => {
-//     const { data } = await axios.get("http://localhost:8080/deleteNote")
-//     console.log(data);
-// }
+export const deleteOpenWord = async (id) => {
+    const body = {
+        id: id
+    }
+    const { data } = await axios.post("http://61.255.221.125:9999/deleteFromOpen", body)
+    console.log(data);
+}
+
+export const deleteOpen = async (category) => {
+    const { data } = await axios.get("http://61.255.221.125:9999/deleteOpenCategory", {
+        params: {
+            category: category
+        }
+    })
+    console.log(data);
+}
+
 

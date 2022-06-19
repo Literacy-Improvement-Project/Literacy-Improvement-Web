@@ -7,7 +7,6 @@ import OpenDicModalTable from '../../molecule/table/OpenDicModalTable';
 
 const OpenDictionaryModal = ({ show, maskClosable, onClose, children, title, data }) => {
     const [isBrowser, setIsBrowser] = useState(false);
-    console.log(data)
     const onMaskClick = (e) => {
         if (e.target === e.currentTarget) {
             onClose(e)

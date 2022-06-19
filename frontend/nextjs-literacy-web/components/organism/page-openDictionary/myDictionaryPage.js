@@ -17,7 +17,7 @@ export default function MyDictionaryPage() {
     fetchMyOpenDictionary(userID),
     {
       keepPreviousData: true,
-      refetchOnMount: false, 
+      refetchOnMount: false,
       refetchOnWindowFocus: false,
     }
   );
@@ -29,10 +29,8 @@ export default function MyDictionaryPage() {
 
   //data 카테고리화
   let dictionaryList;
-  console.log(data);
   if (data) {
     dictionaryList = myCategorize(data);
-    console.log(dictionaryList);
     dispatch(setData(dictionaryList));
   }
 
@@ -49,7 +47,7 @@ export default function MyDictionaryPage() {
           {dictionaryList.map((dict, index) => {
             return (
               <li className={styles.item} key={index} onClick={() => { setShowModal(true); setSelectedCategory(dict) }}>
-                <DeleteButton></DeleteButton>
+                <DeleteButton data={dict.category}></DeleteButton>
                 <span className={styles.dict_title}>{dict.category}</span>
               </li>
             )

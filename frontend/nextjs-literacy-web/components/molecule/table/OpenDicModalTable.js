@@ -20,7 +20,7 @@ export default function OpenDicModalTable({ children, data, handleCloseClick }) 
                     <tr className={styles.tr}>
                         {
                             data.map((item, index) => (
-                                <th className={styles.width}><MiddleModalBox onClick={onClick}>{item}</MiddleModalBox></th>
+                                <th className={styles.width}><MiddleModalBox onClick={onClick}>{item.word}</MiddleModalBox></th>
                             ))}
                         <th></th>
                     </tr>

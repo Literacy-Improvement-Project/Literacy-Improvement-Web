@@ -6,7 +6,6 @@ import MyOpenDicModalTable from '../../molecule/table/MyOpenDicModalTable';
 
 const MyOpenDictionaryModal = ({ show, maskClosable, onClose, children, title, data }) => {
     const [isBrowser, setIsBrowser] = useState(false);
-    console.log(data)
     const onMaskClick = (e) => {
         if (e.target === e.currentTarget) {
             onClose(e)
@@ -39,7 +38,7 @@ const MyOpenDictionaryModal = ({ show, maskClosable, onClose, children, title, d
                 {title && <StyledModalTitle>{title}</StyledModalTitle>}
                 <StyledModalSubTitle>{"Made by " + data.userId.split('@', 1)}</StyledModalSubTitle>
                 <StyledModalBody>{children}
-                    <MyOpenDicModalTable data={data.words} handleCloseClick={handleCloseClick}></MyOpenDicModalTable>
+                    <MyOpenDicModalTable data={data.words} handleCloseClick={handleCloseClick} onClose={onClose}></MyOpenDicModalTable>
                 </StyledModalBody>
             </StyledModal>
         </StyledModalOverlay>
