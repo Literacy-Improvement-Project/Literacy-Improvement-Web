@@ -15,6 +15,8 @@ export default function ModalTable({ children, data, handleCloseClick, title }) 
             category: category,
         }
         addToOpen(body);
+        alert(`"${title}" 가 오픈사전에 추가되었습니다.`)
+        handleCloseClick()
     })
 
     console.log(data)
@@ -36,8 +38,8 @@ export default function ModalTable({ children, data, handleCloseClick, title }) 
                     <tr>
                         <th className={styles.center}>
                             <AddModalBox onClick={onClick} id="ModalAdd" data={category}>
-                                <a href="#" onClick={(e) => {
-                                    handleCloseClick(e);
+                                <a href="#" onClick={() => {
+                                    handleCloseClick();
                                 }}>
                                     등록하기
                                 </a>

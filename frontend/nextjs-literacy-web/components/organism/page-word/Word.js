@@ -3,8 +3,10 @@ import styles from "./Word.module.css"
 import { addToDictionary } from "../../../lib/myDictionary";
 export default function Word({ word, words }) {
 
-    const addMyDictionary = (Word, Mean) => {
-        addToDictionary(Word, Mean);
+    const addMyDictionary = (addWord, addMean) => {
+        addToDictionary(addWord, addMean);
+        
+        alert(`"` + addWord + `"가 추가되었습니다!`)
     }
 
 

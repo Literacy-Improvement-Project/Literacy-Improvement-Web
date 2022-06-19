@@ -10,8 +10,6 @@ export default function SearchWordMeaning(props) {
     const onClick = (() => {
         props.getAccount(account);
         props.getistrue(1);
-        console.log(account);
-        
     })
 
     //for search

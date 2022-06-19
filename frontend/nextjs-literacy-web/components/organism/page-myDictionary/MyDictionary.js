@@ -17,8 +17,7 @@ export default function MyDictionary({ dictionary }) {
         refreshServerSide();
     }
 
-    console.log(dictionary)
-
+    
     return (
         <div className={styles.container}>
             <div className={styles.title}>

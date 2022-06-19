@@ -14,18 +14,12 @@ export default function OpenDicModalTable({ children, data, handleCloseClick }) 
 
     return (
         <div className={styles.containner}>
-            <table className={styles.table}>
-                <thead></thead>
-                <tbody>
-                    <tr className={styles.tr}>
-                        {
-                            data.map((item, index) => (
-                                <th className={styles.width}><MiddleModalBox onClick={onClick}>{item.word}</MiddleModalBox></th>
-                            ))}
-                        <th></th>
-                    </tr>
-                </tbody>
-            </table>
+            {
+                data.map((item, index) => (
+                    <div className={styles.width}><MiddleModalBox onClick={onClick}>{item}</MiddleModalBox></div>
+                ))
+            }
+            <p className={styles.arrow_box}>눌러서 검색!</p>
         </div>
     )
 }

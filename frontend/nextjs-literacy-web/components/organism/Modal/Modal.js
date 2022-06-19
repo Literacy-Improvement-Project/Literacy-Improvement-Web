@@ -18,23 +18,23 @@ const Modal = ({ show, maskClosable, onClose, children, title, data }) => {
         setIsBrowser(true);
     }, []);
 
-    const handleCloseClick = (e) => {
-        e.preventDefault();
-        onClose();
-    };
+    // const handleCloseClick = (e) => {
+    //     e.preventDefault();
+    //     onClose();
+    // };
 
     const modalContent = show ? (
         <StyledModalOverlay visible={show} onClick={maskClosable ? onMaskClick : null}>
             <StyledModal>
                 <StyledModalHeader>
-                    <a href="#" onClick={handleCloseClick}>
+                    <a href="#" onClick={() => onClose()}>
                         x
                     </a>
                 </StyledModalHeader>
                 {title && <StyledModalTitle>오픈사전에 등록하기</StyledModalTitle>}
                 <StyledModalBody>{children}
                     <ModalBox>{title}</ModalBox>
-                    <ModalTable title={title} data={data} handleCloseClick={handleCloseClick}></ModalTable>
+                    <ModalTable title={title} data={data} handleCloseClick={onClose}></ModalTable>
                 </StyledModalBody>
             </StyledModal>
         </StyledModalOverlay>
