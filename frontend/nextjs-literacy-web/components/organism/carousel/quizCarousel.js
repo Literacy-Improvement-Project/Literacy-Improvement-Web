@@ -84,7 +84,6 @@ export default function QuizCarousel({slideItems}) {
 
   return (
     <div className={`${styles.box} ${styles.container}`}>
-      <h2 className={styles.title}>우리말 뜻풀이</h2>
       <div className={styles.content}>
         <div>
           {(slideCurrent<=slideTotal)?

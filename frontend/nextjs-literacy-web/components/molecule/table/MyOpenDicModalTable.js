@@ -14,17 +14,11 @@ export default function OpenDicModalTable({ children, data, handleCloseClick }) 
 
     return (
         <div className={styles.containner}>
-            <table className={styles.table}>
-                <thead></thead>
-                <tbody>
-                    <tr className={styles.tr}>
-                        {
-                            data.map((item, index) => (
-                                <th className={styles.width}><MiddleModalBox onClick={onClick}>{item}</MiddleModalBox><button>x</button></th>
-                            ))}
-                    </tr>
-                </tbody>
-            </table>
+            {
+                data.map((item, index) => (
+                    <div className={styles.width}><MiddleModalBox onClick={onClick}>{item}</MiddleModalBox><button>x</button></div>
+                ))
+            }
         </div>
     )
 }

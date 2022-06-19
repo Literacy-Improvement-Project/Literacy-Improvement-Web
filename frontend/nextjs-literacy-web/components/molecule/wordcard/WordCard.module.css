@@ -3,9 +3,11 @@
     flex-direction: column;
     background-color: #F4FCF1;
     align-items: center;
-    margin: 20px;
     border: 10px;
     border-radius: 6vh 1vh / 1vh 6vh;
+    width: 100%;
+    padding: 15px;
+    margin: 15px;
 }
 
 .h1 {

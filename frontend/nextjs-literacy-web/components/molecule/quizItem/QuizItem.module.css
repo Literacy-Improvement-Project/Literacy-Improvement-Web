@@ -24,6 +24,7 @@
 }
 
 .item {
+    padding: 10px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,7 +33,7 @@
     background-color: beige;
     font-size: 20px;
     width: 50vh;
-    height: 6vh;
+    min-height: 6vh;
     margin: 1vh;
     font-weight: bold;
     border-radius: 5px;

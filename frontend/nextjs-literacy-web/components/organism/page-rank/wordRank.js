@@ -47,7 +47,7 @@ export default function WordRank({wordList}) {
                   <td className={styles.word}>{word.word}</td>
                 </Link>
                 <td className={styles.mean}>{word.mean}</td>
-                <td>{word.point}</td>
+                <td className={styles.point}>{word.point}</td>
                 <p className={styles.arrow_box}>눌러서 검색!</p>
               </tr>
             )

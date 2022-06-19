@@ -16,6 +16,7 @@ export const fetchOpenDictionary = async () => {
   return data;
 }
 
+
 export const fetchMyOpenDictionary = async (userID) => {
 
   const { data } = await axios.get(

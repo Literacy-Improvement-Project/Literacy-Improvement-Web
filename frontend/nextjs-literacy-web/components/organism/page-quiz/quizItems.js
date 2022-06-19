@@ -65,6 +65,7 @@ export default function QuizItems() {
 
   return (
       <div className={styles.container}>
+        <h2 className={styles.title}>우리말 뜻풀이</h2>
         {isLoading ? (
           <Loading></Loading>
         ) : isError ? (

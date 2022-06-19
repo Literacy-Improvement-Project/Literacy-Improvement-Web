@@ -21,14 +21,13 @@ export default function SearchWord() {
 
   let sentences;
 
-  let tmp = [
-  ];
+  let tmp = [];
 
   const POS = ["NNG", "NNP", "NR", "NP", "VV", "VA", "VX", "MM", "MAG", "MAJ"];
 
   //일반 명사, 고유 명사, 수사, 대명사, 동사, 형용사, 보조 동사, 보조 형용사, 관형사, 부사
 
-  if (data != null) {
+  if (data) {
     sentences = data.return_object.sentence;
     console.log(data)
     for (let i = 0; i < sentences.length; i++) {
@@ -58,17 +57,17 @@ export default function SearchWord() {
   );
 }
 
-export async function getServerSideProps(context) {
+// export async function getServerSideProps(context) {
 
-  const queryClient = new QueryClient();
+//   const queryClient = new QueryClient();
 
-  await queryClient.prefetchQuery(
-    'Morp',
-    async () => await postMorp(account));
+//   await queryClient.prefetchQuery(
+//     'Morp',
+//     async () => await postMorp(account));
 
-  return {
-    props: {
-      dehydratedState: dehydrate(queryClient),
-    }
-  }
-}
+//   return {
+//     props: {
+//       dehydratedState: dehydrate(queryClient),
+//     }
+//   }
+// }

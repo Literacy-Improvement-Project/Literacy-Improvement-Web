@@ -139,10 +139,15 @@
 
 .word {
     box-sizing: border-box;
+    font-size: 20px;
 }
 
 .word:hover {
     cursor: pointer;
+}
+
+.point {
+    font-size: 25px;
 }
 
 .arrow_box {

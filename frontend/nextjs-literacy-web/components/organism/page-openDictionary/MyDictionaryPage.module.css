@@ -2,11 +2,23 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    background-color: aquamarine;
+    background-color: rgba(255, 255, 255, 0.705);
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: 94vh;
+    min-height: 100vh;
+}
+
+.container::after {
+    position: absolute;
+    content: "";
+    background-image: url("../../../public/images/library2.png");
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: 100vh;
+    opacity: 80%;
+    z-index: -1;
 }
 
 .title {
@@ -25,7 +37,7 @@
     height: 5vh;
     align-items: center;
     justify-content: center;
-    background-color: antiquewhite;
+    background-color: fdf5e2;
     border-radius: 5px;
     margin: 6px 6px 12px 6px;
     transition: all 0.3s ease;

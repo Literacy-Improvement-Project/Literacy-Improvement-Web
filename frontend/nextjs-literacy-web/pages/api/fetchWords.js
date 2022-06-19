@@ -8,7 +8,6 @@ export const fetchWords = async (txt) => {
     const sort = "dict"; // dict / popular
     const method = "include" // exact / include / start 
 
-
     if (txt != null) {
         q = txt;
     }

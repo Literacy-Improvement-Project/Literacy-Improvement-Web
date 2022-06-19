@@ -20,18 +20,20 @@ export default function Dailyword() {
 
   return (
     <div className={styles.container}>
-      <div className={styles.title}>
-        오늘의 단어
-      </div>
-      {isLoading ? (
-        <Loading></Loading>
-      ) : isError ? (
-        <div>Error: {error.message}</div>
-      ) : (
-        <div>
-          <WordCarousel slideItems={data}></WordCarousel>
+      <div className={styles.main}>
+        <div className={styles.title}>
+          오늘의 단어
         </div>
-      )}
+        {isLoading ? (
+          <Loading></Loading>
+        ) : isError ? (
+          <div>Error: {error.message}</div>
+        ) : (
+          <div>
+            <WordCarousel slideItems={data}></WordCarousel>
+          </div>
+        )}
+      </div>
     </div>
   );
 }
