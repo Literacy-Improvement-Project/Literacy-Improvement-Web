@@ -1,6 +1,3 @@
-import { dehydrate, QueryClient, useQuery } from "react-query";
-import { getMyDictionary } from "../../../pages/api/getMyDictionary";
-import { useState } from "react";
 import WordList from "../../molecule/wordlist/WordList";
 import styles from "./Word.module.css"
 import { addToDictionary } from "../../../lib/myDictionary";
@@ -9,10 +6,7 @@ export default function Word({ word, words }) {
     const addMyDictionary = (Word, Mean) => {
         addToDictionary(Word, Mean);
     }
-    const addOpenDictionary = (Word) => {
-        // deleteMyDictionary(word);
-        console.log(Word);
-    }
+
 
     return (
         <div className={styles.container}>
@@ -23,7 +17,7 @@ export default function Word({ word, words }) {
                 {
                     words.map((item, index) => (
                         <div key={index}>
-                            <li><WordList word={item.word} content={item.sense[0]} addMyDictionary={addMyDictionary} addOpenDictionary={addOpenDictionary} index={index} ></WordList></li>
+                            <li><WordList word={item.word} content={item.sense[0]} addMyDictionary={addMyDictionary} index={index} ></WordList></li>
                         </div>
                     ))
                 }
@@ -31,18 +25,3 @@ export default function Word({ word, words }) {
         </div>
     );
 }
-
-// export async function getServerSideProps(context) {
-
-//     const queryClient = new QueryClient();
-
-//     await queryClient.prefetchQuery(
-//         "myDictionary",
-//         async () => await getMyDictionary()
-//     );
-//     return {
-//         props: {
-//             dehydratedState: dehydrate(queryClient),
-//         }
-//     }
-// }

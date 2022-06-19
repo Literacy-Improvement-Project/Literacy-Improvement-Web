@@ -25,7 +25,7 @@ export default function myDictionary() {
       ) : isError ? (
         <div><NoLogin></NoLogin></div>
       ) : (<div>
-        <MyDictionary data={data}></MyDictionary>
+        <MyDictionary dictionary={data}></MyDictionary>
       </div>)}
     </div>
   )

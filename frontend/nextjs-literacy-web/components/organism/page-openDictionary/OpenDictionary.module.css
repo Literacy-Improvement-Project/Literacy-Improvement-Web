@@ -13,6 +13,7 @@
     font-size: 1.4em;
     font-weight: bold;
     margin: 10px;
+    font-family: 'Jalnan';
 }
 
 .button_mydictionary {
@@ -45,7 +46,9 @@
 }
 
 .item {
+    font-family: 'GmarketSansMedium';
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     text-align: center;
@@ -61,4 +64,18 @@
 .item:hover {
     background-color: rgb(165, 226, 255);
     transition: all 0.3s ease;
+}
+
+.userId {
+    font-size: 11px;
+}
+
+@font-face {
+    font-family: 'Jalnan';
+    src: url("../../../public//fonts/JalnanOTF.otf") format('opentype');
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url("../../../public//fonts/GmarketSansMedium.otf") format('opentype');
 }

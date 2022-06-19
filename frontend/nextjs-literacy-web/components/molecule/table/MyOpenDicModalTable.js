@@ -18,10 +18,10 @@ export default function OpenDicModalTable({ children, data, handleCloseClick }) 
                 <thead></thead>
                 <tbody>
                     <tr className={styles.tr}>
-                        <th className={styles.width}><MiddleModalBox onClick={onClick}>침</MiddleModalBox><button>x</button></th>
-                        <th className={styles.width}><MiddleModalBox onClick={onClick}>한의학</MiddleModalBox><button>x</button></th>
-                        <th className={styles.width}><MiddleModalBox onClick={onClick}>계피나무</MiddleModalBox><button>x</button></th>
-                        <th></th>
+                        {
+                            data.map((item, index) => (
+                                <th className={styles.width}><MiddleModalBox onClick={onClick}>{item}</MiddleModalBox><button>x</button></th>
+                            ))}
                     </tr>
                 </tbody>
             </table>

@@ -19,23 +19,15 @@ export default function OpenDictionary() {
       refetchOnWindowFocus: false,
     }
   );
+
   //data 카테고리화
-  // const dictionaryList = categorize(data);
-
+  let dictionaryList;
   const [showModal, setShowModal] = useState(false);
-  const [selectedCategory, setSelectedCategory] = useState();
+  const [selectedCategory, setSelectedCategory] = useState([]);
 
-  let dictionaryList = []
   if (data) {
-    console.log(data)
-    dictionaryList = data.results
+    dictionaryList = categorize(data);
   }
-
-
-  const gotoMyDictionary = () => {
-    console.log("hi")
-  }
-  console.log(selectedCategory)
 
   return (
     <div className={styles.container}>
@@ -51,6 +43,7 @@ export default function OpenDictionary() {
             return (
               <li className={styles.item} key={index} onClick={() => { setShowModal(true); setSelectedCategory(dict) }} >
                 <span>{dict.category}</span>
+                <span className={styles.userId} >{dict.userId.split('@', 1)}</span>
               </li>
             )
           })}
@@ -59,9 +52,9 @@ export default function OpenDictionary() {
       <OpenDictionaryModal
         onClose={() => setShowModal(false)}
         show={showModal}
-        title="tt"        // title={selectedCategory.category}
+        title={selectedCategory.category ? selectedCategory.category : "error"}
         maskClosable={true}
-        data="tttt"// data={selectedCategory.words}
+        data={selectedCategory ? selectedCategory : "error"}
       >
       </OpenDictionaryModal>
     </div>

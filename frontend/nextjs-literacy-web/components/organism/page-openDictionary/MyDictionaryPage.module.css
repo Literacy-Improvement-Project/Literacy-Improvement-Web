@@ -10,6 +10,7 @@
 }
 
 .title {
+    font-family: 'Jalnan';
     font-size: 1.4em;
     font-weight: bold;
     margin: 10px;
@@ -87,4 +88,14 @@
 .dict_title {
     position: relative;
     top: -10px;
+}
+
+@font-face {
+    font-family: 'Jalnan';
+    src: url("../../../public//fonts/JalnanOTF.otf") format('opentype');
+}
+
+@font-face {
+    font-family: 'GmarketSansMedium';
+    src: url("../../../public//fonts/GmarketSansMedium.otf") format('opentype');
 }

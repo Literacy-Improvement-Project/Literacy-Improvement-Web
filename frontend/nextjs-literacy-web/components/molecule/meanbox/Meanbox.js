@@ -13,12 +13,12 @@ export default function Meanbox(props) {
             }}>
                 {props.word.lemma}
             </Link>
-            <Link href={{
+            {/* <Link href={{
                 pathname: '/word',
                 query: { word: props.word.lemma }
             }}>
                 {props.word.type}
-            </Link>
+            </Link> */}
         </div>
     )
 }

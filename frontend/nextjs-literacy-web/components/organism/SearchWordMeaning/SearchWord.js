@@ -41,10 +41,11 @@ export default function SearchWord() {
 
   const POS = ["NNG", "NNP", "NR", "NP", "VV", "VA", "VX", "MM", "MAG", "MAJ"];
 
-
+  //일반 명사, 고유 명사, 수사, 대명사, 동사, 형용사, 보조 동사, 보조 형용사, 관형사, 부사
 
   if (data != null) {
     sentences = data.return_object.sentence;
+    console.log(data)
     for (let i = 0; i < sentences.length; i++) {
       for (let word of sentences[i].morp) {
         if (POS.includes(word.type)) {
@@ -62,6 +63,7 @@ export default function SearchWord() {
   const getAccount = ((tmp) => {
     setAccount(tmp);
   })
+
   return (
     <div className={styles.container}>
       < SearchWordMeaning getistrue={getistrue} getAccount={getAccount} setistrue={setistrue}></SearchWordMeaning >

@@ -35,7 +35,7 @@ export default function WordRanking() {
         ) : isError ? (
           <div>Error: {error.message}</div>
         ) : ( */}
-        <WordRank wordList={wordList}></WordRank>
+        <WordRank wordList={data}></WordRank>
         {/* )
       } */}
     </div>
