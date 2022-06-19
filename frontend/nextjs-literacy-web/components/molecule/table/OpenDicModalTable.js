@@ -3,7 +3,7 @@ import styles from './OpenDicModalTable.module.css'
 import Link from 'next/link';
 import { useState } from 'react';
 import DeleteButton from '../../atom/Button/DeleteButton';
-export default function OpenDicModalTable({ children, data, handleCloseClick }) {
+export default function OpenDicModalTable({ data, handleCloseClick }) {
     const [category, setCategory] = useState("");
 
     const onClick = ((e) => {
@@ -16,7 +16,7 @@ export default function OpenDicModalTable({ children, data, handleCloseClick }) 
         <div className={styles.containner}>
             {
                 data.map((item, index) => (
-                    <div className={styles.width}><MiddleModalBox onClick={onClick}>{item}</MiddleModalBox></div>
+                    <div key={index} className={styles.width}><MiddleModalBox onClick={onClick}>{item.word}</MiddleModalBox></div>
                 ))
             }
             <p className={styles.arrow_box}>눌러서 검색!</p>

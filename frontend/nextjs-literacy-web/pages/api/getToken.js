@@ -8,7 +8,6 @@ export const getToken = async (req, res) => {
       }
     })
     .then((response) => {
-      console.log(response.data);
     })
     .catch((error) => {
       console.log("get token fail")

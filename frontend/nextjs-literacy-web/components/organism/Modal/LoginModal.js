@@ -24,7 +24,7 @@ const LoginModal = ({ show, maskClosable, onClose, children,  }) => {
     }
 
     useEffect(() => {
-      setIsBrowser(true);
+        setIsBrowser(true);
     }, []);
 
     const handleCloseClick = (e) => {
@@ -34,13 +34,13 @@ const LoginModal = ({ show, maskClosable, onClose, children,  }) => {
 
     const modalContent = show ? (
         <div className={styles.container} visible={String(show)} onClick={maskClosable ? onMaskClick : null}>
-          <div className={styles.modal}>
-            <h2 className={styles.title}>바른말 배움터</h2>
-            <h2 className={styles.login}>로그인</h2>
-            <div className={styles.btn_container}>
-                <KakaoLoginBtn></KakaoLoginBtn>
+            <div className={styles.modal}>
+                <h2 className={styles.title}>바른말 배움터</h2>
+                <h2 className={styles.login}>로그인</h2>
+                <div className={styles.btn_container}>
+                    <KakaoLoginBtn></KakaoLoginBtn>
+                </div>
             </div>
-          </div>
         </div>
     ) : null;
 

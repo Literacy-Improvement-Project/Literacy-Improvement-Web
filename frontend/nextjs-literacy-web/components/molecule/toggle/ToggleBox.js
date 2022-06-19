@@ -11,7 +11,6 @@ const SearchResults = props => {
         }));
     };
 
-    console.log(shownComments);
     return (
         <Fragment>
             {props.search_results ? props.search_results.map(obj => (

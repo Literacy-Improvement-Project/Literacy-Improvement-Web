@@ -15,9 +15,6 @@ export default function Dailyword() {
     }
   );
 
-  
-
-
   return (
     <div className={styles.container}>
       <div className={styles.main}>

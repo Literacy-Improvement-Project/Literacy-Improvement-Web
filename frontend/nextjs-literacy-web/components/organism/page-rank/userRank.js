@@ -3,11 +3,7 @@ import styles from "./UserRank.module.css"
 
 export default function UserRank({userList, userInfo}) {
 
-  console.log(userList)
-  console.log(userInfo)
-
   let rank_base_url = "https://ssl.nexon.com/s2/game/maplestory/renewal/common/ranking_num0"
-  let user_base_url = "https://avatar.maplestory.nexon.com/Character/180/DFDBBLKPIIPBOONAOAMGLMNOJFCCMHJALDMDIAFPJHBNHOCCCOPGJBOHIALLCHPLKIFPIAMKLOBJMKHAJJLJLIFLKOHPBJHJDLPLOICLOJBICKIJFLGNEDLKDBJOKMLDGNJPEPONPPJHFGBJBHJLLGFEPLCFOABJIDELKJBAFNPDIBJJILMAMIHOKKDHEGEJAMEPACFCLPHMILLEELDKHAOEJAEIBOLHGDLLJCKFCICJJNJGDLPACMIFBKAOFEKC.png"
 
 
   return (

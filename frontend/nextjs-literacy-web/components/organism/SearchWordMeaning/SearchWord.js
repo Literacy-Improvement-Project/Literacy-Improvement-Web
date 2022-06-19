@@ -29,7 +29,7 @@ export default function SearchWord() {
 
   if (data) {
     sentences = data.return_object.sentence;
-    console.log(data)
+
     for (let i = 0; i < sentences.length; i++) {
       tmp.push({ morp: [] })
       for (let word of sentences[i].morp) {
@@ -38,7 +38,6 @@ export default function SearchWord() {
         }
       }
     }
-    console.log(tmp);
   }
 
   const getistrue = ((temp) => {
@@ -56,18 +55,3 @@ export default function SearchWord() {
     </div>
   );
 }
-
-// export async function getServerSideProps(context) {
-
-//   const queryClient = new QueryClient();
-
-//   await queryClient.prefetchQuery(
-//     'Morp',
-//     async () => await postMorp(account));
-
-//   return {
-//     props: {
-//       dehydratedState: dehydrate(queryClient),
-//     }
-//   }
-// }

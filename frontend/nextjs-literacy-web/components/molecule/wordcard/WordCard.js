@@ -2,8 +2,6 @@ import styles from './WordCard.module.css'
 import Button from '../../atom/Button/Button'
 export default function WordCard({ content, clickDelete }) {
 
-    console.log(content)
-
     const deleteWord = () => {
         clickDelete(content.word);
     }

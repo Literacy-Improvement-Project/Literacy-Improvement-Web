@@ -11,10 +11,8 @@ export default function LoginCheck() {
 
   useEffect(() => {
     if (checkCookies('userID') === true) {
-      // 로그인 토큰 정보 -> 리덕스로 저장
       const token = getCookie('userID');
       dispatch(loginUser(token))
-      console.log(token)
     }
   }, [isLogin])
 

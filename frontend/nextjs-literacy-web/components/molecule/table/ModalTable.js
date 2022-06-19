@@ -19,9 +19,6 @@ export default function ModalTable({ children, data, handleCloseClick, title }) 
         handleCloseClick()
     })
 
-    console.log(data)
-
-
     return (
         <div>
             <table>

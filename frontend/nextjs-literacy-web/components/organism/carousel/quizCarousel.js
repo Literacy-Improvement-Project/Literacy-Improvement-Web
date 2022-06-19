@@ -22,7 +22,7 @@ export default function QuizCarousel({slideItems}) {
 
   const mutation = useMutation(score => {
     let body = {score: score}
-    console.log(body)
+
     return fetchQuizResult(body)
   })
 
@@ -79,7 +79,7 @@ export default function QuizCarousel({slideItems}) {
   )
   
   const gotoHome = () => {
-    console.log(router.push('/'))
+    router.push('/')
   }
 
   return (
@@ -90,7 +90,7 @@ export default function QuizCarousel({slideItems}) {
           // 퀴즈가 진행중
             slideItems.map((slide, index) => {
               return (
-                <div key={slide.word} className={index === slideCurrent 
+                <div key={slide.word+index} className={index === slideCurrent 
                   ? `${styles.slide} ${styles.active}` 
                   : `${styles.slide}`}
                 >

@@ -8,12 +8,7 @@ import Logout from '../components/atom/kakaoButton/LogoutBtn';
 
 export default function Home() {
 
-  // const [searchText, setSearchText] = useState("")
-  // const handleSearchText = ({ target }) => {
-  //   setSearchText(target.value);
-  // };
-
-
+  
   return (
     <div className={`${styles.container} ${styles.scroll_container}`}>
       <ul>

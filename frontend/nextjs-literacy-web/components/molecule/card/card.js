@@ -5,8 +5,6 @@ export default function Card({content}) {
 
   const searchWord = () => {
     content.word
-
-    
   }
 
   return (

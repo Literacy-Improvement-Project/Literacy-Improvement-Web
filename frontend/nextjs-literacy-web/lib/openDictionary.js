@@ -9,13 +9,23 @@ export const addToOpen = async (body) => {
             category: body.category
         }
     })
-    console.log(data);
 }
 
 
 
-// export const deleteNote = async (word) => {
-//     const { data } = await axios.get("http://localhost:8080/deleteNote")
-//     console.log(data);
-// }
+export const deleteOpenWord = async (id) => {
+    const body = {
+        id: id
+    }
+    const { data } = await axios.post("http://61.255.221.125:9999/deleteFromOpen", body)
+}
+
+export const deleteOpen = async (category) => {
+    const { data } = await axios.get("http://61.255.221.125:9999/deleteOpenCategory", {
+        params: {
+            category: category
+        }
+    })
+}
+
 

@@ -29,22 +29,6 @@ export default function UserRanking() {
   })
   
 
-
-  let img_URL = "https://opgg-static.akamaized.net/images/profile_icons/profileIcon4690.jpg?image=q_auto&image=q_auto,f_png,w_64&v=1652433080439"
-
-  let userList = [
-    {userName: "user1", profile: img_URL, score:70, }, 
-    {userName: "user2", profile: img_URL, score:60, }, 
-    {userName: "user3", profile: img_URL, score:50, }, 
-    {userName: "user4", profile: img_URL, score:40, }, 
-    {userName: "user5", profile: img_URL, score:30, }, 
-    {userName: "user6", profile: img_URL, score:20, }, 
-    {userName: "user7", profile: img_URL, score:10, }, 
-  ]
-  
-  let userInfo2 = {userName: "cheol", profile: img_URL, score: 5, rank: 10}
-
-
   return (
     <div>
       {isLoading ? (

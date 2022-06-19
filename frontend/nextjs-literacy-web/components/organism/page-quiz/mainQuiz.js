@@ -4,15 +4,6 @@ import Link from 'next/link'
 
 export default function MainQuiz() {
 
-  // const { isLoading, isError, error, data } = useQuery('dailyword',() =>
-  //   fetchDailyword(),
-  //   {
-  //     keepPreviousData: true,
-  //     refetchOnMount: false,
-  //     refetchOnWindowFocus: false,
-  //   }
-  // );
-
 
   return (
       <div className={styles.container}>
@@ -22,6 +13,4 @@ export default function MainQuiz() {
 }
 
 export async function getServerSideProps(context) {
-
-
 }
