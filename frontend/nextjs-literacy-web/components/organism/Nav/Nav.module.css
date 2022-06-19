@@ -5,6 +5,9 @@
     flex-basis: auto;
     width: auto;
     height: auto;
+    position: sticky;
+    top: 0;
+    z-index: 40;
 }
 
 .nav {
@@ -12,11 +15,12 @@
     height: 6vh;
     /* background: #292f36; */
     background: #F0F0F0;
-    z-index: 10;
+
     box-shadow: rgb(0 0 0 / 10%) 0px 8px 12px 0px;
     font-family: 'Jalnan';
     font-size: 25px;
     color: #5EB656;
+
 }
 
 .ul {

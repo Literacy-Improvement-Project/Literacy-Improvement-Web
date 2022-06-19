@@ -18,11 +18,20 @@ export default function Home() {
     <div className={`${styles.container} ${styles.scroll_container}`}>
       <ul>
         <li>
-          <a name="searchWords"><SearchWord></SearchWord></a>
+          <a name="searchWords"></a>
+          <SearchWord></SearchWord>
         </li>
-        <li><DescribePage></DescribePage></li>
-        <li><a name="dailyWords"><Dailyword></Dailyword></a></li>
-        <li><a name="openDictionary"></a><OpenDictionary></OpenDictionary></li>
+        <li>
+          <DescribePage></DescribePage>
+        </li>
+        <li>
+          <a name="dailyWords"></a>
+          <Dailyword></Dailyword>
+        </li>
+        <li>
+          <a name="openDictionary"></a>
+          <OpenDictionary></OpenDictionary>
+        </li>
         {/* <li>
           <input type="text" value={searchText} onChange={(e) => handleSearchText(e)} />
           <button label="검색">

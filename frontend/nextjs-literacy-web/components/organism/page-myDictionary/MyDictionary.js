@@ -6,10 +6,15 @@ import { useRouter } from 'next/router'
 
 export default function MyDictionary({ dictionary }) {
 
+
     const router = useRouter()
 
+    const refreshServerSide = () => {
+        router.replace(router.asPath)
+    }
     const clickDelete = (word) => {
         deleteNote(word);
+        refreshServerSide();
     }
 
     console.log(dictionary)

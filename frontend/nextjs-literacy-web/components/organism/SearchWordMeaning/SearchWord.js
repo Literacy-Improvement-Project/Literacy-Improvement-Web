@@ -22,21 +22,6 @@ export default function SearchWord() {
   let sentences;
 
   let tmp = [
-    {
-      morp: [
-
-      ]
-    },
-    {
-      morp: [
-
-      ]
-    },
-    {
-      morp: [
-
-      ]
-    }
   ];
 
   const POS = ["NNG", "NNP", "NR", "NP", "VV", "VA", "VX", "MM", "MAG", "MAJ"];
@@ -47,6 +32,7 @@ export default function SearchWord() {
     sentences = data.return_object.sentence;
     console.log(data)
     for (let i = 0; i < sentences.length; i++) {
+      tmp.push({ morp: [] })
       for (let word of sentences[i].morp) {
         if (POS.includes(word.type)) {
           tmp[i].morp.push(word);
