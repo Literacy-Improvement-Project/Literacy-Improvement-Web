@@ -1,9 +1,10 @@
-import ModalBox from '../../atom/ModalBox/ModalBox'
-import AddModalBox from '../../atom/ModalBox/AddModalBox'
-import SearchResults from '../toggle/SearchResults'
-import styles from './ModalTable.module.css'
+import ModalBox from '../../atom/ModalBox/ModalBox';
+import AddModalBox from '../../atom/ModalBox/AddModalBox';
+import SearchResults from '../toggle/SearchResults';
+import styles from './ModalTable.module.css';
 import { useState } from 'react';
 import { addToOpen } from '../../../lib/openDictionary';
+
 export default function ModalTable({ children, data, handleCloseClick, title }) {
     const [category, setCategory] = useState("");
 

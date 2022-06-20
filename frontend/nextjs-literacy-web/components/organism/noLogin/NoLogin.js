@@ -1,4 +1,5 @@
-import styles from "./NoLogin.module.css"
+import styles from "./NoLogin.module.css";
+
 export default function NoLogin() {
 
     return (

@@ -1,5 +1,5 @@
 import Button from "../../atom/Button/Button";
-import styles from "./PrevButton.module.css"
+import styles from "./PrevButton.module.css";
 
 export default function PrevButton({prevEvent}) {
   return (

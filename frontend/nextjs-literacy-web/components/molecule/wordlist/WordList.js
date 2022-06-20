@@ -1,8 +1,8 @@
 import styles from './WordList.module.css'
 import Button from '../../atom/Button/Button'
 import Modal from '../../organism/Modal/Modal';
-import { addToDictionary, AddToDictionary, test } from '../../../lib/myDictionary';
 import { useState } from 'react';
+
 export default function WordList({ word, content, addMyDictionary, index }) {
     const [showModal, setShowModal] = useState(false);
     

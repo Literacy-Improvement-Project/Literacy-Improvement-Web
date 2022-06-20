@@ -1,7 +1,7 @@
 import { dehydrate, QueryClient, useQuery } from "react-query";
 import UserRank from "../components/organism/page-rank/userRank";
 import { fetchUserRank } from "./api/fetchUserRank";
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
 import { useState } from "react";
 import { useEffect } from "react";
 import Loading from "../components/organism/page-loading/Loading";

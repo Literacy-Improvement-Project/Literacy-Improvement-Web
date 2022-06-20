@@ -1,10 +1,7 @@
-import MyDictionary from "../components/organism/page-myDictionary/myDictionary"
+import MyDictionary from "../components/organism/page-myDictionary/myDictionary";
 import { dehydrate, QueryClient, useQuery } from "react-query";
 import { getMyDictionary } from "./api/getMyDictionary";
 import NoLogin from "../components/organism/noLogin/NoLogin";
-import { deleteNote } from "../lib/myDictionary";
-import { useEffect, useState } from "react";
-import { useRouter } from "next/router";
 
 export default function myDictionary() {
 

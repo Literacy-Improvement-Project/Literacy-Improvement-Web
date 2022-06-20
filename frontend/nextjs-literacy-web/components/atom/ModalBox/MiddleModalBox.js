@@ -1,4 +1,5 @@
-import styles from './MiddleModalBox.module.css'
+import styles from './MiddleModalBox.module.css';
+
 export default function MiddleModalBox({ children, onClick }) {
 
     return (

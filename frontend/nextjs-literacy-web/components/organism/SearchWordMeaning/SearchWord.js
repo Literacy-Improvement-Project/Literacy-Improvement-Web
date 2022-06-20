@@ -3,7 +3,7 @@ import AfterSearchWordMeaning from "./AfterSearchWordMeaning";
 import { dehydrate, QueryClient, useQuery } from "react-query";
 import { postMorp } from "../../../pages/api/postMorp";
 import { useState } from "react";
-import styles from './SearchWord.module.css'
+import styles from './SearchWord.module.css';
 
 
 export default function SearchWord() {

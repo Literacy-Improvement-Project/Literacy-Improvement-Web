@@ -1,15 +1,10 @@
 import React from 'react'
 import { useState, useEffect } from "react";
-import ToggleBox from '../../molecule/toggle/ToggleBox';
-import PropTypes from 'prop-types'
 import ReactDOM from 'react-dom'
-import SearchResults from '../../molecule/toggle/SearchResults';
-import ModalBox from '../../atom/ModalBox/ModalBox';
-import ModalTable from '../../molecule/table/ModalTable';
 import KakaoLoginBtn from '../../atom/kakaoButton/kakaoLoginBtn';
-import styles from './LoginModal.module.css'
+import styles from './LoginModal.module.css';
 
-const LoginModal = ({ show, maskClosable, onClose, children,  }) => {
+const LoginModal = ({ show, maskClosable, onClose, }) => {
     const [isBrowser, setIsBrowser] = useState(false);
     const onMaskClick = (e) => {
         if (e.target === e.currentTarget) {

@@ -1,8 +1,7 @@
 import { dehydrate, QueryClient, useQuery } from "react-query";
-import QuizCarousel from "../carousel/quizCarousel"
-import styles from "./QuizItems.module.css"
+import QuizCarousel from "../carousel/quizCarousel";
+import styles from "./QuizItems.module.css";
 import { fetchQuizItem } from "../../../pages/api/fetchQuizItem";
-import { useState } from "react";
 import Loading from "../page-loading/Loading";
 
 export default function QuizItems() {

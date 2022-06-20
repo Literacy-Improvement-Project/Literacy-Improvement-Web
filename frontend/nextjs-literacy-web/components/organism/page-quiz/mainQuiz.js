@@ -1,6 +1,6 @@
 import { dehydrate, QueryClient, useQuery } from "react-query";
-import styles from "./MainQuiz.module.css"
-import Link from 'next/link'
+import styles from "./MainQuiz.module.css";
+import Link from 'next/link';
 
 export default function MainQuiz() {
 

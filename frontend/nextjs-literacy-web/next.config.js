@@ -2,10 +2,39 @@
 
 
 const nextConfig = {
-  reactStrictMode: true,
+  reactStrictMode: false,
 
   eslint: {
     ignoreDuringBuilds: true,
+  },
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        use: [
+          {
+            loader: "style-loader"
+          },
+          {
+            loader: "css-loader",
+            query: {
+              modules: true,
+            }
+          },
+          {
+            loader: "sass-loader"
+          },
+        ],
+      },
+    ],
+  },
+  
+  typescript: {
+    // !! WARN !!
+    // Dangerously allow production builds to successfully complete even if
+    // your project has type errors.
+    // !! WARN !!
+    ignoreBuildErrors: true,
   },
 
   async rewrites() {

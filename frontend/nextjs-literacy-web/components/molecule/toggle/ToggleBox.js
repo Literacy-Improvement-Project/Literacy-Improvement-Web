@@ -1,6 +1,7 @@
 // 토글의 show, hide를 true/false로의 값으로 구현하지 않고 만들기
 import { useState, Fragment } from "react";
-import styles from './ToggleBox.module.css'
+import styles from './ToggleBox.module.css';
+
 const SearchResults = props => {
     const [shownComments, setShownComments] = useState({});
 

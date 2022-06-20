@@ -1,8 +1,9 @@
-import MiddleModalBox from '../../atom/ModalBox/MiddleModalBox'
-import styles from './OpenDicModalTable.module.css'
+import MiddleModalBox from '../../atom/ModalBox/MiddleModalBox';
+import styles from './OpenDicModalTable.module.css';
 import Link from 'next/link';
 import { useState } from 'react';
 import DeleteButton from '../../atom/Button/DeleteButton';
+
 export default function OpenDicModalTable({ data, handleCloseClick }) {
     const [category, setCategory] = useState("");
 

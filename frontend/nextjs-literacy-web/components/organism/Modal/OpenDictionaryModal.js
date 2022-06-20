@@ -1,8 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { useState, useEffect } from "react";
-import styled from 'styled-components'
-
-import ReactDOM from 'react-dom'
+import styled from 'styled-components';
+import ReactDOM from 'react-dom';
 import OpenDicModalTable from '../../molecule/table/OpenDicModalTable';
 
 const OpenDictionaryModal = ({ show, maskClosable, onClose, children, title, data }) => {

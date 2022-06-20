@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import styles from './QuizItem.module.css'
+import { useState } from 'react';
+import styles from './QuizItem.module.css';
 
 export default function QuizItem({content, countAnswer, setAnswerList}) {
 

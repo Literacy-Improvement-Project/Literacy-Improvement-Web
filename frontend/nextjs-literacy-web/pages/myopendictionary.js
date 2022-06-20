@@ -1,4 +1,4 @@
-import MyOpenDictionary from "../components/organism/page-openDictionary/myDictionaryPage"
+import MyOpenDictionary from "../components/organism/page-openDictionary/myDictionaryPage";
 
 export default function myOpenDictionary() {
 

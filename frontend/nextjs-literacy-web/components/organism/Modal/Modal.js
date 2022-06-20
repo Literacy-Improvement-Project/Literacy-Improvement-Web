@@ -1,7 +1,7 @@
-import React from 'react'
+import React from 'react';
 import { useState, useEffect } from "react";
-import styled from 'styled-components'
-import ReactDOM from 'react-dom'
+import styled from 'styled-components';
+import ReactDOM from 'react-dom';
 import ModalBox from '../../atom/ModalBox/ModalBox';
 import ModalTable from '../../molecule/table/ModalTable';
 

@@ -1,8 +1,8 @@
 
 import { deleteNote } from "../../../lib/myDictionary";
 import WordCard from "../../molecule/wordcard/WordCard";
-import styles from "./MyDictionary.module.css"
-import { useRouter } from 'next/router'
+import styles from "./MyDictionary.module.css";
+import { useRouter } from 'next/router';
 
 export default function MyDictionary({ dictionary }) {
 

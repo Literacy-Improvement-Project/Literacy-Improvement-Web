@@ -1,9 +1,8 @@
-import styles from '../styles/Home.module.css'
+import styles from '../styles/Home.module.css';
 import DescribePage from '../components/organism/page-describe/describePage';
 import Dailyword from '../components/organism/page-dailyword/dailyword';
 import OpenDictionary from '../components/organism/page-openDictionary/openDictionary';
 import SearchWord from '../components/organism/SearchWordMeaning/searchWord';
-import Loading from '../components/organism/page-loading/Loading';
 import Logout from '../components/atom/kakaoButton/LogoutBtn';
 
 export default function Home() {

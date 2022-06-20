@@ -1,4 +1,5 @@
-import styles from './AddModalBox.module.css'
+import styles from './AddModalBox.module.css';
+
 export default function AddModalBox({ children, onClick }) {
 
     return (

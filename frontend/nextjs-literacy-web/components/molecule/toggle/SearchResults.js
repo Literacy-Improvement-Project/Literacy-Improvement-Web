@@ -2,7 +2,7 @@
 
 import { useState, Fragment } from "react";
 import styles from "./SearchResults.module.css";
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux';
 import { addCategory } from "../../../store/modules/myOpenDictSlice";
 
 const SearchResults = ({ setCategory }) => {

@@ -1,4 +1,5 @@
-import styles from './ModalBox.module.css'
+import styles from './ModalBox.module.css';
+
 export default function ModalBox({ children }) {
 
     return (

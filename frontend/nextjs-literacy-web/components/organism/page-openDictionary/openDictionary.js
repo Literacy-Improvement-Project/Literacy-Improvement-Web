@@ -1,13 +1,11 @@
 import { dehydrate, QueryClient, useQuery } from "react-query";
-import { fetchOpenDictionary } from "../../../pages/api/fetchOpenDictionary"
+import { fetchOpenDictionary } from "../../../pages/api/fetchOpenDictionary";
 import { useState } from "react";
-import styles from "./OpenDictionary.module.css"
-import Link from 'next/link'
+import styles from "./OpenDictionary.module.css";
+import Link from 'next/link';
 import OpenDictionaryModal from "../Modal/OpenDictionaryModal";
 import { categorize } from "../../../lib/categorize";
 import Loading from "../page-loading/Loading";
-
-
 
 export default function OpenDictionary() {
 

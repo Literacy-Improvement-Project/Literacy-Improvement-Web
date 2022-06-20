@@ -1,5 +1,5 @@
-import Link from "next/link"
-import styles from "./WordRank.module.css"
+import Link from "next/link";
+import styles from "./WordRank.module.css";
 
 
 export default function WordRank({wordList}) {

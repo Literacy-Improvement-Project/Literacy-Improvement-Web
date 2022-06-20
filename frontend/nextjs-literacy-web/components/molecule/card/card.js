@@ -1,5 +1,5 @@
-import Link from 'next/link'
-import styles from './Card.module.css'
+import Link from 'next/link';
+import styles from './Card.module.css';
 
 export default function Card({content}) {
 

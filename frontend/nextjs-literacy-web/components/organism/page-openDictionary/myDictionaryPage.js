@@ -1,9 +1,9 @@
 import { dehydrate, QueryClient, useQuery } from "react-query";
-import { fetchMyDictionary } from "../../../pages/api/fetchMyDictionary"
-import styles from "./MyDictionaryPage.module.css"
+import { fetchMyDictionary } from "../../../pages/api/fetchMyDictionary";
+import styles from "./MyDictionaryPage.module.css";
 import MyOpenDictionaryModal from "../Modal/MyOpenDictionaryModal";
 import { useState } from "react";
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux';
 import { setData } from "../../../store/modules/myOpenDictSlice";
 import { fetchMyOpenDictionary } from "../../../pages/api/fetchOpenDictionary";
 import { myCategorize } from "../../../lib/categorize";

@@ -1,5 +1,6 @@
-import styles from './WordCard.module.css'
-import Button from '../../atom/Button/Button'
+import styles from './WordCard.module.css';
+import Button from '../../atom/Button/Button';
+
 export default function WordCard({ content, clickDelete }) {
 
     const deleteWord = () => {

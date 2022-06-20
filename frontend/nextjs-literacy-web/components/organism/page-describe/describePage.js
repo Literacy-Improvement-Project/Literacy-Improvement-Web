@@ -1,4 +1,4 @@
-import styles from './DescribePage.module.css'
+import styles from './DescribePage.module.css';
 
 export default function DescribePage() {
   return (

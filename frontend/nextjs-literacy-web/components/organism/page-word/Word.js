@@ -1,6 +1,8 @@
 import WordList from "../../molecule/wordlist/WordList";
-import styles from "./Word.module.css"
+import styles from "./Word.module.css";
 import { addToDictionary } from "../../../lib/myDictionary";
+
+
 export default function Word({ word, words }) {
 
     const addMyDictionary = (addWord, addMean) => {

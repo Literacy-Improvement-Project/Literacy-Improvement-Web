@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux'
-import LoginModal from "../Modal/LoginModal"
+import { useSelector, useDispatch } from 'react-redux';
+import LoginModal from "../Modal/LoginModal";
 import { getCookie, checkCookies } from 'cookies-next';
 import { loginUser } from '../../../store/modules/authSlice';
 
@@ -21,8 +21,8 @@ export default function LoginCheck() {
     <div>
       <LoginModal
         onClose={() => setShowModal(true)}
-        show={!isLogin}
-        // show={false}
+        // show={!isLogin}
+        show={false}
         maskClosable={true}
       >
       </LoginModal>

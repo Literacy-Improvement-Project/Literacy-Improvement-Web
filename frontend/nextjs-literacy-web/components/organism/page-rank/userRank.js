@@ -1,4 +1,4 @@
-import styles from "./UserRank.module.css"
+import styles from "./UserRank.module.css";
 
 
 export default function UserRank({userList, userInfo}) {

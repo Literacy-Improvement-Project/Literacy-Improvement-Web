@@ -4,7 +4,7 @@ import PrevNextButton from "../../molecule/buttons/prevnextButton";
 import PrevButton from "../../molecule/buttons/prevButton";
 import QuizItem from "../../molecule/quizItem/quizitem";
 import Button from "../../atom/Button/Button";
-import { useSelector } from 'react-redux'
+import { useSelector } from 'react-redux';
 import { useMutation } from "react-query";
 import { fetchQuizResult } from "../../../pages/api/fetchQuizResult";
 import { useRouter } from "next/router";
