@@ -15,6 +15,5 @@ export const deleteNote = async (word) => {
             word: word,
         },
     })
-    console.log(data);
 }
 

@@ -43,7 +43,7 @@ export default function UserRank({userList, userInfo}) {
         <tbody className={styles.tbody}>
           {userList.map((user, index) => {
             return (
-              <tr className={styles.tr}>
+              <tr className={styles.tr} key={index}>
                 <td>
                   {index<=2
                     ?<img src={rank_base_url+(index+1)+".png"}></img>

@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { useState } from "react";
 import { useEffect } from "react";
 import Loading from "../components/organism/page-loading/Loading";
+import Seo from "../components/seo/Seo";
 
 
 export default function UserRanking() {
@@ -31,6 +32,7 @@ export default function UserRanking() {
 
   return (
     <div>
+      <Seo title="Kotudy" subtitle="개인 순위"></Seo>
       {isLoading ? (
         <Loading></Loading>
         ) : isError ? (

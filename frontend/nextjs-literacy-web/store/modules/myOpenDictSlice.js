@@ -12,10 +12,12 @@ const myOpenDictSlice = createSlice({
         setData: (state, action) => {
             state.data = action.payload;
             state.data.map((item) => { state.category.push(item.category) })
-            console.log(state.category)
         },
         addCategory: (state, action) => {
             state.category.push(action.payload)
+        },
+        setCategory: (state, action) => {
+            action.payload.map((item) => {state.category.push(item.category) })
         }
     },
 });
@@ -24,6 +26,6 @@ const myOpenDictSlice = createSlice({
 // 객체의 프로퍼티로 extraReducers 객체를 추가한다.
 
 // 액션과 리듀서를 export
-export const { setData, addCategory } = myOpenDictSlice.actions; // 액션 생성함수
+export const { setData, addCategory, setCategory } = myOpenDictSlice.actions; // 액션 생성함수
 
 export default myOpenDictSlice.reducer;

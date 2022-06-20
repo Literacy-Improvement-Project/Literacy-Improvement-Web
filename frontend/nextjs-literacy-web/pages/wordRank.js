@@ -1,6 +1,7 @@
 import { dehydrate, QueryClient, useQuery } from "react-query";
 import Loading from "../components/organism/page-loading/Loading";
 import WordRank from "../components/organism/page-rank/wordRank";
+import Seo from "../components/seo/Seo";
 import { fetchWordRank } from "./api/fetchWordRank";
 
 export default function WordRanking() {
@@ -17,6 +18,7 @@ export default function WordRanking() {
 
   return (
     <div>
+      <Seo title="Kotudy" subtitle="단어 순위"></Seo>
       {isLoading ? (
         <Loading></Loading>
         ) : isError ? (

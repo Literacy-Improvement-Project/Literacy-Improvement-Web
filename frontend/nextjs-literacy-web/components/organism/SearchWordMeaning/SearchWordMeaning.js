@@ -8,10 +8,16 @@ export default function SearchWordMeaning(props) {
     //click event
     const [account, setAccount] = useState("");
 
+    const onClick = (() => {
+        props.getAccount(account);
+        props.getistrue(1);
+    })
+
     //for search
     const getText = ((e) => {
         setAccount(e.target.value);
     })
+
 
     return (
         <div className={styles.container}>

@@ -4,12 +4,14 @@ import Dailyword from '../components/organism/page-dailyword/dailyword';
 import OpenDictionary from '../components/organism/page-openDictionary/openDictionary';
 import SearchWord from '../components/organism/SearchWordMeaning/searchWord';
 import Logout from '../components/atom/kakaoButton/LogoutBtn';
+import Seo from '../components/seo/Seo';
 
 export default function Home() {
 
   
   return (
     <div className={`${styles.container} ${styles.scroll_container}`}>
+      <Seo title="Kotudy" subtitle="문해력 향상을 위해"></Seo>
       <ul>
         <li>
           <a name="searchWords"></a>

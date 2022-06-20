@@ -1,10 +1,10 @@
 // Seo
 import Head from "next/head";
 
-export default function Seo({ title }) {
+export default function Seo({ title, subtitle }) {
   return (
     <Head>
-      <title> {title} | Next </title>
+      <title> {title} | {subtitle} </title>
     </Head>
   )
 }

@@ -5,9 +5,13 @@ import styles from "./OpenDictionary.module.css";
 import Link from 'next/link';
 import OpenDictionaryModal from "../Modal/OpenDictionaryModal";
 import { categorize } from "../../../lib/categorize";
+import { useSelector, useDispatch } from 'react-redux';
 import Loading from "../page-loading/Loading";
+import { setCategory } from "../../../store/modules/myOpenDictSlice";
 
 export default function OpenDictionary() {
+
+  const category = useSelector((state) => state.myOpenDictSlice.category)
 
   const { isLoading, isError, error, data } = useQuery('openDictionary', () =>
     fetchOpenDictionary(),
@@ -17,6 +21,7 @@ export default function OpenDictionary() {
       refetchOnWindowFocus: false,
     }
   );
+  const dispatch = useDispatch()
 
   //data 카테고리화
   let dictionaryList;
@@ -25,6 +30,9 @@ export default function OpenDictionary() {
 
   if (data) {
     dictionaryList = categorize(data);
+    if (category.length === 0){
+      dispatch(setCategory(dictionaryList))
+    }
   }
 
   return (

@@ -21,8 +21,8 @@ export default function LoginCheck() {
     <div>
       <LoginModal
         onClose={() => setShowModal(true)}
-        // show={!isLogin}
-        show={false}
+        show={!isLogin}
+        // show={false}
         maskClosable={true}
       >
       </LoginModal>
